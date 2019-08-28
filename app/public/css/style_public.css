@@ -1,0 +1,273 @@
+.sl_main_content_area_input{
+	width:100%;
+	float:left;
+	padding: 0px 30px 30px 10px;
+	min-width:300px;
+}
+.sl_repayment{
+	float:right;
+	border:1px solid #e0e0e0;
+	margin-right:10px;
+	padding:10px;
+	border-radius: 5px;
+	list-style: none;
+	margin-bottom:5px;
+}
+
+.sl_repayment_mother{
+	padding-left:;
+}
+
+.sl_repayment_amount_subtitle .results{
+	width:100%;
+	min-height:300px;
+}
+.sl_mainf{
+	float:left;
+	min-width:100%;
+}
+.sl_main_content_area_output{
+	max-width:40%;
+	float:left;
+	border:2px solid #80848429;
+	padding:20px;
+	height:100%;
+	border-radius:5px;
+	min-width:300px;
+}
+.sl_main_content_area{
+	width:100%;
+}
+.sl_repayment_amount{
+	color:#0009;
+	font-size:40px;
+}
+.sl_repayment_terms{
+	font-size:13px;
+	color:#00000080;
+}
+.sl_repayment_button{
+	color:#fff !important;
+	background-color:#00988be6 !important;
+	font-size:18px !important;
+	padding:20px !important;
+	margin:3px;
+}
+h1.sl_repayment_amount_subtitle{
+	font-siz:30px;
+	font-weight:600;
+}
+.sl_repayment_amount_subtitle{
+	color:gray;
+}
+.sl_main_title_text{
+	padding:15px;
+	font-weight:600;
+	font-size:18px;
+	color:#6c6868;
+}
+.sl_main_title_description{
+	padding:0px 0px 35px 0px;
+	color:#8c8989e6;
+	font-size:13px;
+	font-weight:600;
+}
+.sl_loan_ap_primary_input_feild{
+	width:100%;
+	height:35px;
+	border-radius:4px;
+	padding:5px;
+	font-size:16px;
+}
+.sl_loan_ap_primary_title_feild{
+	font-size:14px;
+	padding-top:15px;
+	padding-bottom:5px;
+	font-weight:600;
+	color:#8c8989e6;
+}
+textarea.sl_loan_ap_primary_input_feild{
+	height:80px;
+}
+.sl_term_percentage{
+	font-weight:600;
+	color:#000;
+}
+.sl_repayment_per_period{
+	color:#8c8989e6;
+	font-size:12px;
+}
+.sl_loader{
+	display:none;
+}
+#sl_user_gate_main{
+	width:100%;
+}
+.sl_user_gate{
+	width:100%;
+}
+.sl_user_gate_menu_item{
+	padding:15px;
+	font-weight:600;
+	font-size:20px;
+	border:1px solid #8080804d;
+	margin:1%;
+	cursor:pointer;
+	float:left;
+	border-radius:3px;
+}
+.sl_user_gate_menu_item_login{
+	
+}
+#sl_user_gate_signup{
+	display:none;
+}
+#sl_user_gate_signup, #sl_user_gate_login{
+	padding:135px 25px;
+	border-radius:3px;
+}
+.sl_email_section, .sl_user_pass{
+	border:1px red solid;
+	border-radius:5px;
+}
+.sl_email_section_correction_message, .sl_email_section_user_pass_message{
+	color:red;
+}
+.sl_user_reg_loader{
+	display:none;
+}
+.logout_link{
+	float:right;
+}
+#simplelender_loan_dash{
+	background:white;
+	border-radius:5px;
+	padding:30px;
+}
+.logout_link_wrapper{
+	min-height:50px;
+}
+#simplelender_dash_menu li {
+	float:left;
+	border-radius:3px;
+}
+ .simplelender_dash_menu li{
+	list-style:none !important;
+	padding:5px 20px;
+	border:1px solid #93aab0;
+	margin:2px;
+ }
+.simplelender_dash_menu li a{
+	color:#000000b3;
+}
+table#simplelender_loan_dash{
+	
+}
+.simplelender_sub_title {
+	border-top: 1px solid #b3b3b3;
+	border-bottom: 1px solid #b3b3b3;
+}
+td.fwidthtd{
+	width:100%;
+}
+.simplelender_build_by a{
+	font-size:12px;
+	color:green;
+}
+.simplelender_build_by_calc{
+	width:100%;
+}
+a.sl_menu_item_front_view{
+	padding:5px;
+	border:1px solid #8080804d;
+	margin:1%;
+	cursor:pointer;
+	float:left;
+	border-radius:3px;
+}
+#simplelender_dash_content{
+	min-height:500px;
+	margin:20px;
+}
+#simplelender_dash_menu{
+	
+}
+.sl_list_message_details {
+    font-size: 10px;
+}
+
+a#sl_proceed_dashboard{
+	border: 1px solid #80808066;
+	padding: 20px;
+	border-radius: 10px;
+}
+#sl_logplace{
+	width:250px;
+}
+#sl_user_gate_head{
+	width:350px;
+}
+.sl_calc_loader {
+    border: 5px solid hsla(0,0%,100%,.64);
+    border-top: 10px solid #dbca00e6;
+    border-radius: 50%;
+    width: 60px;
+    animation: spin .8s linear infinite;
+	position:related;
+	left:50%;
+	top:30%;
+	display:none;
+	z-index:10000000000000;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.sl_description{
+	font-size:10px;
+}
+.sl_repayment_amount_subtitle_hide{
+	display:none;
+}
+.simplelender_select_a_loan{
+	font-size:20px;
+}
+#simplelender_select_a_loan{
+	border-radius:5px;
+	padding:5px;
+	font-size:15px;
+}
+.wp-image-159{
+	margin-right:20px;
+}
+.simplelender_see_cool_features{    
+	background: #0085ba;
+    border-color: #0073aa #006799 #006799;
+    color: #fff;
+    text-decoration: none;
+	display: inline-block;
+	text-decoration: none;
+	font-size: 13px;
+	line-height: 26px;
+	height: 28px;
+	margin: 0;
+	padding: 0 10px 1px;
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	-webkit-appearance: none;
+	border-radius: 3px;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+p.sl_repayment_amount_subtitle{
+	float:left;
+}
+.simplelender_input_feild_f{
+	min-width:50%;
+	height: 35px;
+	border-radius: 4px;
+	padding: 5px;
+	font-size: 16px;
+}
