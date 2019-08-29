@@ -25,20 +25,21 @@ if (!function_exists('simplelender_avoid_double_install')) {
 
 register_activation_hook( __FILE__, 'simplelender_avoid_double_install' );
 register_deactivation_hook( __FILE__, 'simplelender_avoid_double_install' );
-
+/*
 if ( function_exists( 'simplelender_fs' ) ) {
     simplelender_fs()->set_basename( false, __FILE__ );
     return;
 }
-
+*/
 if ( ! defined( 'WP_SIMPLELENDER__PLUGIN_DIR' ) ) {
     $dir_name= basename(dirname(__FILE__));
     define( 'WP_SIMPLELENDER__PLUGIN_DIR', $dir_name );
     define( 'WP_SIMPLELENDER__PLUGIN_URL', plugins_url( plugin_basename( WP_SIMPLELENDER__PLUGIN_DIR ) ) );
 }
 
-if ( ! function_exists( 'simplelender_fs' ) ) {
+//if ( ! function_exists( 'simplelender_fs' ) ) {
     // Create a helper function for easy SDK access.
+    /*
     function simplelender_fs() {
         global $simplelender_fs;
 
@@ -73,12 +74,25 @@ if ( ! function_exists( 'simplelender_fs' ) ) {
 
         return $simplelender_fs;
     }
+*/
+    class class_simplelender_fs{
+        public function is_plan($param=''){
+            return true;
+        }
+    }
+
+    function simplelender_fs(){
+        global $simplelender_fs;
+
+        $simplelender_fs = new class_simplelender_fs();
+        return $simplelender_fs;
+    }
 
     // Init Freemius.
     simplelender_fs();
     // Signal that SDK was initiated.
-    do_action( 'simplelender_fs_loaded' );
-}
+    //do_action( 'simplelender_fs_loaded' );
+//}
 
 function simplelender_is_plugin_active( $plugin )
 {

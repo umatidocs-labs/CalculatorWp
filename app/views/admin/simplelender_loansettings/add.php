@@ -73,9 +73,10 @@ $gflist= mvc_model("simplelenderGform");
 	<div>
 		<div class="simplelender_title_feild">Mailchimp Group</div>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
-			$simplelender_get_mailchimp_list_interest= apply_filters('simplelender_get_mailchimp_list_interest');
-			echo $this->form->select('mailchimp_group', array('options' => $simplelender_get_mailchimp_list_interest, 'class'=>'simplelender_input_feild_small'));
-			?>
+			$simplelender_get_mailchimp_list_interest= apply_filters('simplelender_get_mailchimp_list_interest','hallo');
+			//var_dump($simplelender_get_mailchimp_list_interest);
+			echo $this->form->select('mailchimp_group', array('options' => $simplelender_get_mailchimp_list_interest, 'value'=>$object->mailchimp_group,'class'=>'simplelender_input_feild_small'));
+		?>
 	</div>
 	<?php endif; ?>
 	

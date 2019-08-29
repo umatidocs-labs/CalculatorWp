@@ -75,7 +75,17 @@ else{
 do_action("simplelender_build_by");
 
 //echo $this->pagination();
-
+//$interest_name = '1f977ead22';//mvc_model('simplelenderLoansetting')->find_by_id($_SESSION["simplelender"]["pending_processes"]["loan_application_process"]["product_id"])->mailchimp_group;
+/* $param['sl_mail_d']='gilbkjjarogo@gmail.com';
+  $param['sl_username_d'] = 'kdjkj';
+           simplelender_send_to_mailchimp([
+                'email'=>$param['sl_mail_d'],
+                'status'=>"subscribed",
+                'firstname'=>$param['sl_username_d'],
+                'lastname'=>$param['sl_username_d'],
+                'interest'=>$interest_name
+            ]);
+*/
  ?>
 
  

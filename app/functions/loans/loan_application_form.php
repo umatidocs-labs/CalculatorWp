@@ -15,8 +15,7 @@ class simplelender_gravity_form_manager {
 
     public function load_hooks(){
         add_shortcode('simplelender',array($this,"display_form_for_loan"));
-        add_shortcode('simplelender_all_loans',array($this,"do_loan_dropdown")); 
-        
+        add_shortcode('simplelender_all_loans',array($this,"do_loan_dropdown"));        
         add_action( 'gform_after_submission', array($this,'submit_form_for_loan'), 10, 2 );
 		add_action("wp_ajax_nopriv_sl_submit_form_for_loan",  array($this, "process_primary_form"));
         add_action("wp_ajax_sl_submit_form_for_loan",  array($this, "process_primary_form"));

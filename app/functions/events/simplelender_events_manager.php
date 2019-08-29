@@ -20,13 +20,13 @@
 	                    'notification_is_active '=> true,
 			)));
 			
-	                foreach($simplelenderWebhook as $single_hook){
-	                    if(isset($single_hook->webhook_trigger_action) && is_string($single_hook->webhook_trigger_action)){
-	                        $webhook_object = $single_hook;
-	                        add_action($single_hook->webhook_trigger_action, function($sl_data) use ($webhook_object){
-	                            $this->schedule_an_event($webhook_object,$sl_data);                             
-	                        }, 10,1);
-	                    }
+	        foreach($simplelenderWebhook as $single_hook){
+	            if(isset($single_hook->webhook_trigger_action) && is_string($single_hook->webhook_trigger_action)){
+	                $webhook_object = $single_hook;
+	                add_action($single_hook->webhook_trigger_action, function($sl_data) use ($webhook_object){
+	                    $this->schedule_an_event($webhook_object,$sl_data);                             
+	                }, 10,1);
+	            }
 			}
 		}
 
@@ -64,7 +64,7 @@
 			$webhook_event_id = mvc_model('simplelenderWebhookEvent')->create(array(
 				'webhook_id'=>$single_hook->id,
 				'args'=>maybe_serialize($this->set_up_hook_data($single_hook,$data))
-				));
+			));
 
 			$single_hook_data=$this->set_up_hook_data($single_hook,$data);
 			//var_dump($single_hook_data);
@@ -81,7 +81,7 @@
 	    public function retry_processing_failed_events() {
 	        $webhook_events_to_be_retried = mvc_model('simplelenderWebhookEvent')->find(array('conditions'=>array(
 				'processed_successfully'=>3
-	            )));
+	        )));
 
 	        $log_results='';
 	        $number_of_failed_results=0;

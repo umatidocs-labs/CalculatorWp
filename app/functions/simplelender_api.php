@@ -131,11 +131,11 @@ function simplelender_get_mailchimp_list($data=[]){
         else{
             $return_var = 'hallo';
         }
-
+        
         return $return_var;
     }
 
-function simplelender_get_mailchimp_list_interest(){
+function simplelender_get_mailchimp_list_interest($param=''){
     $apiKey = get_option('simplelender_mailchimp_api_key');
     $listId = get_option('simplelender_mailchimp_list');
 
@@ -159,10 +159,10 @@ function simplelender_get_mailchimp_list_interest(){
             curl_close($ch);
 
             $result=json_decode($result,true);
-            
+            var_dump($result);
             $html_code=[];
             foreach ($result['categories'] as $key => $value) {
-                array_push( $html_code, [$value['title'] => $value['title']] );
+                $html_code[$value['id']] = $value['title'];
             }
         }
         else{
@@ -175,7 +175,6 @@ add_filter("simplelender_get_mailchimp_list_interest","simplelender_get_mailchim
 
 function simplelender_send_to_mailchimp($data=[]){
         //$param : name/ email
-        
         // API to mailchimp ########################################################
         $apiKey = get_option('simplelender_mailchimp_api_key');
         $listId = get_option('simplelender_mailchimp_list');
@@ -191,7 +190,7 @@ function simplelender_send_to_mailchimp($data=[]){
                 'FNAME'     => $data['firstname'],
                 'LNAME'     => $data['lastname']
             ],
-            'interests'=>['buyer'=>true]
+            //"interests"=>[$data['interest']=>true]
         ]);
 
         $ch = curl_init($url);
@@ -207,7 +206,7 @@ function simplelender_send_to_mailchimp($data=[]){
         $result = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-
+var_dump( $result);
         return $httpCode;
     }
 
@@ -275,17 +274,19 @@ function simplelender_MailchimpList($args)
     $path = get_option('simplelender_mailchimp_list');
     $MailchimpList = simplelender_get_mailchimp_list();
 
+    //var_dump($MailchimpList);
     $Html_string='';
     if (is_array($MailchimpList)) {
         if (count($MailchimpList)>0) {
-            foreach ($MailchimpList as  $value) {
-                $Html_string .= '<option value="'.$value['id'].'"';
+            foreach ($MailchimpList as  $key => $value) {
+
+                $Html_string .= '<option value="'.$value["id"].'"';
                 
-                if ($value['id']==$path) {
+                if ($value["id"]==$path) {
                      $Html_string .= "selected='selected' ";
                 }
 
-                $Html_string .= '>'.$value['name'].'</option>';
+                $Html_string .= '>'.$value["name"].'</option>';
             }
         }
         else{
@@ -302,7 +303,7 @@ function simplelender_MailchimpList($args)
     <select id="<?php echo $var?>" class="large-text" value="<?php echo $path;?>"  name="<?php echo $var?>">
         <?php
     } 
-    return $Html_string;
+    echo $Html_string;
     if (is_array($MailchimpList)) {
     ?>
     </select>

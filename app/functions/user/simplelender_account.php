@@ -120,12 +120,23 @@ class simplelender_account{
         ));
 
         if ( simplelender_fs()->is_plan('growth') ) {
-            do_action('simplelender_signup',array('user_id' => $Clientaccount_feedback ));
+            $number_signup_actions_created = mvc_model('simplelenderWebhook')->count(array('conditions'=>array(
+                        'webhook_trigger_action '=> 'simplelender_signup',
+            )));
+
+            if ($number_signup_actions_created>0) {
+                do_action('simplelender_signup',array('user_id' => $Clientaccount_feedback ));
+            }
+            else{
+                do_action('simplelender_signup_starter',array('user_id' => $Clientaccount_feedback ));
+            }
+            $interest_name = mvc_model('simplelenderLoansetting')->find_by_id($_SESSION["simplelender"]["pending_processes"]["loan_application_process"]["product_id"])->mailchimp_group;
             simplelender_send_to_mailchimp([
                 'email'=>$param['sl_mail_d'],
                 'status'=>"subscribed",
                 'firstname'=>$param['sl_username_d'],
-                'lastname'=>$param['sl_username_d']
+                'lastname'=>$param['sl_username_d'],
+                'interest'=>$interest_name
             ]);
         }
         else{
