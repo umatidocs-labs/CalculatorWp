@@ -216,7 +216,7 @@ class MvcFormHelper extends MvcHelper {
         return $html;
     }
 
-    function select_from_model($field_name, MvcModel $model, $find_options = array(), $select_options = array()) {
+    function select_from_model( $field_name , MvcModel $model, $find_options = array(), $select_options = array() ) {
 
     	$default_find_options = array(
     			'selects' => array($model->primary_key, $model->display_field),
@@ -226,9 +226,6 @@ class MvcFormHelper extends MvcHelper {
     	$find_options = array_merge($default_find_options, $find_options);
 
     	$values =  $model->find($find_options);
-
-    	$key = $value->__id;
-    	$value = $value->__name;
 
     	$default_options = array(
     			'id' => $this->model_name.'_'.$field_name.'_select',

@@ -1,0 +1,3180 @@
+border-radius(n)
+	-webkit-border-radius n
+	border-radius n
+
+box-shadow(args...)
+	-webkit-box-shadow args
+	box-shadow args
+
+transition(args...)
+	-webkit-transition args
+	-moz-transition args
+	transition args
+
+transform(args...)
+	-webkit-transform args
+	-moz-transform args
+	transform args
+
+flexbox(value)
+	if value == inline-flex
+		display -webkit-inline-flex
+		display -ms-inline-flexbox
+		display inline-flex
+	else if value == flex
+		display -webkit-flex
+		display -ms-flexbox
+		display flex
+
+flex(value)
+	-webkit-flex value
+	-ms-flex value
+	flex value
+
+flex-direction(value)
+	if value == row
+		-webkit-box-orient horizontal
+		-webkit-box-direction normal
+	else if value == column
+		-webkit-box-orient vertical
+		-webkit-box-direction normal
+	else if value == row-reverse
+		-webkit-box-orient horizontal
+		-webkit-box-direction reverse
+	else if value == column-reverse
+		-webkit-box-orient vertical
+		-webkit-box-direction reverse
+	-webkit-flex-direction value
+	-moz-box-direction value
+	-ms-flex-direction value
+	flex-direction value
+
+flex-wrap(value)
+	-webkit-flex-wrap value
+	-ms-flex-wrap value
+	flex-wrap value
+
+justify-content(value)
+	if value == start || value == end
+		-webkit-justify-content flex-+value
+		-ms-flex-pack value
+		justify-content flex-+value
+	else if value == center
+		-webkit-justify-content value
+		-ms-flex-pack value
+		justify-content value
+	else if value == space-between
+		-webkit-justify-content value
+		-ms-flex-pack justify
+		justify-content value
+	else if value == space-around
+		-webkit-justify-content value
+		-ms-flex-pack distribute
+		justify-content value
+
+align-items(value)
+	if value == start or value == end
+		-webkit-align-items flex-+value
+		-ms-flex-align value
+		align-items flex-+value
+	else
+		-webkit-align-items value
+		-ms-flex-align value
+		align-items value
+
+order(value)
+	-ms-flex-order value
+	-webkit-order value
+	order value
+/*----------------------------------------
+[Master Stylesheet]
+
+Project:	iJ
+Version:	1.0
+Primary use:	iJ Template
+----------------------------------------*/
+
+/*----------------------------------------
+[Table of contents]
+
+1. Header
+2. Breadcrumb
+3. Main
+4. User
+5. Sidebox
+6. Filter
+7. Form
+8. Post
+9. Company
+10. Profile
+11. Bid
+12. FAQ
+13. Contacts
+14. Privacy
+15. Sign
+16. Messages
+17. Footer
+18. select2 customization
+19. mCustomScrollbar customization
+----------------------------------------*/
+
+$white = #fff
+$black = #000
+$orange = #fa7268
+$darkblue = #364e65
+$lightblue = #fafafa
+$blue = #3796f6
+$red = #ec547a
+$grey =	#8599ab
+$green = #5bceae
+/*==============================
+	Fonts
+==============================*/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600')
+
+/*==============================
+	Common styles
+==============================*/
+html
+	-webkit-text-size-adjust 100%
+	-ms-text-size-adjust 100%
+html
+body
+	height 100%
+body
+	font-family 'Open Sans', sans-serif
+	font-weight 400
+	background-color $lightblue
+	-webkit-font-smoothing antialiased
+button
+	padding 0
+	border none
+	background-color transparent
+	transition(.4s)
+	cursor pointer
+	&:focus
+		outline none
+a
+	transition(.4s)
+	&:hover
+	&:active
+	&:focus
+		outline none
+		text-decoration none
+input
+textarea
+select
+	padding 0
+	margin 0
+	border-radius(0)
+	-webkit-appearance none
+	-moz-appearance none
+	-ms-appearance none
+	appearance none
+	box-shadow(none)
+	transition(.4s)
+	&:focus
+		outline none
+
+select::-ms-expand
+	display none
+
+ul
+	margin 0
+	padding 0
+	list-style none
+
+::-moz-selection
+	background #2d2f32
+	color $white
+	text-shadow none
+::selection
+	background #2d2f32
+	color $white
+	text-shadow none
+
+::-webkit-input-placeholder
+	color $grey
+	opacity 1
+::-moz-placeholder
+	color $grey
+	opacity 1
+:-moz-placeholder
+	color $grey
+	opacity 1
+:-ms-input-placeholder
+	color $grey
+	opacity 1
+
+.container
+	@media (min-width: 1310px)
+		max-width 1310px
+
+.owl-carousel .owl-item img
+	width auto
+	max-width 100%
+
+.tab-content > .tab-pane
+	display none
+
+.tab-content > .active
+	display block
+
+.fade
+	transition opacity 0.25s linear
+
+@media screen and (prefers-reduced-motion: reduce)
+	.fade
+		transition none
+
+.fade:not(.show)
+	opacity 0
+
+.collapse:not(.show)
+	display none
+
+.collapsing
+	position relative
+	height 0
+	overflow hidden
+	transition(height 0.4s ease)
+
+@media screen and (prefers-reduced-motion: reduce)
+	.collapsing
+		transition none
+
+/*==============================
+	Header
+==============================*/
+.header
+	display block
+	position fixed
+	background-color #2d2f32
+	top 0
+	left 0
+	right 0
+	z-index 100
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	&__content
+		flexbox flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		height 70px
+		position relative
+		&--end
+			justify-content end
+	&__btn
+		display block
+		position absolute
+		left 0
+		top 50%
+		margin-top -22px
+		width 22px
+		height 40px
+		span
+			display block
+			position absolute
+			height 2px
+			width 22px
+			opacity 1
+			left 0
+			transform(rotate(0deg))
+			transition(.4s ease)
+			top 13px
+			background-color $white
+			border-radius(2px)
+			&:nth-child(2)
+				top 21px
+			&:nth-child(3)
+				top 29px
+		&--active
+			span:nth-child(1)
+				top 21px
+				transform(rotate(45deg))
+			span:nth-child(2)
+				opacity 0
+			span:nth-child(3)
+				top 21px
+				transform(rotate(-45deg))
+	&__logo
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		height 70px
+		width 60px
+		margin-left 40px
+		img
+			width 100%
+			display block
+	&__nav
+		flexbox flex
+		flex-direction column
+		justify-content start
+		align-items start
+		position fixed
+		top 70px
+		left 0
+		bottom 0
+		background-color $white
+		z-index 99
+		width 260px
+		padding 25px 15px 0
+		transform(translate3d(-260px, 0, 0))
+		transition(.4s ease)
+		border-right 1px solid rgba($grey, .2)
+		border-top 1px solid rgba($grey, .2)
+		&--active
+			transform(translate3d(0, 0, 0))
+	&__nav-link
+		font-size 14px
+		color $darkblue
+		&:hover
+			color $blue
+		&--active
+			color $blue
+	&__nav-item
+		width 100%
+		display block
+		margin-bottom 20px
+		position relative
+		&:last-child
+			margin-bottom 0
+		&.show
+			.header__nav-link
+				color $blue
+	&__dropdown
+		position relative
+		display block
+		width 100%
+	&__dropdown-menu
+		position absolute
+		background-color $white
+		padding 10px 20px
+		display block
+		width 100%
+		min-width 180px
+		text-align left
+		z-index -1
+		pointer-events none
+		opacity 0
+		transition(.4s ease)
+		transition-property opacity, margin
+		margin-top 0
+		top 100%
+		border-right 1px solid rgba($grey, .2)
+		border-left 1px solid rgba($grey, .2)
+		border-bottom 1px solid rgba($grey, .2)
+		border-top 2px solid $blue
+		box-shadow(0 2px 26px 0 rgba($grey, .1))
+		border-radius(0 0 4px 4px)
+		li
+			padding 0
+		a
+			font-size 14px
+			color $darkblue
+			line-height 36px
+			flexbox flex
+			flex-direction row
+			justify-content start
+			align-items center
+			font-weight 400
+			i
+				font-size 18px
+				margin-right 10px
+				line-height 100%
+				width 15px
+			&:hover
+				color $blue
+			&.header__ntf-more
+				justify-content center
+				color $blue
+				font-size 14px
+				font-weight 600
+				line-height 40px
+		&.show
+			z-index 1000
+			pointer-events auto
+			opacity 1
+			margin-top 15px
+		&--right
+			left auto
+			right 0
+		&--ntf
+			padding 0
+			min-width 260px
+	&__search
+		display none
+	&__profile
+	&__notifications
+		position relative
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		height 70px
+		margin-left 15px
+	&__profile-btn
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		height 40px
+		width 40px
+		span
+			display none
+		img
+			display block
+			width 36px
+			height 36px
+			border-radius(50%)
+	&__notifications-btn
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width auto
+		height 40px
+		color rgba($white, .3)
+		font-size 24px
+		position relative
+		&:hover
+		&[aria-expanded="true"]
+			color rgba($white, .5)
+		&--active
+			&:before
+				content ''
+				position absolute
+				display block
+				width 6px
+				height 6px
+				border-radius(50%)
+				background-color $blue
+				position absolute
+				top 10px
+				right -2px
+				border 1px solid #dadedf
+	&__messages
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width auto
+		height 40px
+		color rgba($white, .3)
+		font-size 24px
+		position relative
+		&:hover
+			color rgba($white, .5)
+		&--active
+			&:before
+				content ''
+				position absolute
+				display block
+				width 6px
+				height 6px
+				border-radius(50%)
+				background-color $blue
+				position absolute
+				top 10px
+				right -2px
+				border 1px solid #dadedf
+	&__ntf
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items start
+		width 100%
+		padding 15px
+		border-bottom 1px solid rgba($grey, .2)
+	&__ntf-img
+		display block
+		width 36px
+		height 36px
+		border-radius(50%)
+		margin-right 12px
+		overflow hidden
+		img
+			width 100%
+			vertical-align top
+	&__ntf-title
+		width calc(100% - 48px)
+		font-size 13px
+		color $grey
+		font-weight normal
+		line-height 18px
+		margin-bottom 0
+		span
+			font-size 14px
+			color $darkblue
+			font-weight 600
+			display inline
+	&__ntf-more
+		height 40px
+		width 100%
+		background-color $lightblue
+		&:hover
+			color $orange !important
+	@media (min-width: 360px)
+		&__profile
+		&__notifications
+			margin-left 25px
+	@media (min-width: 576px)
+		&__profile
+		&__notifications
+			margin-left 30px
+	@media (min-width: 768px)
+		&__search
+			position relative
+			display block
+			::-webkit-input-placeholder
+				color #dadedf
+				opacity 1
+			::-moz-placeholder
+				color #dadedf
+				opacity 1
+			:-moz-placeholder
+				color #dadedf
+				opacity 1
+			:-ms-input-placeholder
+				color #dadedf
+				opacity 1
+		&__search-input
+			width 240px
+			height 40px
+			border-radius(4px)
+			background-color rgba($white, .1)
+			font-size 14px
+			color $white
+			padding 0 50px 0 20px
+			border none
+		&__search-button
+			position absolute
+			height 40px
+			color #dadedf
+			font-size 22px
+			top 50%
+			margin-top -20px
+			right 20px
+			line-height 42px
+			&:hover
+				color $blue
+		&__logo
+			margin-left 40px
+	@media (min-width: 992px)
+		&__profile
+			&.show
+				.header__profile-btn
+					span
+						color $blue
+		&__profile-btn
+			width auto
+			span
+				display block
+				font-size 14px
+				color #dadedf
+				font-weight 600
+				margin-left 10px
+				transition(.4s)
+			&:hover
+				span
+					color $blue
+	@media (min-width: 1200px)
+		&__btn
+			display none
+		&__logo
+			margin-left 0
+		&__nav
+			transform(translate3d(0, 0, 0))
+			padding 0
+			background-color transparent
+			width auto
+			flex-direction row
+			align-items center
+			position relative
+			top auto
+			right auto
+			bottom auto
+			border none
+		&__nav-item
+			margin 0 30px 0 0
+			width auto
+			&:last-child
+				margin 0
+		&__nav-link
+			line-height 70px
+			display block
+			color #dadedf
+			&--active
+				color $orange
+				cursor default
+				position relative
+				&:hover
+					color $orange
+		&__dropdown-menu
+			margin-top -15px
+			&.show
+				margin-top 0
+		&__search-input
+			width 200px
+		&__notifications-btn
+			height 70px
+			&--active
+				&:before
+					top 25px
+		&__profile
+			.header__dropdown-menu
+				margin-top 0
+				&.show
+					margin-top 15px
+	@media (min-width: 1310px)
+		&__nav-item
+			margin 0 40px 0 0
+			width auto
+			&:last-child
+				margin 0
+		&__search-input
+			width 250px
+
+/*==============================
+	Breadcrumb
+==============================*/
+.breadcrumb
+	&__wrap
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		flex-wrap wrap
+		height 60px
+	&__item
+		font-size 14px
+		color $grey
+		transition(.4s ease)
+		position relative
+		margin-right 36px
+		line-height 18px
+		&:before
+			content '\f119'
+			position absolute
+			font-family "Ionicons"
+			color $grey
+			left 100%
+			top 0
+			font-size 18px
+			line-height 20px
+			margin-left 12px
+		&:hover
+			color $blue
+		&--active
+			cursor default
+			margin-right 0
+			&:before
+				display none
+			&:hover
+				color $grey
+	a
+		color $darkblue
+		&:hover
+			color $blue
+
+/*==============================
+	Main
+==============================*/
+.main
+	padding-top 100px
+	padding-bottom 20px
+	&--breadcrumb
+		padding-top 70px
+	&__title
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		font-weight 600
+		color $darkblue
+		font-size 18px
+		line-height 100%
+		margin-bottom 20px
+		margin-top 40px
+		position relative
+		padding-left 20px
+		&:before
+			content ''
+			position absolute
+			display block
+			top 0
+			bottom 0
+			width 3px
+			background-color $blue
+			left 0
+			border-radius(3px)
+			box-shadow(0 0 10px 0 rgba($blue, .3))
+	&__btn
+		display block
+		width 140px
+		height 40px
+		background linear-gradient(45deg, rgba($blue, .5) 0%, rgba($blue, .05) 100%)
+		color $white
+		font-size 13px
+		border-radius(4px)
+		letter-spacing .4px
+		text-transform uppercase
+		font-weight 600
+		position relative
+		overflow hidden
+		margin 40px auto 20px
+		&:before
+			content ''
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background-color $blue
+			z-index 1
+			transition(.4s)
+			opacity 1
+		span
+			position relative
+			z-index 2
+		&:hover
+			color $blue
+			&:before
+				opacity 0
+		&--margin
+			margin 10px auto 20px
+	&__nav
+		position relative
+		margin-bottom 20px
+		background-color $white
+		border-radius(4px)
+		overflow hidden
+		box-shadow(0 2px 26px 0 rgba($grey, .1))
+		border 1px solid rgba($grey, .2)
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		padding 0 0 0 20px
+		a
+			position relative
+			flexbox flex
+			flex-direction row
+			justify-content center
+			align-items center
+			height 60px
+			width auto
+			font-size 14px
+			color $darkblue
+			&:before
+				content ''
+				position absolute
+				bottom 0
+				left 0
+				right 0
+				height 2px
+				display block
+				background-color $blue
+				transition(.4s ease)
+				transform(translateY(2px))
+				opacity 0
+				box-shadow(0 0 10px 0 rgba($blue, .3))
+			&.active
+				&:before
+					opacity 1
+					transform(translateY(0))
+		li
+			margin-right 30px
+			&:last-child
+				margin-right 0
+	&__box
+		position relative
+		padding 20px
+		border 1px solid rgba($grey, .2)
+		box-shadow(0 2px 26px 0 rgba($grey, .1))
+		border-radius(4px)
+		background-color $white
+		margin-bottom 20px
+		.post__tags
+			margin-bottom -15px
+	&__box-title
+		flexbox flex
+		flex-direction row
+		justify-content space-between
+		align-items start
+		height 40px
+		line-height 100%
+		font-size 16px
+		font-weight 600
+		color $darkblue
+		margin-bottom 20px
+		border-bottom 1px solid rgba($grey, .2)
+		padding-top 2px
+	&__box-text
+		font-size 14px
+		line-height 24px
+		color $darkblue
+		margin-bottom 20px
+		&:last-child
+			margin-bottom 0
+		span
+			color $grey
+			font-size 12px
+		b
+			font-weight 600
+		a
+			color $blue
+			&:hover
+				color $orange
+				text-decoration underline
+	&__box-list
+		font-size 14px
+		line-height 24px
+		color $darkblue
+		margin-bottom 20px
+		li
+			position relative
+			padding-left 15px
+			&:before
+				content ''
+				position absolute
+				left 0
+				top 50%
+				width 4px
+				height 4px
+				border-radius(50%)
+				background-color $blue
+				margin-top -1px
+				box-shadow(0 0 10px 0 rgba($blue, .3))
+		&:last-child
+			margin-bottom 0
+		b
+			font-weight 600
+		a
+			color $blue
+			&:hover
+				color $orange
+				text-decoration underline
+	@media (min-width: 768px)
+		padding-top 110px
+		&--breadcrumb
+			padding-top 70px
+
+/*==============================
+	User
+==============================*/
+.user
+	position relative
+	margin-bottom 20px
+	background-color $white
+	border-radius(4px)
+	overflow hidden
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	&__head
+		background-color $white
+		position relative
+		height 83px
+		width 100%
+		border-top 3px solid $blue
+		border-left 1px solid rgba($grey, .2)
+		border-right 1px solid rgba($grey, .2)
+	&__img
+		position absolute
+		display block
+		width 130px
+		height 130px
+		background-color $white
+		border-radius(50%)
+		border 5px solid $white
+		bottom -65px
+		left 50%
+		margin-left -65px
+		overflow hidden
+		img
+			width 100%
+			height auto
+	&__title
+		flexbox flex
+		flex-direction column
+		justify-content center
+		align-items center
+		padding 75px 20px 20px
+		border-left 1px solid rgba($grey, .2)
+		border-right 1px solid rgba($grey, .2)
+		h2
+			font-size 18px
+			color $darkblue
+			font-weight 600
+			margin-bottom 10px
+			line-height 100%
+		p
+			margin-bottom 0
+			line-height 100%
+			font-size 14px
+			color $grey
+			font-weight 400
+	&__btns
+		flexbox flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		padding 20px
+		border-left 1px solid rgba($grey, .2)
+		border-right 1px solid rgba($grey, .2)
+		border-top 1px solid rgba($grey, .2)
+	&__btn
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		height 40px
+		width calc(50% - 10px)
+		border-radius(4px)
+		font-size 14px
+		position relative
+		overflow hidden
+		color $white
+		font-weight 600
+		&:before
+			content ''
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			z-index 1
+			transition(.4s)
+			opacity 1
+		span
+			position relative
+			z-index 2
+		&--blue
+			background linear-gradient(45deg, rgba($blue, .5) 0%, rgba($blue, .05) 100%)
+			&:before
+				background-color $blue
+			&:hover
+				color $blue
+				&:before
+					opacity 0
+		&--orange
+			background linear-gradient(45deg, rgba($orange, .5) 0%, rgba($orange, .05) 100%)
+			&:before
+				background-color $orange
+			&:hover
+				color $orange
+				&:before
+					opacity 0
+	&__stats
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items start
+		padding 20px
+		border 1px solid rgba($grey, .2)
+		li
+			width 50%
+			flexbox flex
+			flex-direction column
+			justify-content center
+			align-items center
+			p
+				margin-bottom 5px
+				line-height 100%
+				font-size 14px
+				color $grey
+			span
+				font-size 24px
+				line-height 100%
+				display block
+				color $darkblue
+		&:last-child
+			border-radius(0 0 4px 4px)
+	&__list
+		flexbox flex
+		flex-direction column
+		justify-content start
+		align-items start
+		border-top 1px solid rgba($grey, .2)
+		border-left 1px solid rgba($grey, .2)
+		border-right 1px solid rgba($grey, .2)
+		padding 15px 20px
+		li
+			flexbox flex
+			flex-direction row
+			justify-content space-between
+			align-items center
+			width 100%
+			span
+				font-size 14px
+				line-height 28px
+				color $grey
+				a
+					color $blue
+					&:hover
+						color $orange
+				&:first-child
+					color $darkblue
+
+/*==============================
+	Sidebox
+==============================*/
+.sidebox
+	position relative
+	margin-bottom 20px
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	&__title
+		flexbox flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		height 60px
+		width 100%
+		padding 0 20px
+		background-color $white
+		color $darkblue
+		font-size 16px
+		font-weight 600
+		border 1px solid rgba($grey, .2)
+		margin-bottom 0
+		border-radius(4px 4px 0 0)
+		button
+			font-size 12px
+			font-weight 400
+			color $grey
+			&:hover
+				color $blue
+	&__content
+		flexbox flex
+		flex-direction column
+		justify-content start
+		align-items start
+		padding 20px
+		border-bottom 1px solid rgba($grey, .2)
+		border-left 1px solid rgba($grey, .2)
+		border-right 1px solid rgba($grey, .2)
+		background-color $white
+	&__more
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		border-bottom 1px solid rgba($grey, .2)
+		border-left 1px solid rgba($grey, .2)
+		border-right 1px solid rgba($grey, .2)
+		height 40px
+		width 100%
+		color $blue
+		font-size 14px
+		font-weight 600
+		background-color $lightblue
+		border-radius(0 0 4px 4px)
+		&:hover
+			color $orange
+	&__user
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		margin-bottom 15px
+		width 100%
+		position relative
+		&:last-child
+			margin-bottom 0
+	&__user-img
+		display block
+		width 40px
+		height 40px
+		border-radius(50%)
+		margin-right 12px
+		overflow hidden
+		img
+			width 100%
+	&__user-title
+		h5
+			font-size 14px
+			color $darkblue
+			font-weight 600
+			margin-bottom 5px
+			line-height 100%
+			a
+				color $darkblue
+				&:hover
+					color $orange
+		p
+			font-size 13px
+			color $grey
+			margin-bottom 0
+			line-height 100%
+	&__user-price
+		font-size 14px
+		color $darkblue
+		font-weight 600
+		line-height 100%
+		position absolute
+		right 0
+		top 4px
+	&__job
+		flexbox flex
+		flex-direction column
+		justify-content start
+		align-items start
+		margin-bottom 15px
+		width 100%
+		&:last-child
+			margin-bottom 0
+		.post__wrap
+			margin-bottom 0
+		.post__location
+			i
+				font-size 14px
+				opacity .8
+				margin-right 5px
+			span
+				font-size 12px
+				line-height 18px
+		.post__company
+			margin-right 12px
+			i
+				font-size 12px
+				opacity .8
+				margin-right 5px
+				margin-top 0
+			span
+				font-size 12px
+				line-height 18px
+	&__job-title
+		flexbox flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		margin-bottom 3px
+		width 100%
+		a
+		span
+			font-size 14px
+			color $darkblue
+			font-weight 600
+			line-height 100%
+		a
+			&:hover
+				color $orange
+	&__share
+		flexbox flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		border 1px solid rgba($grey, .2)
+		background-color $white
+		border-radius(4px)
+		padding 10px 20px
+		height 60px
+		span
+			font-size 14px
+			font-weight 400
+			color $darkblue
+		ul
+			flexbox flex
+			flex-direction row
+			justify-content start
+			align-items center
+			li
+				margin-right 15px
+				&:last-child
+					margin-right 0
+				&.facebook
+					a
+						color #3b5999
+				&.instagram
+					a
+						color $clr2
+						i
+							&:before
+								background radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)
+								-webkit-background-clip text
+								-webkit-text-fill-color transparent
+								color $yellow
+				&.twitter
+					a
+						color #1da1f2
+				&.vk
+					a
+						color #45668e
+			a
+				font-size 24px
+				color $blue
+				letter-spacing .4px
+				&:hover
+					color $orange
+	&__apply
+		border 1px solid rgba($grey, .2)
+		background-color $white
+		border-radius(4px)
+		padding 20px
+	&__faq
+		flexbox flex
+		flex-direction column
+		justify-content start
+		align-items start
+		margin-bottom 15px
+		width 100%
+		&:last-child
+			margin-bottom 0
+		h5
+			font-size 15px
+			color $darkblue
+			font-weight 600
+			line-height 23px
+			margin-bottom 7px
+		p
+			margin-bottom 0
+			font-size 13px
+			line-height 21px
+			color $grey
+	&__nav
+		flexbox flex
+		flex-direction column
+		justify-content start
+		align-items start
+		padding 20px
+		border-bottom 1px solid rgba($grey, .2)
+		border-left 1px solid rgba($grey, .2)
+		border-right 1px solid rgba($grey, .2)
+		background-color $white
+		border-radius(0 0 4px 4px)
+		a
+			font-size 14px
+			color $darkblue
+			position relative
+			&:before
+				content ''
+				position absolute
+				display block
+				width 6px
+				height 6px
+				border-radius(50%)
+				background-color $blue
+				pointer-events none
+				left 0
+				top 50%
+				margin-top -3px
+				opacity 0
+				transition(.4s)
+				box-shadow(0 0 10px 0 rgba($blue, .3))
+			&:hover
+			&.active
+				color $blue
+			&.active
+				padding-left 15px
+				&:before
+					opacity 1
+		li
+			margin-bottom 10px
+			&:last-child
+				margin-bottom 0
+		.filter__label
+			line-height 100%
+	&__search
+		background-color $white
+		padding 20px
+		border-left 1px solid rgba($grey, .2)
+		border-right 1px solid rgba($grey, .2)
+		border-bottom 1px solid rgba($grey, .2)
+		position relative
+		button
+			position absolute
+			height 40px
+			color $grey
+			font-size 22px
+			top 50%
+			margin-top -20px
+			right 35px
+			line-height 42px
+			&:hover
+				color $blue
+	&__list
+		flexbox flex
+		flex-direction column
+		justify-content start
+		align-items start
+		width 100%
+		padding 20px
+		border-bottom 1px solid rgba($grey, .2)
+		border-left 1px solid rgba($grey, .2)
+		border-right 1px solid rgba($grey, .2)
+		background-color $white
+		border-radius(0 0 4px 4px)
+		li
+			flexbox flex
+			flex-direction row
+			justify-content space-between
+			align-items center
+			width 100%
+			span
+				font-size 14px
+				line-height 28px
+				color $grey
+				a
+					color $blue
+					&:hover
+						color $orange
+				&:first-child
+					color $darkblue
+	&--desk
+		display none
+	@media (min-width: 1200px)
+		&:last-child
+			margin-bottom 0
+		&--desk
+			display block
+
+/*==============================
+	Filter
+==============================*/
+.filter
+	flexbox flex
+	flex-direction column
+	justify-content start
+	align-items start
+	border-bottom 1px solid rgba($grey, .2)
+	border-left 1px solid rgba($grey, .2)
+	border-right 1px solid rgba($grey, .2)
+	background-color $white
+	border-radius(0 0 4px 4px)
+	&__group
+		flexbox flex
+		flex-direction column
+		justify-content start
+		align-items start
+		padding 20px
+		width 100%
+		border-bottom 1px solid rgba($grey, .2)
+		&:last-child
+			border-bottom none
+		&--last
+			padding 20px 20px 0
+			border-bottom none
+	&__label
+		font-size 13px
+		color $grey
+		font-weight normal
+		margin-bottom 10px
+	&__select-wrap
+		position relative
+		width 100%
+		&:before
+			content ''
+			font-family 'Ionicons'
+			position absolute
+			flexbox flex
+			flex-direction row
+			justify-content center
+			align-items center
+			height 40px
+			width 15px
+			color $grey
+			font-size 18px
+			pointer-events none
+			top 0
+			right 15px
+	&__select
+		width 100%
+		height 40px
+		border-radius(4px)
+		background-color $lightblue
+		border 1px solid rgba($grey, .2)
+		font-size 14px
+		color $darkblue
+		padding 0 15px
+		cursor pointer
+		option
+			padding 0
+		&:focus
+			border-color $blue
+	&__input
+		width 100%
+		height 40px
+		border-radius(4px)
+		background-color $lightblue
+		border 1px solid rgba($grey, .2)
+		font-size 14px
+		color $darkblue
+		padding 0 15px
+		&:focus
+			border-color $blue
+	&__checkboxes
+		position relative
+		li
+			position relative
+			margin-bottom 15px
+			&:last-child
+				margin-bottom 0
+		input
+			&:not(:checked)
+			&:checked
+				position absolute
+				left -9999px
+		label
+			display block
+			margin 0
+			position relative
+			font-weight 400
+			cursor pointer
+			font-size 14px
+			color $darkblue
+			line-height 16px
+			padding-left 25px
+			&:before
+				content ''
+				display block
+				position absolute
+				width 16px
+				height 16px
+				border 4px solid rgba($grey, .4)
+				background-color transparent
+				border-radius(50%)
+				left 0
+				top 0
+				transition(.4s ease)
+		input:checked + label
+			&:before
+				border-color $blue
+				box-shadow(0 0 10px 0 rgba($blue, .3))
+	&__range
+		font-size 14px
+		color $darkblue
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		position relative
+		margin-bottom 5px
+		background-color $lightblue
+		border 1px solid rgba($grey, .2)
+		height 30px
+		padding 0 12px
+		border-radius(4px)
+		div
+			position relative
+			&:first-child
+				margin-right 17px
+				&:after
+					content '–'
+					position absolute
+					display block
+					left 100%
+					top 0
+					color $darkblue
+					font-size 16px
+					margin-left 4px
+					line-height 18px
+	&__btn
+		width 100%
+		height 40px
+		background linear-gradient(45deg, rgba($blue, .5) 0%, rgba($blue, .05) 100%)
+		color $white
+		font-size 13px
+		border-radius(4px)
+		letter-spacing .4px
+		text-transform uppercase
+		font-weight 600
+		position relative
+		overflow hidden
+		&:before
+			content ''
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background-color $blue
+			z-index 1
+			transition(.4s)
+			opacity 1
+		span
+			position relative
+			z-index 2
+		&:hover
+			color $blue
+			&:before
+				opacity 0
+
+/* range slider */
+.noUi-target
+	background rgba($grey, .1)
+	border-radius(0)
+	border none
+	box-shadow(none)
+
+.noUi-horizontal
+	height 4px
+	margin 8px 0
+	width 100%
+
+.noUi-connects
+	background-color rgba($grey, .1)
+	border-radius(4px)
+	border none
+
+.noUi-connect
+	background-color $blue
+
+.noUi-handle
+	border none
+	border-radius(50%)
+	cursor pointer
+	&:before
+	&:after
+		display none
+	&:focus
+		outline none
+	&.noUi-handle-lower
+		background-color $blue
+		box-shadow(0 0 10px 0 rgba($blue, .3))
+	&.noUi-handle-upper
+		background-color $blue
+		box-shadow(0 0 10px 0 rgba($blue, .3))
+
+.noUi-horizontal .noUi-handle
+	width 16px
+	height 16px
+
+html:not([dir="rtl"]) .noUi-horizontal .noUi-handle
+	right -8px
+
+/*==============================
+	Form
+==============================*/
+.form
+	position relative
+	padding 20px
+	border 1px solid rgba($grey, .2)
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	border-radius(4px)
+	background-color $white
+	margin-bottom 20px
+	&__title
+		flexbox flex
+		flex-direction row
+		justify-content space-between
+		align-items start
+		height 40px
+		line-height 100%
+		font-size 16px
+		font-weight 600
+		color $darkblue
+		margin-bottom 20px
+		border-bottom 1px solid rgba($grey, .2)
+		padding-top 2px
+	&__group
+		flexbox flex
+		flex-direction column
+		justify-content start
+		align-items start
+		margin-bottom 20px
+		width 100%
+	&__label
+		font-size 13px
+		color $grey
+		font-weight normal
+		margin-bottom 10px
+	&__select-wrap
+		position relative
+		width 100%
+		&:before
+			content ''
+			font-family 'Ionicons'
+			position absolute
+			flexbox flex
+			flex-direction row
+			justify-content center
+			align-items center
+			height 40px
+			width 15px
+			color $grey
+			font-size 18px
+			pointer-events none
+			top 0
+			right 15px
+	&__select
+		width 100%
+		height 40px
+		border-radius(4px)
+		background-color $lightblue
+		border 1px solid rgba($grey, .2)
+		font-size 14px
+		color $darkblue
+		padding 0 15px
+		cursor pointer
+		option
+			padding 0
+		&:focus
+			border-color $blue
+	&__input
+		width 100%
+		height 40px
+		border-radius(4px)
+		background-color $lightblue
+		border 1px solid rgba($grey, .2)
+		font-size 14px
+		color $darkblue
+		padding 0 15px
+		&:focus
+			border-color $blue
+	&__textarea
+		width 100%
+		height 140px
+		border-radius(4px)
+		background-color $lightblue
+		border 1px solid rgba($grey, .2)
+		font-size 14px
+		color $darkblue
+		padding 10px 15px
+		resize none
+		&:focus
+			border-color $blue
+	&__btn
+		width 160px
+		height 40px
+		background linear-gradient(45deg, rgba($blue, .5) 0%, rgba($blue, .05) 100%)
+		color $white
+		font-size 13px
+		border-radius(4px)
+		letter-spacing .4px
+		text-transform uppercase
+		font-weight 600
+		position relative
+		overflow hidden
+		margin-top 10px
+		&:before
+			content ''
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background-color $blue
+			z-index 1
+			transition(.4s)
+			opacity 1
+		span
+			position relative
+			z-index 2
+		&:hover
+			color $blue
+			&:before
+				opacity 0
+
+/*==============================
+	Post
+==============================*/
+.post
+	position relative
+	padding 20px
+	border 1px solid rgba($grey, .2)
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	border-radius(4px)
+	background-color $white
+	flexbox flex
+	flex-direction column
+	justify-content start
+	align-items start
+	margin-bottom 20px
+	&--clear
+		padding 20px 20px 0
+	&__head
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		position relative
+		margin-bottom 10px
+		width 100%
+	&__head-img
+		display block
+		width 46px
+		height 46px
+		border-radius(50%)
+		margin-right 12px
+		overflow hidden
+		img
+			width 100%
+	&__head-title
+		h5
+			font-size 16px
+			color $darkblue
+			font-weight 600
+			margin-bottom 6px
+			line-height 100%
+			a
+				color $darkblue
+				&:hover
+					color $orange
+		p
+			font-size 12px
+			color $grey
+			margin-bottom 0
+			line-height 100%
+	&__dropdown
+		position absolute
+		right 0
+		top 0
+		display block
+		&.show
+			.post__dropdown-btn
+				color $blue
+	&__dropdown-btn
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		font-size 24px
+		color $grey
+		line-height 24px
+		i
+			line-height 24px
+		&:hover
+			color $blue
+	&__dropdown-menu
+		position absolute
+		left auto
+		right 0
+		background-color $white
+		padding 10px 20px
+		display block
+		width 100%
+		width 140px
+		text-align left
+		z-index 3
+		pointer-events none
+		opacity 0
+		transition(.4s ease)
+		transition-property opacity, margin
+		margin-top 0
+		top 100%
+		border-right 1px solid rgba($grey, .2)
+		border-left 1px solid rgba($grey, .2)
+		border-bottom 1px solid rgba($grey, .2)
+		border-top 2px solid $blue
+		box-shadow(0 2px 26px 0 rgba($grey, .1))
+		border-radius(0 0 4px 4px)
+		li
+			padding 0
+		a
+			font-size 14px
+			color $darkblue
+			line-height 36px
+			display block
+			font-weight 400
+			&:hover
+				color $blue
+		&.show
+			z-index 1000
+			pointer-events auto
+			opacity 1
+			margin-top 10px
+	&__wrap
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		margin-bottom 10px
+		width 100%
+		flex-wrap wrap
+	&__company
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		margin-right 15px
+		i
+			font-size 16px
+			color $blue
+			margin-right 8px
+			margin-top 1px
+			line-height 24px
+		span
+			font-size 14px
+			color $grey
+			line-height 24px
+	&__location
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		i
+			font-size 18px
+			color $green
+			margin-right 8px
+			line-height 24px
+			margin-top 2px
+		span
+			font-size 14px
+			color $grey
+			line-height 24px
+	&__actions
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		margin-left auto
+		width 100%
+		margin-top 13px
+	&__actions-btn
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		height 30px
+		width 30px
+		border-radius(4px)
+		color $white
+		font-size 18px
+		margin-right 15px
+		position relative
+		overflow hidden
+		&:before
+			content ''
+			position absolute
+			display block
+			top 0
+			right 0
+			bottom 0
+			left 0
+			transition(.4s)
+			z-index 1
+			pointer-events none
+			opacity 1
+		i
+		span
+			position relative
+			z-index 2
+		&--green
+			background linear-gradient(45deg, rgba($green, .5) 0%, rgba($green, .05) 100%)
+			&:before
+				background-color $green
+			&:hover
+				color $green
+		&--red
+			background linear-gradient(45deg, rgba($red, .5) 0%, rgba($red, .05) 100%)
+			&:before
+				background-color $red
+			&:hover
+				color $red
+		&--blue
+			background linear-gradient(45deg, rgba($blue, .5) 0%, rgba($blue, .05) 100%)
+			width auto
+			padding 0 10px
+			font-size 13px
+			&:before
+				background-color $blue
+			&:hover
+				color $blue
+		&:last-child
+			margin-right 0
+		&:hover
+			&:before
+				opacity 0
+	&__title
+		font-size 18px
+		font-weight 600
+		color $darkblue
+		margin-bottom 15px
+		line-height 26px
+		a
+			color $darkblue
+			&:hover
+				color $orange
+	&__options
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		margin-bottom 15px
+		span
+			flexbox flex
+			flex-direction row
+			justify-content center
+			align-items center
+			height 24px
+			padding 0 10px
+			border-radius(4px)
+			color $orange
+			font-size 13px
+			margin-right 20px
+			background linear-gradient(45deg, rgba($orange, .35) 0%, rgba($orange, .05) 100%)
+			font-weight 600
+		p
+			margin-bottom 0
+			font-size 14px
+			line-height 100%
+			color $darkblue
+			font-weight 600
+	&__description
+		flexbox flex
+		flex-direction column
+		justify-content start
+		align-items start
+		margin-bottom 20px
+		width 100%
+		p
+			font-size 14px
+			line-height 24px
+			color $grey
+			margin-bottom 0
+			margin-top 15px
+			&:first-child
+				margin-top 0
+		ul
+			font-size 14px
+			line-height 24px
+			color $grey
+			margin-top 15px
+			&:first-child
+				margin-top 0
+			li
+				position relative
+				padding-left 20px
+				&:before
+					content ''
+					position absolute
+					display block
+					width 4px
+					height 4px
+					border-radius(50%)
+					background-color $blue
+					left 0
+					top 50%
+					margin-top -2px
+	&__tags
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items start
+		margin-bottom 5px
+		position relative
+		a
+			flexbox flex
+			flex-direction row
+			justify-content center
+			align-items center
+			background-color $lightblue
+			color $grey
+			font-size 13px
+			margin-right 15px
+			margin-bottom 15px
+			position relative
+			padding-left 11px
+			&:before
+				content '#'
+				position absolute
+				left 0
+				color $grey
+				font-size 13px
+			&:hover
+				color $blue
+	&__stats
+		width 100%
+		border-top 1px solid rgba($grey, .2)
+		padding-top 20px
+		flexbox flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		div
+			font-size 14px
+			color $grey
+			flexbox flex
+			flex-direction row
+			justify-content start
+			align-items center
+			line-height 14px
+			i
+				margin-right 7px
+				font-size 16px
+				line-height 14px
+			span
+				margin-bottom 3px
+			.post__likes
+				i
+					margin-bottom 1px
+			&.post__views
+				i
+					font-size 18px
+				span
+					margin-bottom 1px
+		a
+			flexbox flex
+			flex-direction row
+			justify-content start
+			align-items center
+			margin-right 20px
+			color $grey
+			i
+				transition(.4s)
+			&:last-child
+				margin-right 0
+	&__likes
+		&:hover
+			i
+				color $red
+	&__comments
+		&:hover
+			i
+				color $blue
+		&[aria-expanded="true"]
+			i
+				color $blue
+	&__collapse
+		width 100%
+		position relative
+	&__form
+		border-top 1px solid rgba($grey, .2)
+		margin-top 20px
+		padding-top 20px
+		position relative
+		display block
+		input
+			width calc(100% - 60px)
+			height 40px
+			border-radius(4px)
+			background-color $lightblue
+			border 1px solid rgba($grey, .2)
+			font-size 14px
+			color $darkblue
+			padding 0 20px
+			&:focus
+				border-color $blue
+		button
+			position absolute
+			height 40px
+			width 40px
+			color $white
+			font-size 20px
+			top 20px
+			right 0
+			background-color $blue
+			border-radius(4px)
+			background linear-gradient(45deg, rgba($blue, .5) 0%, rgba($blue, .05) 100%)
+			overflow hidden
+			&:before
+				content ''
+				position absolute
+				display block
+				top 0
+				right 0
+				bottom 0
+				left 0
+				transition(.4s)
+				z-index 1
+				pointer-events none
+				opacity 1
+				background-color $blue
+			i
+				position relative
+				z-index 2
+			&:hover
+				color $blue
+				&:before
+					opacity 0
+	&__comment
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		position relative
+		flex-wrap wrap
+		margin-top 20px
+		width 100%
+	&__comment-img
+		display block
+		width 40px
+		height 40px
+		border-radius(50%)
+		margin-right 12px
+		overflow hidden
+		img
+			width 100%
+	&__comment-title
+		h5
+			font-size 14px
+			color $darkblue
+			font-weight 600
+			margin-bottom 5px
+			line-height 100%
+			a
+				color $darkblue
+				&:hover
+					color $orange
+		p
+			font-size 12px
+			color $grey
+			margin-bottom 0
+			line-height 100%
+	&__comment-text
+		display block
+		margin-top 10px
+		width 100%
+		margin-bottom 0
+		font-size 14px
+		line-height 24px
+		color $grey
+	&__apply
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 140px
+		height 40px
+		background linear-gradient(45deg, rgba($blue, .5) 0%, rgba($blue, .05) 100%)
+		color $white
+		font-size 13px
+		border-radius(4px)
+		letter-spacing .4px
+		text-transform uppercase
+		font-weight 600
+		position relative
+		overflow hidden
+		margin-bottom 20px
+		&:before
+			content ''
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background-color $blue
+			z-index 1
+			transition(.4s)
+			opacity 1
+		span
+			position relative
+			z-index 2
+		&:hover
+			color $blue
+			&:before
+				opacity 0
+	@media (min-width: 576px)
+		&__wrap
+			margin-bottom 5px
+		&__actions
+			width auto
+			margin-top 0
+
+/*==============================
+	Company
+==============================*/
+.company
+	position relative
+	padding 20px
+	border 1px solid rgba($grey, .2)
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	border-radius(4px)
+	background-color $white
+	margin-bottom 30px
+	flexbox flex
+	flex-direction row
+	justify-content start
+	align-items start
+	flex-wrap wrap
+	&__logo
+		img
+			width 100%
+			border-radius(4px)
+			border-radius(50%)
+			width 60px
+			height 60px
+	&__title
+		font-size 16px
+		font-weight 600
+		color $darkblue
+		margin-bottom 5px
+		line-height 100%
+		a
+			color $darkblue
+			&:hover
+				color $orange
+	&__text
+		font-size 14px
+		line-height 24px
+		color $grey
+		margin-bottom 0
+	&__wrap
+		flexbox flex
+		flex-direction column
+		justify-content center
+		align-items start
+		width calc(100% - 60px)
+		padding-left 15px
+		height 60px
+	&__actions
+		flexbox flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		margin-top 20px
+		.post__location
+			margin-bottom 0
+		.post__actions
+			margin-top 0
+			width auto
+			margin-left 0
+
+/*==============================
+	Profile
+==============================*/
+.profile
+	position relative
+	padding 20px
+	border 1px solid rgba($grey, .2)
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	border-radius(4px)
+	background-color $white
+	margin-bottom 30px
+	flexbox flex
+	flex-direction row
+	justify-content start
+	align-items start
+	flex-wrap wrap
+	&__logo
+		img
+			width 100%
+			border-radius(4px)
+			border-radius(50%)
+			width 60px
+			height 60px
+	&__title
+		font-size 16px
+		font-weight 600
+		color $darkblue
+		margin-bottom 5px
+		line-height 100%
+		a
+			color $darkblue
+			&:hover
+				color $orange
+	&__text
+		font-size 14px
+		line-height 24px
+		color $grey
+		margin-bottom 0
+	&__wrap
+		flexbox flex
+		flex-direction column
+		justify-content center
+		align-items start
+		width calc(100% - 60px)
+		padding-left 15px
+		height 60px
+	&__actions
+		flexbox flex
+		flex-direction row
+		justify-content space-between
+		align-items center
+		width 100%
+		margin-top 20px
+		.post__location
+			margin-bottom 0
+		.post__actions
+			margin-top 0
+			width auto
+			margin-left 0
+
+/*==============================
+	Bid
+==============================*/
+.bid
+	position relative
+	padding 20px
+	border 1px solid rgba($grey, .2)
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	border-radius(4px)
+	background-color $white
+	margin-bottom 20px
+	flexbox flex
+	flex-direction row
+	justify-content space-between
+	align-items center
+	&__head
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		position relative
+	&__head-img
+		display block
+		width 46px
+		height 46px
+		border-radius(50%)
+		margin-right 12px
+		overflow hidden
+		img
+			width 100%
+	&__head-title
+		h5
+			font-size 16px
+			color $darkblue
+			font-weight 600
+			margin-bottom 6px
+			line-height 100%
+			a
+				color $darkblue
+				&:hover
+					color $orange
+		p
+			flexbox flex
+			flex-direction row
+			justify-content start
+			align-items center
+			margin-bottom 0
+			i
+				font-size 18px
+				color $green
+				margin-right 8px
+				line-height 18px
+				margin-top 2px
+			span
+				font-size 14px
+				color $grey
+				line-height 18px
+	&__price
+		flexbox flex
+		flex-direction column
+		justify-content center
+		align-items center
+		margin-top 2px
+		span
+			display block
+			font-size 18px
+			line-height 100%
+			color $darkblue
+			font-weight 600
+			margin-bottom 5px
+		p
+			margin-bottom 0
+			font-size 14px
+			color $grey
+			line-height 20px
+
+/*==============================
+	FAQ
+==============================*/
+.faq
+	position relative
+	margin-bottom 20px
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	padding 0 20px 10px
+	border-radius(4px)
+	background-color $white
+	border 1px solid rgba($grey, .2)
+	&__box
+		margin-bottom 10px
+		h3
+			flexbox flex
+			flex-direction row
+			justify-content space-between
+			align-items center
+			color $darkblue
+			font-size 16px
+			font-weight 600
+			margin-bottom 15px
+			height 60px
+			border-bottom 1px solid rgba($grey, .2)
+		ul
+			li
+				flexbox flex
+				flex-direction row
+				justify-content start
+				align-items center
+				color $darkblue
+				font-size 14px
+				margin-bottom 12px
+				position relative
+				padding-left 22px
+				&:before
+					content ''
+					position absolute
+					font-family "Ionicons"
+					color $blue
+					left 0
+					font-size 16px
+				a
+					color $darkblue
+					&:hover
+						color $orange
+				&:last-child
+					margin-bottom 0
+
+/*==============================
+	Contacts
+==============================*/
+.contacts
+	position relative
+	margin-bottom 20px
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	padding 20px
+	border-radius(4px)
+	background-color $white
+	border 1px solid rgba($grey, .2)
+	&__title
+		color $darkblue
+		font-size 16px
+		font-weight 600
+		margin-bottom 15px
+		line-height 24px
+	&__text
+		font-size 14px
+		line-height 24px
+		color $darkblue
+		margin-bottom 20px
+	&__list
+		margin-bottom 20px
+		li
+			margin-bottom 10px
+			&:last-child
+				margin-bottom 0
+		a
+			font-size 14px
+			color $blue
+			&:hover
+				color $orange
+	&__social
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		li
+			margin-right 20px
+			&:last-child
+				margin-left 0
+			&.facebook
+				a
+					color #3b5999
+			&.instagram
+				a
+					color $clr2
+					i
+						&:before
+							background radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%)
+							-webkit-background-clip text
+							-webkit-text-fill-color transparent
+							color $orange
+			&.twitter
+				a
+					color #1da1f2
+			&.vk
+				a
+					color #45668e
+		a
+			font-size 24px
+			color $orange
+			line-height 24px
+			&:hover
+				color $orange
+
+/*==============================
+	Privacy
+==============================*/
+.privacy
+	position relative
+	margin-bottom 20px
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	padding 20px
+	border-radius(4px)
+	background-color $white
+	border 1px solid rgba($grey, .2)
+	&__title
+		color $darkblue
+		font-size 16px
+		font-weight 600
+		margin-bottom 15px
+		line-height 24px
+	&__text
+		color $darkblue
+		font-size 14px
+		line-height 24px
+		margin-bottom 20px
+		&:last-child
+			margin-bottom 0
+		b
+			font-weight 600
+		a
+			color $blue
+			&:hover
+				color $orange
+				text-decoration underline
+	&__list
+		margin-top -20px
+		ol
+			padding-left 0
+			list-style none
+			counter-reset li
+			margin-bottom 0
+			ol
+				padding-left 15px
+				margin-top 10px
+				ol
+					margin-top 10px
+					margin-bottom 10px
+					li
+						margin-top 5px
+			h4
+				font-size 14px
+				font-weight 600
+				color $darkblue
+				display inline-block
+				margin-bottom 0
+				margin-top 20px
+			li
+				font-size 14px
+				line-height 24px
+				color $darkblue
+				position relative
+				b
+					font-weight 600
+				a
+					color $blue
+					&:hover
+						color $orange
+						text-decoration underline
+				&:last-child
+					margin-bottom 0
+				&:before
+					counter-increment li
+					content counters(li,".") ". "
+
+/*==============================
+	Sign
+==============================*/
+.sign
+	display block
+	position relative
+	background url('../img/bg.jpg') no-repeat center / cover
+	&__content
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 100%
+		min-height 100vh
+		padding 40px 0
+	&__form
+		position relative
+		box-shadow(0 2px 26px 0 rgba($grey, .1))
+		padding 40px 20px
+		border-radius(4px)
+		background-color $white
+		border 1px solid rgba($grey, .2)
+		flexbox flex
+		flex-direction column
+		justify-content center
+		align-items center
+		width 100%
+		max-width 400px
+	&__logo
+		display block
+		margin-bottom 40px
+		a
+			max-width 100%
+			width auto
+		img
+			width 60px
+	&__input
+		width 100%
+		height 40px
+		border-radius(4px)
+		background-color $lightblue
+		border 1px solid rgba($grey, .2)
+		font-size 14px
+		color $darkblue
+		padding 0 15px
+		&:focus
+			border-color $blue
+	&__group
+		position relative
+		margin-bottom 20px
+		width 100%
+		&--checkbox
+			width 100%
+			text-align left
+			input
+				&:not(:checked)
+				&:checked
+					position absolute
+					left -9999px
+				&:not(:checked) + label
+				&:checked + label
+					font-size 13px
+					color $grey
+					font-weight normal
+					position relative
+					cursor pointer
+					padding-left 35px
+					line-height 20px
+					margin 0
+					a
+						color $blue
+						&:hover
+							color $orange
+				&:not(:checked) + label:before
+				&:checked + label:before
+					content ''
+					position absolute
+					left 0
+					top 0
+					width 20px
+					height 20px
+					background-color $lightblue
+					border-radius(4px)
+					border 1px solid rgba($grey, .2)
+				&:not(:checked) + label:after
+				&:checked + label:after
+					font-family 'Ionicons'
+					content '\f3ff'
+					position absolute
+					left 0
+					top 0
+					width 20px
+					height 20px
+					font-size 22px
+					line-height 20px
+					text-align center
+					transition(.4s)
+					color $blue
+				&:not(:checked) + label:after
+					opacity 0
+					transform(scale(0))
+				&:checked + label:after
+					opacity 1
+					transform(scale(1))
+	&__btn
+		width 100%
+		height 40px
+		background linear-gradient(45deg, rgba($blue, .5) 0%, rgba($blue, .05) 100%)
+		color $white
+		font-size 13px
+		border-radius(4px)
+		letter-spacing .4px
+		text-transform uppercase
+		font-weight 600
+		position relative
+		overflow hidden
+		&:before
+			content ''
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background-color $blue
+			z-index 1
+			transition(.4s)
+			opacity 1
+		span
+			position relative
+			z-index 2
+		&:hover
+			color $blue
+			&:before
+				opacity 0
+	&__text
+		margin-top 15px
+		font-size 13px
+		color $grey
+		a
+			position relative
+			color $blue
+			&:hover
+				color $orange
+	@media (min-width: 576px)
+		&__form
+			padding 40px
+
+/*==============================
+	Messages
+==============================*/
+.messages
+	position relative
+	margin-bottom 20px
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	border-radius(4px)
+	background-color $white
+	border 1px solid rgba($grey, .2)
+	&__dialogues
+		position relative
+		overflow hidden
+	&__search
+		position relative
+		padding 20px
+		border-bottom 1px solid rgba($grey, .2)
+		height 80px
+		input
+			width 100%
+			height 40px
+			border-radius(4px)
+			background-color $lightblue
+			border 1px solid rgba($grey, .2)
+			font-size 14px
+			color $darkblue
+			padding 0 15px
+			&:focus
+				border-color $blue
+		button
+			position absolute
+			height 40px
+			color $grey
+			font-size 22px
+			top 50%
+			margin-top -20px
+			right 35px
+			line-height 42px
+			&:hover
+				color $blue
+	&__list
+		position relative
+		overflow hidden
+		height 280px
+		width 100%
+	&__user
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		width 100%
+		padding 20px
+		cursor pointer
+		border-bottom 1px solid rgba($grey, .2)
+		position relative
+		&:last-child
+			border-bottom none
+		&--active
+			background-color $lightblue
+		&--online
+			.messages__user-img
+				&:before
+					opacity 1
+	&__user-img
+		display block
+		width 40px
+		height 40px
+		margin-right 12px
+		position relative
+		img
+			width 100%
+			border-radius(50%)
+		&:before
+			content ''
+			position absolute
+			display block
+			width 8px
+			height 8px
+			border-radius(50%)
+			background-color $green
+			top 2px
+			right 2px
+			opacity 0
+	&__user-title
+		h5
+			font-size 14px
+			color $darkblue
+			font-weight 600
+			margin-bottom 8px
+			line-height 100%
+		p
+			font-size 13px
+			color $grey
+			margin-bottom 0
+			line-height 100%
+	&__user-missed
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		font-size 10px
+		position absolute
+		line-height 16px
+		right 20px
+		bottom 20px
+		color $white
+		background-color $blue
+		border-radius(50%)
+		height 16px
+		width 16px
+		box-shadow(0 0 10px 0 rgba($blue, .3))
+	&__dialog
+		position relative
+		border-top 1px solid rgba($grey, .2)
+		height 500px
+	&__head
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items center
+		height 80px
+		border-bottom 1px solid rgba($grey, .2)
+		padding 0 20px
+		position relative
+		h2
+			font-size 16px
+			font-weight 600
+			color $darkblue
+			margin-bottom 0
+			span
+				font-weight 400
+				color $grey
+				font-size 12px
+				margin-left 5px
+		.post__dropdown
+			right 20px
+			top 50%
+			margin-top -12px
+	&__chat
+		height calc(100% - 160px)
+		padding 0 20px
+		overflow hidden
+	&__form
+		height 80px
+		width 100%
+		position relative
+		border-top 1px solid rgba($grey, .2)
+		padding 20px
+		input
+			width calc(100% - 60px)
+			height 40px
+			border-radius(4px)
+			background-color $lightblue
+			border 1px solid rgba($grey, .2)
+			font-size 14px
+			color $darkblue
+			padding 0 20px
+			&:focus
+				border-color $blue
+		button
+			position absolute
+			height 40px
+			width 40px
+			color $white
+			font-size 20px
+			top 20px
+			right 20px
+			background-color $blue
+			border-radius(4px)
+			background linear-gradient(45deg, rgba($blue, .5) 0%, rgba($blue, .05) 100%)
+			overflow hidden
+			&:before
+				content ''
+				position absolute
+				display block
+				top 0
+				right 0
+				bottom 0
+				left 0
+				transition(.4s)
+				z-index 1
+				pointer-events none
+				opacity 1
+				background-color $blue
+			i
+				position relative
+				z-index 2
+			&:hover
+				color $blue
+				&:before
+					opacity 0
+	&__text
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items start
+		padding 10px 0
+		p
+			width auto
+			max-width calc(100% - 52px)
+			font-size 14px
+			line-height 24px
+			color $darkblue
+			background-color rgba($green, .1)
+			padding 12px 60px 12px 15px
+			border-radius(20px)
+			margin-bottom 0
+			position relative
+			span
+				position absolute
+				right 10px
+				bottom 10px
+				font-size 10px
+				color $grey
+		&--guest
+			p
+				background-color $lightblue
+				background-color rgba($blue, .1)
+		&:first-child
+			padding-top 20px
+		&:last-child
+			padding-bottom 20px
+	&__date
+		position relative
+		display flex
+		flex-direction row
+		justify-content center
+		align-items center
+		padding 12px 0
+		&:before
+			content ''
+			position absolute
+			display block
+			width 100%
+			height 1px
+			background-color rgba($grey, .2)
+			left 0
+			right 0
+			top 50%
+			margin-top -1px
+		span
+			position relative
+			font-size 12px
+			color $grey
+			background-color $white
+			display block
+			padding 0 15px
+	@media (min-width: 992px)
+		flexbox flex
+		flex-direction row
+		justify-content start
+		align-items start
+		&__dialogues
+			border-right 1px solid rgba($grey, .2)
+		&__list
+			height 520px
+			width 300px
+		&__dialog
+			height 600px
+			border-top none
+			width calc(100% - 300px)
+
+/*==============================
+	Footer
+==============================*/
+.footer
+	background-color $white
+	border-top 1px solid rgba($grey, .2)
+	box-shadow(0 2px 26px 0 rgba($grey, .1))
+	&__content
+		flexbox flex
+		flex-direction column
+		justify-content start
+		align-items start
+		padding 40px 0
+		position relative
+	&__logo
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 60px
+		order 1
+		img
+			width 100%
+			display block
+	&__nav
+		order 2
+		flexbox flex
+		flex-direction start
+		justify-content start
+		align-items center
+		margin-top 20px
+		a
+			font-size 14px
+			color $darkblue
+			margin-right 15px
+			&:last-child
+				margin-right 0
+			&:hover
+				color $blue
+	&__copyright
+		display inline-block
+		order 3
+		margin-top 20px
+		font-size 12px
+		line-height 16px
+		color $grey
+		a
+			color $grey
+			&:hover
+				color $orange
+	&__back
+		flexbox flex
+		flex-direction row
+		justify-content center
+		align-items center
+		width 40px
+		height 40px
+		color $white
+		background linear-gradient(45deg, rgba($blue, .5) 0%, rgba($blue, .05) 100%)
+		position absolute
+		right 0
+		bottom 40px
+		border-radius(4px)
+		font-size 26px
+		line-height 26px
+		overflow hidden
+		&:before
+			content ''
+			position absolute
+			top 0
+			left 0
+			right 0
+			bottom 0
+			background-color $blue
+			z-index 1
+			transition(.4s)
+			opacity 1
+		i
+			position relative
+			z-index 2
+		&:hover
+			color $blue
+			&:before
+				opacity 0
+	@media (min-width: 768px)
+		&__content
+			flex-direction row
+			justify-content start
+			align-items center
+			padding 0
+			height 70px
+		&__nav
+			order 3
+			margin-top 0
+			margin-left auto
+			margin-right 80px
+			a
+				margin-right 25px
+				&:last-child
+					margin-right 0
+		&__copyright
+			order 2
+			margin-top 0
+			margin-left 20px
+		&__back
+			position absolute
+			bottom 50%
+			margin-bottom -20px
+	@media (min-width: 1200px)
+		&__copyright
+			margin-left 40px
+		&__nav
+			a
+				margin-right 40px
+				&:last-child
+					margin-right 0
+
+/*==============================
+	select2 customization
+==============================*/
+.select2
+	width 100% !important
+	height 40px
+
+.select2-search--dropdown
+.select2-container--default .select2-selection--single .select2-selection__clear
+	display none
+
+.select2-container--default .select2-selection--multiple
+	border 1px solid rgba($grey, .2)
+	height 40px
+	color $white
+	padding 0 40px 0 20px
+	background-color $lightblue
+	width 100%
+	font-size 14px
+	border-radius(4px)
+
+.select2-container--default.select2-container--focus .select2-selection--multiple
+	border 1px solid $blue
+	
+.select2-container--default .select2-selection--multiple .select2-selection__rendered
+	padding 0
+
+.select2-container .select2-search--inline .select2-search__field
+	font-size 14px
+	height 40px
+	margin 0
+	color $darkblue
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice
+	background-color $white
+	border 1px solid rgba($grey, .2)
+	border-radius(4px)
+	flexbox flex
+	flex-direction row
+	justify-content start
+	align-items center
+	height 30px
+	margin-top 5px
+	color $darkblue
+	padding 0 10px
+	
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove
+	color $grey
+	margin-right 5px
+	transition(.4s ease)
+	&:hover
+		color $blue
+
+.select2-container .select2-selection--single .select2-selection__rendered
+	padding 0
+	color $darkblue
+	line-height 40px
+
+.select2-dropdown
+	border 1px solid rgba($grey, .2)
+	border-radius(0 0 4px 4px)
+	box-shadow(none)
+	background-color $lightblue
+	padding 15px 0
+
+.select2-results__option
+	padding 0 20px
+	line-height 40px
+	font-size 14px
+	color $darkblue
+	display block
+	font-weight 400
+	
+.select2-container--default .select2-results__option--highlighted[aria-selected]
+	background-color transparent
+	color $blue
+
+.select2-container--default .select2-results__option[aria-selected="true"]
+	background-color transparent
+	color $blue
+	cursor default
+
+/*==============================
+	mCustomScrollbar customization
+==============================*/
+.mCS-custom-bar
+	opacity 1
+	&.mCSB_outside + .mCSB_scrollTools
+		right 0
+		top 0
+		bottom 0
+	&.mCSB_scrollTools
+		width 2px
+		.mCSB_draggerRail
+			background-color transparent
+		.mCSB_dragger
+			.mCSB_dragger_bar
+				background-color rgba($blue, 0)
+				width 2px
+				border-radius(2px)
+			&:hover
+				.mCSB_dragger_bar
+					background-color $blue
+			&:active
+			&.mCSB_dragger_onDrag
+				.mCSB_dragger_bar
+					background-color $blue

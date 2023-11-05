@@ -52,6 +52,6 @@ echo "<a href=".mvc_admin_url(array('controller' => 'admin_links', 'action' => '
 <div>
 <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 	mvc_render_to_string("admin_clientloannotes/add",array('object' => mvc_model("Clientloannote")->find()));
-//mvc_render_to_string("admin_clientloannotes/add",array('object' => mvc_model("Clientloannote"))); 
+
 ?>
 </div>

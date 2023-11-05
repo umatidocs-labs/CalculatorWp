@@ -57,7 +57,6 @@ class MvcAdminLoader extends MvcLoader {
     
     public function add_menu_pages() {
 
-        
         global $_registered_pages;
     
         $sub_pages = array();
@@ -113,7 +112,7 @@ class MvcAdminLoader extends MvcLoader {
                 };
                 $capability = !empty($pages['capability']) ? $pages['capability'] : $this->admin_controller_capabilities[ $controller_name ];
                 $label = !empty($pages['label']) ? $pages['label'] : $controller_titleized;
-                
+                $menu_position_current = 2;
                 if(empty($pages['parent_slug'])){
                     add_menu_page(
                         $label,
@@ -236,7 +235,7 @@ class MvcAdminLoader extends MvcLoader {
                 'action' => $key,
                 'in_menu' => true,
                 'label' => MvcInflector::titleize($key),
-                'capability' => $capability
+                'capability' => $capability,
             );
             if (isset($default_pages[$key])) {
                 $value = array_merge($default_pages[$key], $value);

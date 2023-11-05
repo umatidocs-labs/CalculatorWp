@@ -1,21 +1,14 @@
 
-.simplelender_add_node{
-	padding:5px 30px;
-	border-radius:5px;
-}
-.simplelender_close_recipient_class, .simplelender_close_url_class, .simplelender_close_args_class{
+.calculatorwp_close_recipient_class, .calculatorwp_close_url_class, .calculatorwp_close_args_class{
 	cursor:pointer;
 }
-.simplelender_menu_item_a{
+.calculatorwp_menu_item_a{
 	padding:20px;
 	color:#fff;
 	text-decoration:none;
 }
-#simplelender_webhook_input{
-	
-}
 
-#simplelender_webhook_tags{
+#calculatorwp_webhook_tags{
 	float:left;	
 	padding:60px 50px;
 	background:#fff;
@@ -23,18 +16,22 @@
 	border-radius:5px;
 }
 
-#simplelender_webhook_input{
-	float:left;	
-	padding:30px;
-	width:60%;
+#calculatorwp_webhook_input{
+	float: left;
+	padding: 30px;
+	width: 60%;
+	background: #fff;
+	border: 1px solid #80808030;
+	border-radius: 15px;
 }
+
 .adienienti_tag_copier_body {
 	cursor: pointer;
 }
-.simplelender_loan_tags, .simplelender_more_tags{
+.calculatorwp_loan_tags, .calculatorwp_more_tags{
 	display:none;
 }
-#right_simplelender_menu_item{
+#right_calculatorwp_menu_item{
 	float:right !important;
 }
 a:active, a:focus {

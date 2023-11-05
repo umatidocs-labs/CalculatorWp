@@ -1,39 +1,456 @@
-.loan_stages td{
-	padding:6px 40px;
+.sl_main_content_area_input{
+	max-width:900px;
+	padding: 0px 30px 30px 10px;
+	min-width:300px;
 }
-.simplelender_input_feild{
-	width:;
-	height:35px;
-	border-radius:4px;
-	padding:5px;
-	font-size:16px;
+.sl_main_title{
+	max-width:900px;
+	padding: 0px 30px 10px 70px;
+	min-width:300px;
+}
+.sl_gform_manager {
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-.simplelender_textare_input_feild{
+.sl_repayment{
+	float:left;
+	margin-right:10px;
+	border-radius: 5px;
+	list-style: none;
+	margin-right:1%;
+	font-size: initial;
+	width: 23%;
+	border: 1px solid #00ff54;
+	padding:0px 10px ;
+}
+
+.sl_b_wrapper_design{
+	margin:20px;
+	background: #fff;
+	padding: 10px 10px 30px 10px;
+	border-radius: 10px;
+}
+
+.sl_repayment>strong{
+	color: #8EFE8D;
+}
+
+.sl_repayment_mother{
+}
+
+.sl_repayment_amount_subtitle .results{
 	width:100%;
-	height:100px;
-	border-radius:4px;
-	padding:5px;
-	font-size:16px;
+	min-height:300px;
+}
+.sl_mainf{	
+	min-width: 200px;
+}
+.sl_main_content_area_output{
+	max-width:40%;
+	float:left;
+	border:2px solid #00ff54;
+	padding:20px;
+	height:100%;
+	border-radius:5px;
+	min-width:300px;
+}
+.sl_main_content_area{
+	width:100%;
+}
+.sl_repayment_amount{
+	color:#0009;
+	font-size:40px;
+}
+.sl_repayment_terms{
+	font-size:13px;
+	color:#00000080;
+}
+.sl_repayment_button{
+	margin:3px;
+}
+h1.sl_repayment_amount_subtitle{
+	font-siz:30px;
+	font-weight:600;
+}
+.sl_main_title_text{
+	padding:15px;
+	font-weight:600;
+	font-size:18px;
+	color:#6c6868;
 }
 
-.simplelender_title_feild{
+.sl_repayment_amount_subtitle {
+    color: gray;
+}
+.sl_main_title_description{
+	padding:0px 0px 35px 0px;
+	color:#8c8989e6;
+	font-size:13px;
+	font-weight:600;
+}
+.sl_loan_ap_primary_input_feild{
+	width:100%; 
+}
+.sl_loan_ap_primary_title_feild{
 	font-size:14px;
 	padding-top:15px;
 	padding-bottom:5px;
 	font-weight:600;
+	color:#8c8989e6;
+}
+textarea.sl_loan_ap_primary_input_feild{
+	height:80px;
+}
+.sl_term_percentage{
+	font-weight:600;
+	color:#000;
+}
+.sl_repayment_per_period{
+	color:#8c8989e6;
+	font-size:12px;
+}
+.sl_loader{
+	display:none;
+}
+#sl_user_gate_main{
+	width:100%;
+}
+.sl_user_gate{
+	width:100%;
+}
+.sl_user_gate_menu_item{
+	padding:15px;
+	font-weight:600;
+	font-size:20px;
+	border:1px solid #8080804d;
+	margin:1%;
+	cursor:pointer;
+	float:left;
+	border-radius:3px;
+}
+.sl_user_gate_menu_item_login{
+	
+}
+#sl_user_gate_signup{
+	display:none;
+}
+#sl_user_gate_signup, #sl_user_gate_login{
+	padding:135px 25px;
+	border-radius:3px;
+}
+.sl_email_section, .sl_user_pass{
+	border:1px red solid;
+	border-radius:5px;
+}
+.sl_email_section_correction_message, .sl_email_section_user_pass_message{
+	color:red;
+}
+.sl_user_reg_loader{
+	display:none;
+}
+.logout_link{
+	float:right;
+	color:#8EFE8D;
+}
+.logout_link >a{
+	color:#8EFE8D;
+}
+.logout_link>a >button{
+	background-color: darkcyan;
+	margin-left: 20px;
+}
+td.calculatorwp_sub_title, td.calculatorwp_sub_body{
+	border:0px;
+}
+.calculatorwp_sub_title{
+	color: #8EFE8D;
+}
+.calculatorwp_sub_body{
+	color: #808080;
+}
+#calculatorwp_loan_dash{
+	background:white;
+	border-radius:5px;
+	padding:30px;
+}
+.logout_link_wrapper{
+	min-height:50px;
+	border:1px solid #d3d3d39e;
+}
+#calculatorwp_dash_menu li {
+	float:left;
+	border-radius:3px;
+}
+ .calculatorwp_dash_menu li{
+	list-style:none !important;
+	padding:5px 20px;
+	border:1px solid #93aab0;
+	margin:2px;
+ }
+.calculatorwp_dash_menu li a{
+	color:#000000b3;
+}
+table#calculatorwp_loan_dash{
+	
+}
+#calculatorwp_loan_dash>td{
+	border-width:0px;
+}
+td.fwidthtd{
+	width:100%;
+}
+.fwidthtd>b{
+	color: gray;
+}
+.calculatorwp_build_by a{
+	font-size:12px;
+	color:#8EFE8D;
+}
+.calculatorwp_build_by_calc{
+	width:100%;
+}
+#sl_repayment_submit_button{
+	background: #8EFE8D;
+	color: #333;
+}
+.calculatorwpMessageSubmitButton{
+	background-color: gray;
+	margin-top: 20px;
+}
+td.sl_list_single_message{
+	border-width:0px;
+}
+.calculatorwp_main_title_message{
+	color:gray;
+}
+a.sl_menu_item_front_view{
+	padding: 5px;
+	border: 1.5px solid #8EFE8D;
+	margin: 1%;
+	cursor: pointer;
+	float: left;
+	border-radius: 3px;
+	color: #8EFE8D;
+}
+#calculatorwp_dash_content{
+	min-height:500px;
+	margin:20px;
+}
+#calculatorwp_dash_menu{
+	height: 30px;
+}
+.sl_list_message_details {
+    font-size: 10px;
+}
+
+a#sl_proceed_dashboard{
+	border: 1px solid #80808066;
+	padding: 20px;
+	border-radius: 10px;
+}
+#sl_logplace{
+	width:250px;
+}
+#sl_user_gate_head{
+	width:350px;
+}
+.sl_calc_loader {
+    border: 5px solid hsla(0,0%,100%,.64);
+    border-top: 10px solid #dbca00e6;
+    border-radius: 50%;
+    width: 40px;
+    animation: spin .8s linear infinite;
+	position:related;
+	left:50%;
+	top:30%;
+	display:none;
+	z-index:10000000000000;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.sl_description{
+	font-size:10px;
+}
+.sl_repayment_amount_subtitle_hide{
+	display:none;
+}
+.calculatorwp_select_a_loan{
+	
+}
+#calculatorwp_select_a_loan{
+	border-radius: 5px;
+	padding: 5px;
+	font-size: 15px;
+	width: 100%;
+	background-color: #fff;
+	border: 1px solid gray;
+	padding: 10px 20px;
+}
+.wp-image-159{
+	margin-right:20px;
+}
+.calculatorwp_see_cool_features{    
+	background: #0085ba;
+    border-color: #0073aa #006799 #006799;
+    color: #fff;
+    text-decoration: none;
+	display: inline-block;
+	text-decoration: none;
+	font-size: 13px;
+	line-height: 26px;
+	height: 28px;
+	margin: 0;
+	padding: 0 10px 1px;
+	cursor: pointer;
+	border-width: 1px;
+	border-style: solid;
+	-webkit-appearance: none;
+	border-radius: 3px;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+p.sl_repayment_amount_subtitle{
+	float:left;
+}
+.calculatorwp_input_feild_f{
+	min-width:50%;
+	height: 35px;
+	border-radius: 4px;
+	padding: 5px;
+	font-size: 16px;
+}
+p.login-password{
+	max-width:200px;
+}
+.accrue-field-amount{
+	display:none;
+}
+.sl_card-header_top{
+	position: fixed;
+	top: 23%;
+	right: 10px;
+	opacity: .8;
+	border-radius: 4px !important;
+	z-index: 100;
+}
+.sl_repayment_mother{
+	overflow: auto;
+	padding: 20px;
+	color: darkkhaki;
+}
+.sl_gform_manager{
+	max-width:;
+}
+.ginput_container >input{
+	width:100%  !important;
+}
+.gform_button {
+	border-color: #8EFE8D !important;
+	background-color: #8EFE8D !important;
+	color:#333;
+}
+.gfield_label{
+	color:gray !important;
+}
+.sl_note_description{
+	font-size:10px;
+}
+.sl_title_line{
+	float: left;
+	padding: 10px;
+	width: 20%;
+}
+
+.sl_title_line_content{
+	padding: 8px 20px;
+}
+
+.loan_stages td{
+	border: 0px white solid;
+	border-radius: 15px;
+	margin-right: 5px;
+}
+.calculatorwp_title_feild-email{
+	overflow: auto;
+}
+.calculatorwp_input_feild_email{
+	width: 60%;
+	margin: 5px;
+	height: 25px;
+}
+.validation_message{
+	display:none;
+}
+.sl_shortcode_details{
+	font-size: 15px;
+	color: #333333f2;
+	background: #feffaf;
+	padding: 2px 15px;
+	border-radius: 3px;
+}
+.calculatorwp_input_feild,select.calculatorwp_input_feild, .calculatorwp_input_feild_f,.calculatorwp_input_feild_small{
+	width: 98%;
+	border: 1px solid #ccc !important;
+	color: #333 !important;
+	border-radius: 13px !important;
+	padding: 0px 16.8px !important;
+	height: 40px;
+}
+.sl_shortcode_details_l{
+	padding:3px;
+}
+.calculatorwp_textare_input_feild{
+	width: 100%;
+	height: 100px;
+	border-radius: 10px;
+	padding: 15px;
+	font-size: 16px;
+	border: 3px solid #80808029;
+}
+.calculatorwp_title_feild{
+	font-size:14px;
+	padding-top:15px;
+	padding-bottom:5px;
 	color:#444c;
 }
 
-.simplelender_input{
+/*
+.calculatorwp_input{
  border-radius:5px;
  padding:30px;
  margin:20px;
  background:#fff;
+}*/
+.wrap .calculatorwp_input{
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+}
+.calculatorwp_title_feild{
+	padding:20px;
+}
+.calculatorwp_sub_title{
+	color: #7f7f7f !important;
+}
+.calculatorwp_sub_title {
+    text-align: left;
+	padding: 13px;
+	color: #808080b3;
+	font-size: 13px;
+	line-height: 1.4em;
+	background-color: #dedede1f;
+	border: 0px;
 }
 .sl_menu_html{
-	margin-left:25px;
-	margin-top:40px;
+}
+.subsubsub {
+    list-style: none;
+	margin: 25px 50px 0px auto;
+	padding: 0;
+	font-size: 13px;
+	float: left;
 }
 .sl_menu_item, .sl_menu_item:hover{
 	background-color:#05370699;
@@ -42,79 +459,215 @@
 	text-decoration:none;
 	border-radius:5px;
 }
-.sl_house_keeping_link, .sl_house_keeping{
-	color:;
-	text-decoration:none;
+.cwp_wrap{
+	padding: 10px 20px;
+	width: 96.8%;
+	border-radius: 15px;
+	overflow: auto;
 }
-.sl_list_name{
-	font-weight:600;
-	color:#444c;
+#wpfooter {
+	position:;
 }
-#simplelender_application, #simplelender_application, #simplelender_more_info, #simplelender_processed, #simplelender_repayment, #simplelender_close{
-	min-height:40px;
-	float:left;
-	color:#fff;
-	padding:30px 0px;
-	font-size:30px;
+.calculatorwp_email_title{
+	padding:10px;
+}
+.email_d{
+	padding: 6px;
+}
+
+.calculatorwp_title_feild_title{
+	float: left;
+	width: 25%;
+
+}
+.calculatorwp_title_feild_body_right{
+	float: left;
+}
+.calculatorwp_email_wrap{
+	border: 0px solid #80808029;
+	overflow: auto;
+	width: 95%;
+	padding: 20px;
+	border-radius: 20px;
+	background-color: #8ac68d21;
+}
+.sl_house_keeping_link{
+	color: #333;
+	text-decoration: none;
+	border: 0px solid gray;
+	padding: 8px 15px;
+	border-radius: 12px;
+	background-color: #8EFE8D;
+}
+.sl_house_keeping_link:focus, .sl_house_keeping_link:hover{
+	color: #333 !important;
+	text-decoration: ;
+	border-radius:;
+	padding: 10px 15px;
+	background-color: #8EFE8D;
+}
+
+.lp_com_header > a:hover{
+	color: #333 !important;
+}
+.sl_house_keeping{
+	color: gray;
+	text-decoration: none;
+	padding: 5px;
+	border-radius: ;
+	height: 28px;
+}
+.sl_list_name,.sl_list_single_item{
+	color:#333 !important;
+}
+.lp_com_header > a {
+	color:#333;
+}
+#calculatorwp_application, #calculatorwp_more_info, #calculatorwp_processed, #calculatorwp_repayment, #calculatorwp_close{
+	width: 92%;
+	margin: 10px 10px 18px 10px;
+	padding: 35px;
+	float: left;
+	background: #feffaf5e;
+	color: #333;
+	border-radius: 15px;
+	border: 1px solid #cccccc3b;
+	box-shadow: 0 5px 8px 0 #dcdcde38, 0 6px 10px 0 #dcdcdeb0 !important;
 }
 .sl_stat_flow_description{
-	font-size:12px;
+	font-size:18px;
 	padding-top:40px;
 }
-
-#simplelender_application{
-	width:23%;	
-	background-color:#02505080;
-	margin:1%;
-	padding:151px 2.5%;
-	font-size: 150px;
-}
-#simplelender_more_info{
-	width:43%;
-	background-color:#0f8726cc;
-	margin:1% 1% 1% 0%;
-	padding:75px 2.5%;
-}
-#simplelender_processed{
-	width:59%;
-	background-color:#4e4e00b3;
-	margin:1% 1% 1% 0%;
-	padding:69.5px 2.5%;
-	font-size: 50px;
-}
-#simplelender_repayment{
-	width:43%;
-	background-color:#05166b99;
-	margin:0% 1% 1% 0%;
-	padding:70px 2.5%;
-	font-size: 50px;
-}
-#simplelender_close{
-	width:13%;
-	background-color:#4b4a4db3;
-	padding:72px 1%;
-	font-size: 80px;
-}
-
-.simplelender_flow_stats{
-	min-height:50px;
-	padding:15px;
-}
-.simplelender_flow_stats_intro{
+.mainstats_name{
 	width:100%;
-	
 }
-.simplelender_application_top, .simplelender_close_top, .simplelender_repayment_top, .simplelender_adedcline_top, .simplelender_minfore_top{
-	background-color: #6e6e93c4;
-    color: #fff;
-    border-radius: 3px;
+.sl_activity_log{
+	margin: 14px 0px 0px 10px;
+	padding: 13px 25px;
+	width: 94%;
+	font-size: 15px;
+	background: #fff;
+	color: #333;
+	border-radius: 5px;
+	border: 0px solid #ccc4;
+	box-shadow: 0 5px 8px 0 #dcdcde42, 0 6px 10px 0 #dcdcdeba !important;
 }
-.simplelender_application_top_a{
-	color:#fff !important;
+.calculatorwp_log_list{
+	background: #8ac68d38;
+	padding: 40px 20px;
+	overflow: auto;
+	border-radius: 5px;
+	margin-top: 30px;
+}
+.cpw_sl_paginate_dash{
+	margin-top: 20px;
+	width: 100%;
+}
+.subsubsub_a {
+	line-height: 2;
+	padding: 7px 29px !important;
+	text-decoration: none;
+	color: #fff;
+	background: #424040;
+	border: 0px solid #04a6ae00;
+	margin-left: 8px;
+	border-radius: 20px;
+}
+.sl_whatsup{
+	color: #00ff54;
+	padding-left: 19px;
+	margin-top: 30px;
+}
+#calculatorwp_application{
+	width:;
+	margin: 10px;
+	padding: 55px 35px;
+	float: left;
+	background: #00800094;
+	color: #fff;
+	border-radius: 5px;
+	border: 1px solid #ccc5;
+	box-shadow: 0 5px 8px 0 #dcdcde38, 0 6px 10px 0 #dcdcdeb0 !important;
+	font-size: 30px;
+}
+#calculatorwp_more_info{
+	width:23%;
+	background-color:#00ff54;
+	float:left;
+	padding:150px 0px;
+	color: #333;
+}
+
+.calculatorwp_main_title{
+	background: ;
+	color: #494949;
+	padding: 15px 35px;
+	margin: 0px 0px 25px auto;
+	border: 0px #808080e0 solid;
+}
+
+.calculatorwp_main_title_shortcode{
+	border: 0px solid #cccccce3;
+	border-radius: 15px;
+	background: #8EFE8DBA;
+}
+
+.add-new-h2{
+	background: #8EFE8D !important;
+	color: #333 !important;
+	padding: 10px 15px !important;
+}
+
+.lp_right_a{
+	float: right !important;
+}
+h3.calculatorwp_main_title{
+	font-size: 1.2em;
+}
+#calculatorwp_processed{
+	width:;
+	background-color: rgba(142, 254, 141, 0.33);
+	float: left;
+	border-radius: 3px;
+}
+
+#calculatorwp_repayment{
+	width: 42%;
+	float: left;
+	border-radius: 3px;
+}
+#calculatorwp_close{
+	width: 42.5%;
+	background-color: #8dc68c5e;
+	float: left;
+	border-radius: 3px;
+}
+.calculatorwp_flow_stats{
+	overflow: auto;
+	border: 1px #8b8b8b73 solid;
+	border-radius: 5px;
+	padding: 20px;
+	background: #fff;
+	margin-top: 20px;
+}
+.calculatorwp_flow_stats_intro{
+	width:100%;
+}
+.calculatorwp_application_top, .calculatorwp_close_top, .calculatorwp_repayment_top, .calculatorwp_adedcline_top, .calculatorwp_minfore_top{
+	background: #feffaf;
+	color: #333;
+	border: 1px solid #feffaf;
+	padding: 8px 15px;
+	border-radius: 10px 15px;
+	cursor: pointer;
+	margin-top: 15px;
+	float: right;
+	margin-right: 10px;
+}
+.calculatorwp_application_top_a{
+	color:#333 !important;
 	text-decoration:none;
-}
-.simplelender_title_feild td{
-	padding:10px 25px;
+	font-size: 14px;
 }
 .loan_transactions_link{
 	float:right;
@@ -127,66 +680,83 @@
 	font-size:30px;
 	min-width:18%;
 }
-#simplelender_process_sumary{}
-#simplelender_more_info{}
-#simplelender_approved{}
-#simplelender_Declined{}
+#calculatorwp_process_sumary{}
+#calculatorwp_more_info{}
+#calculatorwp_approved{}
+#calculatorwp_Declined{}
 
-.simplelender_input_feild{
+/*
+.calculatorwp_input_feild{
 	width:;
 	height:35px;
 	border-radius:4px;
 	padding:5px;
 	font-size:16px;
+}*/
+
+
+.calculatorwp_title_feild{
+	padding: 15px !important;
+	max-width: 80px !important;
+	color: #333333e8;
+	border-radius: 5px;
 }
 
-.simplelender_title_feild{
-	font-size:14px;
-	padding-top:15px;
-	padding-bottom:5px;
-	font-weight:600;
-	color:#444c;
+.cwp_coms_wrap_outer{
+	background-color: #8ac68d42;
+	padding: 30px;
+	border-radius: 10px;
+	border: 0px solid #d3d3d396;
 }
 
-.simplelender_input{
+.calculatorwp_list_table{
+	padding: 30px 20px;
+	border: 0px solid #c4c2c23d !important;
+	border-radius: 15px;
+}
+
+/*
+.calculatorwp_input{
  border-radius:5px;
  padding:30px;
  margin:20px;
  background:#fff;
 }
-.simplelender_menu_html{
+*/
+
+.calculatorwp_menu_html{
 	margin-left:25px;
 	margin-top:40px;
 }
-.simplelender_menu_item_active, .sl_menu_item:hover{
+.calculatorwp_menu_item_active, .sl_menu_item:hover{
 	background-color:#05370699;
 	color:#fff;
 	padding:10px;
 	text-decoration:none;
 	border-radius:2px;
 }
-.simplelender_menu_item, .sl_menu_item:hover{
+.calculatorwp_menu_item, .sl_menu_item:hover{
 	background-color:gray;
 	color:#fff;
 	padding:4px 10px;
 	text-decoration:none;
 	border-radius:2px;
 }
-.simplelender_house_keeping{
+.calculatorwp_house_keeping{
 	width: 100px;
 }
-.simplelender_list_name{
+.calculatorwp_list_name{
 	font-weight:600;
 	color:#444c;
 }
-.simplelender_list_table{
-	padding-bottom:15px;
-	width:100%;
+.calculatorwp_list_table{
+	width: 100%;
+	margin-bottom: 30px;
+	border: 1px solid #80808021 !important;
+	background: #fff;
+	box-shadow: 0 5px 8px 0 #dcdcde38, 0 6px 10px 0 #808082e8 !important;
 }
-.simplelender_title_feild td{
-	padding:10px 25px;
-}
-.simplelender_dash_link{
+.calculatorwp_dash_link{
 	min-height:40px;
 	float:left;
 	color:#fff;
@@ -194,23 +764,26 @@
 	font-size:30px;
 	min-width:18%;
 }
-.simplelender_add_node{
-	padding:5px 30px;
-	border-radius:5px;
+.calculatorwp_add_node{
+	padding: 10px 15px;
+	border-radius: 15px;
+	background: #8EFE8D;
+	border: 0px solid coral;
+	color: #333;
 }
-.simplelender_close_recipient_class, .simplelender_close_url_class, .simplelender_close_args_class{
+.calculatorwp_close_recipient_class, .calculatorwp_close_url_class, .calculatorwp_close_args_class{
 	cursor:pointer;
 }
-.simplelender_menu_item_a{
+.calculatorwp_menu_item_a{
 	padding:20px;
 	color:#fff;
 	text-decoration:none;
 }
-#simplelender_webhook_input{
+#calculatorwp_webhook_input{
 	
 }
 
-#simplelender_webhook_tags{
+#calculatorwp_webhook_tags{
 	float:left;	
 	padding:60px 50px;
 	background:#fff;
@@ -218,15 +791,15 @@
 	border-radius:5px;
 }
 
-#simplelender_webhook_input{
+#calculatorwp_webhook_input{
 	float:left;	
 	padding:30px;
 	min-width:60%;
 }
-.simplelender_post_tags {
+.calculatorwp_post_tags {
 	display:none;
 }
-#right_simplelender_menu_item{
+#right_calculatorwp_menu_item{
 	float:right !important;
 }
 a:active, a:focus {
@@ -245,7 +818,7 @@ a:active, a:focus {
  code:active {
 	 border:1px red solid;
  }
- div#simplelender_dash_menu{
+ div#calculatorwp_dash_menu{
 	float:left;
 	width:30%;
 }
@@ -255,37 +828,51 @@ a:active, a:focus {
 	border-top:1px solid #8080801a;
 }
 .sl_list_message_details{
-	font-size:10px;
+	font-size: 10px;
+	background: #adff2f3d;
+	padding: 4px 15px;
+	border-radius: 2px;
 }
-#simplelenderMessageSubmitButton{
-	width:30%;
-	color:#fff;
-	background:#05370699;
-	padding:10px;
-	border-radius:26px;
-	border:1px #05370699 solid;
-	font-size:20px;
-	margin-top:5px;
-	float:right;
+.sl_list_single_message{
+	margin-bottom: 10px ;
+}
+#calculatorwpMessageSubmitButton{
+	width: 100%;
+	background: #02b301;
+	color: #fff;
+	border: 0px SOLID ORANGE;
+	padding: 10px;
+	border-radius: 25px;
+	margin-top: 15px;
+	cursor: pointer;
+	border: 0px solid;
+	color: #fff;
 }
 .sl_menu_sub_item{
-	background-color:gray;
-	color:#fff;
-	padding:15px;
-	text-decoration:none;
-	border-radius:5px;
-	float:right;
+	background: #feffaf;
+	color: #333;
+	border: 1px solid #feffaf;
+	padding: 8px 15px;
+	border-radius: 10px 15px;
+	cursor: pointer;
+	margin-top: 15px;
+	float: right;
+	margin-right: 10px;
 }
-#simplelender_dash_content{
+#calculatorwp_dash_content{
 	border:1px #93aab0 solid;
 }
 .sl_house_keeping{
 	color:#69686866;
 }
 .sl_list_single_item{
-	padding:6px 30px;
+	padding: 10px 20px;
+	height: 10px;
+	border-bottom: 0px solid #ccc3;
+	background: #fff;
+	border-radius: 5px;
 }
-.simplelender_input_feild_small{
+.calculatorwp_input_feild_small{
 	float:left;
 	height: 28px;
 	border-radius: 4px;
@@ -293,14 +880,70 @@ a:active, a:focus {
 	font-size: 16px;
 }
 .sl_submit_button{
-	height: 30px;
-	border-radius: 4px;
-	padding: 5px 25px;
-	font-size: 14px;
-	background: #0085ba;
-	border: #0085ba;
-	box-shadow: 0 1px 0 #006799;
+	width: 30%;
+	background: #02b301;
 	color: #fff;
-	text-decoration: none;
-	text-shadow: 0 -1px 1px #006799,1px 0 1px #006799,0 1px 1px #006799,-1px 0 1px #006799;
+	border: 0px SOLID ORANGE;
+	padding: 10px;
+	border-radius: 13px;
+	margin-top: 30px;
+	cursor: pointer;
+	border: 0px solid;
+	color: #fff;
+}
+.calculatorwp_ns_single{
+	padding: 10px 20px;
+	margin: 2px;
+	background: #17c21a54;
+	border-radius: 15px;
+	float: left;
+}
+.lp_com_header{
+	background-color: #8EFE8D;
+	color: #333;
+	float: right;
+	margin: 5px 0px 5px 8px !important;
+	border: 0px solid #7d9d3a4a;
+	padding: 5px 15px !important;
+	border-radius: 15px;
+	cursor: pointer;
+}
+.lp_com_top_parent{
+	float: right !important;
+	margin: 25px 30px auto !important;
+}
+#calculatorwp_mailchimp_api_key{
+	border-radius: 30px;
+	padding: 0px 20px !important;
+	border: 0px;
+}
+#wpbody-calculator {
+	padding-bottom: 65px;
+	float: left;
+	overflow: visible;
+	background: #fff!important;
+	width: 95% !important;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 5px 8px 0 rgb(151 151 151 / 10%), 0 6px 10px 0 rgb(118 118 118 / 10%) !important;
+	margin-top: 30px;
+}
+table.widefat{
+	border: 1px solid #959595 !important;
+	border-radius: 10px;
+}
+.cwp_borrower_wrapper{
+	background-color: #8ac68d42;
+	padding: 30px;
+	border-radius: 10px;
+	border: 0px solid #d3d3d396;
+}
+.calculatorwp_client_acc_edit, .calculatorwp_clientaccount_add, .calculatorwp_clientloans_index, .calculatorwp_clientloans_process, .calculatorwp_clientloans_goal_info, .calculatorwp_clientloans_more_loan_info, .calculatorwp_loansettings_index, .calculatorwp_loansettings_edit{
+	background: #8ac68d42;
+	border-radius: 10px;
+	padding: 20px 18px;
+	border: 0px solid #d3d3d39e;
+}
+.calculatorwp_title_feild_app{
+	font-size: 13px;
 }

@@ -1,5 +1,5 @@
 <tr style="width:100%;">
-    <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   //echo $this->html->traffic_manager_link($object); ?>
+    <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   ?>
 	<td class="sl_list_single_item">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->client_id))

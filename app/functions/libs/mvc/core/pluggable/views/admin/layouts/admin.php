@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="cwp_wrap">
 
 <?php $this->display_flash(); ?>
 
