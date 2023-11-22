@@ -6,7 +6,7 @@
 
             <center>
                 <div id="calculatorwp_application"><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo mvc_model('calculatorwpClientloan')->count(array('conditions'=>array('loan_stage'=>1))); ?> <span class="sl_stat_flow_description_main">New Applications</span></div>
-                <div id="calculatorwp_processed"><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo mvc_model('calculatorwpClientloan')->count(array('conditions'=>array('loan_stage'=>array('2','4')))); ?> <br><span class="sl_stat_flow_description">Viewed & Processing</span></div>
+                <div id="calculatorwp_processed"><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo mvc_model('calculatorwpClientloan')->count(array('conditions'=>array('loan_stage'=>array('2','4')))); ?> <span class="sl_stat_flow_description">Viewed & Processing</span></div>
                 <div id="calculatorwp_repayment"><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo mvc_model('calculatorwpClientloan')->count(array('conditions'=>array('loan_stage'=>3))); ?> <br><span class="sl_stat_flow_description">Approved </span></div>
                 <div id="calculatorwp_close"><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo mvc_model('calculatorwpClientloan')->count(array('conditions'=>array('loan_stage'=>5))); ?> <br><span class="sl_stat_flow_description">Declined</span></div>
             </center>
@@ -43,3 +43,4 @@
 	</div>
     
 </div>
+
