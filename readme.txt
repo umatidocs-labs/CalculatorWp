@@ -1,4 +1,5 @@
 === calculatorwp ===
+
 Contributors: WPlendev, freemius
 Tags: calculator, loan, mortgagemortgage calculator, responsive mortgage calculator, loan application, loan management system, mortgage calculator, affiliate, loan affiliate marketing, responsive, loan company, leadsgate
 Donate link:

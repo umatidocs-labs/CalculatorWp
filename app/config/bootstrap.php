@@ -7,16 +7,16 @@ MvcConfiguration::set(array(
 $sl_menu_item = array(
     'AdminPages' => array(
     	'calculatorwp_clientloannotes' => array(
-            'icon'=>'dashicons-bank',
-            'label'=>'CalculatorWP',
-            'add'=> array(
-                'label' => 'CalculatorWP',
-                'in_menu' => false,
+                'icon'=>'dashicons-bank',
+                'label'=>'CalculatorWP',
+                'add'=> array(
+                    'label' => 'Statistics',
+                    'in_menu' => false,
+                ),
             ),
-        ),
         'calculatorwp_clientloans' => array(
             'icon'=>'dashicons-chart-area',
-            'label'=>'Loan Applications',
+            'label'=>'Applications',
             'add'=> array(
                     'label' => null,
                     'in_menu' => false,
@@ -49,7 +49,7 @@ $sl_menu_item = array(
         ),
     	'calculatorwp_loansettings' => array(
             'icon'=>'dashicons-bank',
-			'label'=>'Loan Products',
+			'label'=>'Products',
 			'add'=> array(
                 'label' => 'Statistics',
                 'in_menu' => false,
@@ -74,7 +74,7 @@ $sl_menu_item = array(
         ),
         'calculatorwp_messages' => array(
             'icon'=>'dashicons-chart-area',
-            'label'=>'Messages/ Emails',
+            'label'=>'Communications',
             'add'=> array(
                 'label' => 'Statistics',
                 'in_menu' => false,
@@ -165,7 +165,7 @@ $sl_menu_item = array(
                 'label' => __('add', 'wpmvc'). ' ',
                 'in_menu' => false
             ),
-            'parent_slug'=>'mvc_calculatorwp_clientloans',
+            'parent_slug'=>'mvc_calculatorwp_clientloannotes',
         ),
         'calculatorwp_webhook_logs' => array(  
             'icon'=>'dashicons-chart-area',
@@ -237,7 +237,7 @@ $sl_menu_item = array(
                     'label' => __('edit', 'wpmvc'). ' ',
                     'in_menu' => false
                 ),
-                'parent_slug'=>'mvc_calculatorwp_messages',
+                 'parent_slug'=>'mvc_calculatorwp_messages',
         ),
     )
 );
@@ -248,7 +248,7 @@ add_action('admin_init', 'calculatorwp_on_mvc_admin_init');
 add_action('wp_enqueue_scripts','calculatorwp_public_resources');
 
 function calculatorwp_public_resources($options) {
-    wp_enqueue_style('sl_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'style_public'));
+   wp_enqueue_style('sl_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'style_public'));
     
     // Load the datepicker script (pre-registered in WordPress).
     wp_enqueue_script( 'jquery-ui-datepicker' );
@@ -271,27 +271,27 @@ function calculatorwp_public_resources($options) {
 
 
     //CSS files
-    wp_enqueue_style('ps_boards_a_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'style_candidate_public.css' ) ) ;
+    wp_enqueue_style('ps_boards_a_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'style_candidate_public' ) ) ;
 
-    wp_enqueue_style('ps_boards_b_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'bootstrap-reboot.min.css' ) );
+    wp_enqueue_style('ps_boards_b_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'bootstrap-reboot.min'));
 
-    wp_enqueue_style('ps_boards_c_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'bootstrap-grid.min.css' ) );
+    wp_enqueue_style('ps_boards_c_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'bootstrap-grid.min'));
 
-    wp_enqueue_style('ps_boards_d_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'owl.carousel.min.css' ) );
+    wp_enqueue_style('ps_boards_d_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'owl.carousel.min'));
 
-    wp_enqueue_style('ps_boards_e_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'nouislider.min.css' ) );
+    wp_enqueue_style('ps_boards_e_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'nouislider.min'));
 
-    wp_enqueue_style('ps_boards_d_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'select2.min.css' ) );
+    wp_enqueue_style('ps_boards_d_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'select2.min'));
 
-    wp_enqueue_style('ps_boards_e_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'jquery.mCustomScrollbar.min.css' ) );
+    wp_enqueue_style('ps_boards_e_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'jquery.mCustomScrollbar.min'));
 
-    wp_enqueue_style('ps_boards_f_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'ionicons.min.css' ) );
+    wp_enqueue_style('ps_boards_f_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'ionicons.min'));
 
-    wp_enqueue_style('ps_boards_g_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'main.css' ) );
+    wp_enqueue_style('ps_boards_g_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'main'));
 
-    wp_enqueue_style('ps_boards_h_style_public', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css' );
+    wp_enqueue_style('ps_boards_h_style_public', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
 
-    wp_enqueue_style('ps_boards_i_style_public', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap2-toggle.min.css' );
+    wp_enqueue_style('ps_boards_i_style_public', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap2-toggle.min.css');
 
 
     // Load the datepicker script (pre-registered in WordPress).
@@ -352,7 +352,8 @@ function calculatorwp_public_resources($options) {
 
 }
 
-function calculatorwp_on_mvc_admin_init($options) {   
+function calculatorwp_on_mvc_admin_init($options) {
+    
     wp_enqueue_style('sl-mvc_admin', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'style'));
    
     //Core media script
@@ -379,7 +380,9 @@ function calculatorwp_on_mvc_admin_init($options) {
     wp_localize_script( 'calculatorwp-media-lib-uploader-js', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 }
 
-function my_hidden_submenu_page(){ //remove it
+function my_hidden_submenu_page(){
+
+    //remove it
     remove_submenu_page('mvc_calculatorwp_clientloannotes','mvc_calculatorwp_clientloans-process');
 
 }

@@ -5,11 +5,11 @@ function test_variables(){
 
     // var_dump($get_current_blog_id) ;
 
-    // echo 'hallo 1';
+    echo 'hallo 1';
 
 }
 
-// add_action( 'wp_footer' , 'test_variables' );
+add_action( 'wp_footer' , 'test_variables' );
 
 class calculatorwpLoader extends MvcPluginLoader {
 
@@ -37,7 +37,8 @@ class calculatorwpLoader extends MvcPluginLoader {
     
         add_option('calculatorwp_db_version', $this->db_version);
         
-        $t_prefix= WP_DC_CURRENT_BLOG_ID; // Use dbDelta() to create the tables for the app here
+        $t_prefix= WP_DC_CURRENT_BLOG_ID;
+        // Use dbDelta() to create the tables for the app here
         
         $sql = ["CREATE TABLE IF NOT EXISTS `".$t_prefix."calculatorwp_account` (
                 `id` int(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
@@ -405,8 +406,10 @@ class calculatorwpLoader extends MvcPluginLoader {
 
     function deactivate() {
     
-        // This call needs to be made to deactivate this app      
+        // This call needs to be made to deactivate this app
+        
         $this->deactivate_app(__FILE__);
+        
         // Perform any databases modifications related to plugin deactivation here, if necessary
     
     }

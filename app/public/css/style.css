@@ -524,17 +524,19 @@ p.login-password{
 .lp_com_header > a {
 	color:#008b00;
 }
+
 #calculatorwp_application, #calculatorwp_more_info, #calculatorwp_processed, #calculatorwp_repayment, #calculatorwp_close{
-	width: 92%;
-	margin: 10px 10px 18px 10px;
-	padding: 35px;
+	width: 20%;
+	margin: 0px 10px 0px 0px;
+	padding: 50px 25px;
 	float: left;
 	background: #feffaf;
-	color: #333;
-	border-radius: 15px;
+	color: #323232;
+	border-radius: 5px;
 	border: 1px solid #cccccc3b;
-	box-shadow: 0 5px 8px 0 #dcdcde38, 0 6px 10px 0 #dcdcdeb0 !important;
+	box-shadow: 0 5px 8px 0 #15151538, 0 6px 10px 0 #dcdcdeb0 !important;
 }
+
 .sl_stat_flow_description{
 	font-size:18px;
 	padding-top:40px;
@@ -548,20 +550,21 @@ p.login-password{
 .sl_activity_log{
 	margin: 18px 0px 0px 10px;
 	padding: 13px 35px;
-		width: 94%;
-		font-size: 15px;
-		background: #fff;
-		color: #333;
-		border-radius: 25px;
-		border: 0px solid #ccc4;
-		box-shadow: 0 5px 8px 0 #dcdcde42, 0 6px 10px 0 #8d8d8dc4 !important;
-}
-.calculatorwp_log_list{
-	background: #8ac68d38;
-	padding: 40px 20px;
-	overflow: auto;
+	width: 94%;
+	font-size: 15px;
+	background: #fff;
+	color: #333;
 	border-radius: 25px;
-	margin-top: 30px;
+	border: 0px solid #ccc4;
+	box-shadow: 0 5px 8px 0 #dcdcde42, 0 6px 10px 0 #8d8d8dc4 !important;
+}
+
+.calculatorwp_log_list{
+	background: #8ac68d1f;
+	padding: 10px;
+	overflow: auto;
+	border-radius: 5px;
+	/*margin-top: 30px;*/
 }
 .cpw_sl_paginate_dash{
 	margin-top: 20px;
@@ -581,24 +584,6 @@ p.login-password{
 	color: #00ff54;
 	padding-left: 19px;
 	margin-top: 30px;
-}
-#calculatorwp_application{
-	margin: 10px;
-	padding: 25px 35px;
-	float: left;
-	background: #ffbf004a;
-	color: #333333e5;
-	border-radius: 15px;
-	border: 0px solid #ccc5;
-	box-shadow: 0 5px 8px 0 #dcdcde38, 0 6px 10px 0 #5a575775 !important;
-	font-size: 26px;
-}
-#calculatorwp_more_info{
-	width:23%;
-	background-color:#00ff54;
-	float:left;
-	padding:150px 0px;
-	color: #333;
 }
 
 .calculatorwp_main_title{
@@ -630,32 +615,33 @@ h3.calculatorwp_main_title{
 #calculatorwp_processed{
 	background-color: rgba(142, 254, 141, 0.6);
 	float: left;
-	border-radius: 15px;
+	border-radius: 5px;
+	margin-right: 10px;
 	border: 1px solid #80808012;
 	box-shadow: 0 5px 8px 0 #dcdcde38, 0 6px 10px 0 #5a575775 !important;
 	font-size: 28;
 	color: #333333e3;
 }
-
 #calculatorwp_repayment{
-	width: 42%;
+	width: 20%;
 	float: left;
-	border-radius: 15px;
+	border-radius: 5px;
 }
 #calculatorwp_close{
-	width: 42.5%;
-	background-color: #8dc68c5e;
+	width: 20%;
+	background-color: #6560ff5e;
 	float: left;
-	border-radius: 15px;
+	border-radius: 5px;
 }
 .calculatorwp_flow_stats{
 	overflow: auto;
-	border: 1px #8b8b8b2a solid;
-	border-radius: 25px;
-	padding: 30px 20px;
-	background: #fff;
-	margin-top: 25px;
+	border: 0px #8a8a8a2b solid;
+	border-radius: 5px;
+	padding: 50px 0px;
+	background: ;
+	margin-top: 0px;
 }
+
 .calculatorwp_flow_stats_intro{
 	width:100%;
 }
