@@ -1,6 +1,7 @@
 <?php
 
 /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */
+
 /*
 Plugin Name: StreamlineMortgage-master
 Plugin URI: https://www.StreamlineMortgage.com/
@@ -55,7 +56,7 @@ if ( ! function_exists( 'cowp_fs' ) ) {
     do_action( 'cowp_fs_loaded' );
 }
 
-error_reporting(0);
+error_reporting( 0 );
 
 if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
     
@@ -101,13 +102,15 @@ if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
         function calculatorwp_activate()
         {
             ob_start();
+
             global  $wp_rewrite ;
             require_once dirname( __FILE__ ) . '/calculatorwp_loader.php';
             $loader = new calculatorwpLoader();
             $loader->activate();
             $wp_rewrite->flush_rules( true );
+            
             ob_get_clean();
-            ///GFForms::activation_hook();
+            GFForms::activation_hook();
         }
     
     }
@@ -141,8 +144,8 @@ if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
         }
     
     }
-    //register_activation_hook( __FILE__, 'calculatorwp_activate' );
-    //register_deactivation_hook( __FILE__, 'calculatorwp_deactivate' );
+    register_activation_hook( __FILE__, 'calculatorwp_activate' );
+    register_deactivation_hook( __FILE__, 'calculatorwp_deactivate' );
     add_action(
         'init',
         'calculatorwp_loadmanager',

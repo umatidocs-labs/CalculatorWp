@@ -15,7 +15,7 @@ if ( simplemortgage_plugin_active( "gravityforms-master/gravityforms.php" ) ||  
 }
 else{
 	if( !class_exists('GFForms') ){
-		// require_once dirname(__FILE__).'/gf/gravityforms.php';
+		require_once dirname(__FILE__).'/gf/gravityforms.php';
 	}
 }
 
