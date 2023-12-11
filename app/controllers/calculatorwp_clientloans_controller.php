@@ -44,9 +44,7 @@ class CalculatorwpClientloansController extends MvcPublicController {
 		}
 	}
 
-	public function display_form(){
-
-	}
+	public function display_form(){}
 	
 	public function add() {		
 		

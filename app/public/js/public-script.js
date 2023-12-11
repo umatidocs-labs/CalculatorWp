@@ -30,8 +30,8 @@ jQuery(document).ready(function($) {
 		$("a[href$='"+value_name+"").parent().remove();
 	});
 	
-    sl_loan_app_amount=0;
-	sl_loan_app_period =0;
+    sl_loan_app_amount = 0;
+	sl_loan_app_period = 0;
 	sl_loan_periods_full_names={
 		'd':'day(s)',
 		'w':'week(s)',
@@ -305,6 +305,17 @@ jQuery(document).ready(function($) {
 				calculatorwp_loan_product_display.update_display_values_on_slider_change();
 				calculatorwp_loan_product_display.change_calculator_numbers();
 			});
+
+			$('.sl_home_value').keyup(function(){
+				calculatorwp_loan_product_display.update_display_values_on_slider_change();
+				calculatorwp_loan_product_display.change_calculator_numbers();
+			});
+
+			$('.sl_home_downpayment').keyup(function(){
+				calculatorwp_loan_product_display.update_display_values_on_slider_change();
+				calculatorwp_loan_product_display.change_calculator_numbers();
+			});
+
 			$('#'+sl_active_loan.term_slider).keyup(function(){
 				calculatorwp_loan_product_display.update_display_values_on_slider_change();
 				calculatorwp_loan_product_display.change_calculator_numbers();

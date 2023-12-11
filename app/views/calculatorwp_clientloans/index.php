@@ -27,9 +27,9 @@ else{
 		<table id="calculatorwp_loan_dash">
 			
 			<tr>
-				<td class="calculatorwp_sub_title" ><center><b>Loan Application ID</b></center></td>
-				<td class="calculatorwp_sub_title"><center><b>Loan Name</b></center></td>
-				<td class="calculatorwp_sub_title"><center><b>Stage</b></center></td>
+				<td class="calculatorwp_sub_title" ><center>Loan Application ID</center></td>
+				<td class="calculatorwp_sub_title"><center>Loan Name</center></td>
+				<td class="calculatorwp_sub_title"><center>Stage</center></td>
 				<td class="calculatorwp_sub_title"></td>
 			</tr>
 			<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   foreach ($objects as $object): ?>

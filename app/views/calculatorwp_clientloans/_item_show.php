@@ -42,7 +42,7 @@
 	<td class="calculatorwp_sub_body"><center>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->id)){
-				echo "<a class='sl_menu_item_front_view' href=".mvc_public_url(array('controller' => 'calculatorwp_messages', 'action' => 'create_ticket','id'=>$object->id)).">Raise an Issue</a>";
+				echo "<a class='sl_menu_item_front_view' href=".mvc_public_url(array('controller' => 'calculatorwp_messages', 'action' => 'create_ticket','id'=>$object->id)).">Create Ticket</a>";
         	}
 			else
 				echo '---';

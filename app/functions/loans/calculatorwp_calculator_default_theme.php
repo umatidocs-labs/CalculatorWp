@@ -29,8 +29,10 @@ class calculatorwp_calculator_default_theme{
 		// var_dump($calculatorwpLoansetting);
 		$primary_form = '
 		<form enctype="application/x-www-form-urlencoded" action="" method="post">
-            <div class="sl_loan_ap_primary_title_feild">Mortgage Amount</div>
             <div class="max_amount sl_amount_section">
+				<div class="sl_loan_ap_primary_title_feild">
+					<center>Mortgage Amount<center>
+				</div>
     			<input type="hidden" min="0" placeholder="Enter a number" id="sl_loan_app_amount_'.$calculatorwpLoansetting->id.'" value="" class="sl_loan_app_amount sl_loan_app_amount_'.$calculatorwpLoansetting->id.' input_option_selector_'.$calculatorwpLoansetting->id.' sl_loan_ap_primary_input_feild large-text">
 				<center>
 				<div class="sl_loan_app_amount_display sl_loan_app_amount_display_'.$calculatorwpLoansetting->id.'">

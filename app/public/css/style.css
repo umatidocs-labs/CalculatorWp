@@ -12,7 +12,10 @@
     padding-left: 10%;
     padding-right: 10%;
 }
-
+.calculatorwp_title_feild > td{
+	padding: 13px 30px 0px 10px;
+	border: px solid gray;
+}
 .sl_repayment{
 	float:left;
 	margin-right:10px;
