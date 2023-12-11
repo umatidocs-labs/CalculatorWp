@@ -15,13 +15,13 @@
 				</td>				
 				<td class="sl_shortcode_details_l">
 					<span class="sl_shortcode_details"> 
-						[calculatorwp product=<?php echo $object->id; ?> ]
+						[streamlinemortgage product=<?php echo $object->id; ?> ]
 					</span> 
 				<td>
 			</tr>
 			<tr>
 				<td>Display all Loans :</td>
-				<td  class="sl_shortcode_details_l"><span class="sl_shortcode_details">[calculatorwp_all_loans]</span></td>
+				<td  class="sl_shortcode_details_l"><span class="sl_shortcode_details">[streamlinemortgage_all_loans]</span></td>
 			</tr>
 			<tr>
 				<td>
@@ -69,7 +69,7 @@
 		Maximum Loan Amount
 	</td>	
 	<td>
-		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->input('max_amount', array('placeholder' => '', 'label' => '','class'=>'calculatorwp_input_feild'),  array('style' => ''));?>
+		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */ echo $this->form->input('max_amount', array('placeholder' => '', 'label' => '','class'=>'calculatorwp_input_feild'),  array('style' => ''));?>
 	</td>
 </tr>
 <tr>

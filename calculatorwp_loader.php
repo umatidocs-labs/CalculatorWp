@@ -1,11 +1,9 @@
 <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  
 function test_variables(){
 
-    $get_current_blog_id = WP_DC_CURRENT_BLOG_ID; //get_current_blog_id();
+    $get_current_blog_id = WP_DC_CURRENT_BLOG_ID; //get_current_blog_id(); // var_dump($get_current_blog_id) ;
 
-    // var_dump($get_current_blog_id) ;
-
-    echo 'hallo 1';
+    // echo 'hallo 1';
 
 }
 

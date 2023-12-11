@@ -4,12 +4,13 @@
 
 /*
 Plugin Name: StreamlineMortgage-master
-Plugin URI: https://www.StreamlineMortgage.com/
+Plugin URI: https://www.naiwealth.com/
 Description: A complete loan origination tool for lenders on wordpress.
-Author: StreamlineMortgage-master
-Version: 2.6.1
-Author URI: https://www.StreamlineMortgage.com/
+Author: Naiwealth
+Version: 2.6.8
+Author URI: https://www.naiwealth.com/
 */
+
 
 if ( ! function_exists( 'cowp_fs' ) ) {
     // Create a helper function for easy SDK access.

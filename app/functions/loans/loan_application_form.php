@@ -13,13 +13,11 @@ class calculatorwp_gravity_form_manager {
     }
 
     public function load_hooks(){
-
-        add_shortcode('calculatorwp',array($this,"display_form_for_loan"));
-        add_shortcode('calculatorwp_all_loans',array($this,"do_loan_dropdown"));        
+        add_shortcode('streamlinemortgage',array($this,"display_form_for_loan"));
+        add_shortcode('streamlinemortgage_all_loans',array($this,"do_loan_dropdown"));
         add_action('gform_after_submission', array($this,'submit_form_for_loan'), 10, 2 );
 		add_action("wp_ajax_nopriv_sl_submit_form_for_loan",  array($this, "process_primary_form"));
         add_action("wp_ajax_sl_submit_form_for_loan",  array($this, "process_primary_form"));
-
     }
     
     /*-------------------  Session Management  --------------------*/
@@ -97,7 +95,7 @@ class calculatorwp_gravity_form_manager {
         */
         
         foreach ($param as $key => $value) {
-                $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"][$key] = $value;
+            $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"][$key] = $value;
         }
 
     }
@@ -123,29 +121,29 @@ class calculatorwp_gravity_form_manager {
     public function navigator_core($loan_session=''){
 
         $this->gravity_form_skipper($loan_session);
-        $loan_session = $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"];        
+        $loan_session = $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"];
         
         //if loan and submitted see what stage
         switch ($loan_session['stage']) {
+
             case "primary":
+
                 if($loan_session['submission_stage']=='saving_complete'){//move to next step
-                    $this->primary_to_secondary($loan_session); 
+                    $this->primary_to_secondary($loan_session);
                 }
                 else{
-
                     $this->display_primary_form([
                         "form_id"=>$loan_session['form_id'],
                         'product_id'=>$loan_session['product_id']
                     ]);
-
                 }
+
                 break;
                 
             case "secondary":
-
+                // $this->goal_to_final_redirect($loan_session);
                 if( $loan_session['submission_stage'] == 'saving_complete' ){
-                    //$this->secondary_to_goal($loan_session);
-                    $this->goal_to_final_redirect($loan_session);
+                    $this->secondary_to_goal($loan_session);
                 }
                 else{
                     $this->primary_to_secondary($loan_session);
@@ -153,14 +151,13 @@ class calculatorwp_gravity_form_manager {
 
                 break;
                 
-            case "goal":
-
-                // if($loan_session['submission_stage']=='saving_complete'){
-                    // $this->goal_to_final_redirect($loan_session);
-                // }
-                //else{
-                //    $this->secondary_to_goal($loan_session);
-                //}
+            case "goal":                
+                if($loan_session['submission_stage']=='saving_complete'){
+                    $this->goal_to_final_redirect($loan_session);
+                }
+                else{
+                    $this->secondary_to_goal($loan_session);
+                }
 
                 break;
                 
@@ -180,18 +177,18 @@ class calculatorwp_gravity_form_manager {
         $goal_gf_id = mvc_model('calculatorwpLoansetting')->find_by_id($loan_session['product_id'])->goal_form;
         
         if ($loan_session['stage']=='primary') {
-            if (!is_numeric($secondary_gf_id) || $secondary_gf_id<1 || is_null($secondary_gf_id) ){
+            //if (!is_numeric($secondary_gf_id) || $secondary_gf_id<1 || is_null($secondary_gf_id) ){
                 //move to next step
                 $this->loan_process_session_set(["stage"=>'secondary',"submission_stage"=>"saving_complete"]);                   
-            }
+            //}
         }
         $loan_session = $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"];        
         
         if ($loan_session['stage']=='secondary') {
-            if (!is_numeric($goal_gf_id) || $goal_gf_id<1 || is_null($goal_gf_id)) {
+            //if (!is_numeric($goal_gf_id) || $goal_gf_id<1 || is_null($goal_gf_id)) {
                 //move to next step
                 $this->loan_process_session_set(["stage"=>'goal',"submission_stage"=>"saving_complete"]);
-            }
+            //}
         }
         
     }
@@ -251,17 +248,27 @@ class calculatorwp_gravity_form_manager {
     
     //transition form second to third display
     public function secondary_to_goal(){//template for goal
+
         /* Set next stage = goal */
-        $this->loan_process_session_set(["stage"=>'goal',"submission_stage"=>"form_imput",'object_type'=>'spending_goal']);
+        $this->loan_process_session_set([
+            "stage"=>'goal',
+            "submission_stage"=>'saving_complete',//"form_imput",
+           // 'object_type'=> 'spending_goal', //'spending_goal'
+        ]);
+        // $this->loan_process_session_set(["stage"=>'goal',"submission_stage"=>"saving_complete"]);
         $ses_dat = $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"];
-        $gf_id = mvc_model('calculatorwpLoansetting')->find_by_id($ses_dat['product_id'])->goal_form;      
-		//echo "goal!";
+        $gf_id = mvc_model('calculatorwpLoansetting')->find_by_id($ses_dat['product_id'])->goal_form;
+        // new redirect
+        // $this->sl_display_html = calculatorwp_class('calculatorwp_account')->user_gate();
+        
+		//echo "goal form!";
         $this->sl_display_html = '<div class="sl_gform_manager">'.do_shortcode('[gravityform id="'.$gf_id.'" title="false" description="false" ajax="false"]').'</div>';
     }
     
     //transition from third display to account
     public function goal_to_final_redirect($param = '') {
        $this->sl_display_html = calculatorwp_class('calculatorwp_account')->user_gate();
+       // var_dump($this->sl_display_html );
     }
 
     public function display_form_for_loan($atts){ //primary / secondary
@@ -269,7 +276,7 @@ class calculatorwp_gravity_form_manager {
 		if(array_key_exists("calculatorwp",$_SESSION)){
 			$loan_session = $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"];
 		}
-		else{$loan_session =[];}
+		else{ $loan_session =[]; }
 		
 		if (is_array($loan_session)) {
             //@todo think of possible errors
@@ -292,6 +299,7 @@ class calculatorwp_gravity_form_manager {
 
     /* Submit form data */
 	public function process_primary_form(){
+
         if (isset($_POST['sp_product_id'])) {
             $this->loan_process_session_set([
                 'product_id'=>$_POST['sp_product_id']
@@ -313,20 +321,14 @@ class calculatorwp_gravity_form_manager {
             $loan_id = mvc_model("calculatorwpClientloan")->create([
 
 				"amount_needed"=>$param["sl_loan_amount"],
-
 				"term"=>$param["sl_loan_term"],
-
 				"term_period"=>$param["sl_loan_term_period"],
-
 				"goal_id"=>$spending_goal_id,
-
 				"loan_setting_id"=>$loan_application['product_id'],
-
 				"loan_stage"=>1,
-
 				//"client_id"=>$loan_application["session_id"],
-
 				"loan_setting_id"=>$loan_application['product_id']
+                
 			]);
 			
 			//Save additional information on the primary to db
@@ -353,9 +355,11 @@ class calculatorwp_gravity_form_manager {
         echo json_encode($param);//["sl_new_form"=>true ]);
 		
 		wp_die();
+
 	}
     
     public function submit_form_for_loan($form="f", $entries="e"){
+
 		if(!array_key_exists('primary_to_secondary',$_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"])){
 			$_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"]['primary_to_secondary'] = false;
 		}
@@ -411,13 +415,13 @@ class calculatorwp_gravity_form_manager {
         ];
         
         /* return true if saved or false if not */
-        $is_raw_data_saved = calculatorwp_class('calculatorwp_raw_data')->gf_to_calculatorwp_parser($param); 
+        $is_raw_data_saved = calculatorwp_class('calculatorwp_raw_data')->gf_to_calculatorwp_parser($param);
 
         if ($is_raw_data_saved ) {
             $this->loan_process_session_set(["submission_stage" => "saving_complete"]);
 		}
-		
-        //$this->loan_application_navigator();        
+        // $this->loan_application_navigator();
+        
     }
 	
 	public function connect_loan_to_user(){

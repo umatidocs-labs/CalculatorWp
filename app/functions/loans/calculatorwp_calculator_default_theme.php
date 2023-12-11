@@ -4,6 +4,7 @@ class calculatorwp_calculator_default_theme{
 	public static $calculator_title = 'Basic loan theme';
 
 	public function init(){
+		// To reactivate theme, remove this comment.
 		add_filter('sl_get_calculator_themes',[$this,'do_menu_themes']);
 		add_filter(calculatorwp_calculator_default_theme::$filter_to_show_calculator, [$this,'default_loan_calc']);
 	}
@@ -24,22 +25,51 @@ class calculatorwp_calculator_default_theme{
 			"w"=>"Week(s)",
 			"d"=>"Day(s)"
 		];
+
+		// var_dump($calculatorwpLoansetting);
 		$primary_form = '
 		<form enctype="application/x-www-form-urlencoded" action="" method="post">
-            <div class="sl_loan_ap_primary_title_feild">Loan Amount</div>
-            <div class="max_amount">
-    			<input type="number" min="0" placeholder="Enter a number" max="'.$calculatorwpLoansetting->max_amount .'" id="sl_loan_app_amount_'.$calculatorwpLoansetting->id.'" value="'.$calculatorwpLoansetting->max_amount .'" class="sl_loan_app_amount sl_loan_app_amount_'.$calculatorwpLoansetting->id.' input_option_selector_'.$calculatorwpLoansetting->id.' sl_loan_ap_primary_input_feild large-text">
+            <div class="sl_loan_ap_primary_title_feild">Mortgage Amount</div>
+            <div class="max_amount sl_amount_section">
+    			<input type="hidden" min="0" placeholder="Enter a number" id="sl_loan_app_amount_'.$calculatorwpLoansetting->id.'" value="" class="sl_loan_app_amount sl_loan_app_amount_'.$calculatorwpLoansetting->id.' input_option_selector_'.$calculatorwpLoansetting->id.' sl_loan_ap_primary_input_feild large-text">
+				<center>
+				<div class="sl_loan_app_amount_display sl_loan_app_amount_display_'.$calculatorwpLoansetting->id.'">
+					0
+				</span>
+				</div>
+
+				<div class="max_amount_sub_sec">
+					<div class="sl_subsections_50">
+
+						<span>Home Value('.$calculatorwpLoansetting->currency.')</span>
+						<input id="sl_home_value_'.$calculatorwpLoansetting->id.'" name="sl_loan_app_goal" aria-required="true" class="sl_home_value_'.$calculatorwpLoansetting->id.' sl_home_value input_option_selector_'.$calculatorwpLoansetting->id.'  sl_loan_ap_primary_input_feild" type="text" value="0"
+						data-product_id="'.$calculatorwpLoansetting->id.'" data-interest_rate="'.$calculatorwpLoansetting->interest_rate.'" data-currency="'.$calculatorwpLoansetting->currency.'"
+						data-period_unit="'.$calculatorwpLoansetting->period_unit.'"
+						>
+
+					</div>
+					<div class="sl_subsections_50">
+
+						<span>Down Payment('.$calculatorwpLoansetting->currency.')</span>
+						<input id="sl_home_downpayment_'.$calculatorwpLoansetting->id.'" name="sl_loan_app_goal" aria-required="true" class="sl_home_downpayment_'.$calculatorwpLoansetting->id.' sl_home_downpayment input_option_selector_'.$calculatorwpLoansetting->id.'  sl_loan_ap_primary_input_feild" type="text" value="0" data-product_id="'.$calculatorwpLoansetting->id.'" data-interest_rate="'.$calculatorwpLoansetting->interest_rate.'" data-currency="'.$calculatorwpLoansetting->currency.'"
+						data-period_unit="'.$calculatorwpLoansetting->period_unit.'">
+
+					</div>
+				</div>
+
 			</div>
-            <div class="sl_loan_ap_primary_title_feild">Loan Term( '.$period_unit[$calculatorwpLoansetting->period_unit].' )</div>
+
+            <div class="sl_loan_ap_primary_title_feild">Payment Term( '.$period_unit[$calculatorwpLoansetting->period_unit].' )</div>
             <div class="max_amount">
     			<input type="number" placeholder="Enter a number" id="sl_loan_app_period_'.$calculatorwpLoansetting->id.'"  value="'.$calculatorwpLoansetting->max_period_number.'" class="sl_loan_app_period sl_loan_app_period_'.$calculatorwpLoansetting->id.' input_option_selector_'.$calculatorwpLoansetting->id.' sl_loan_ap_primary_input_feild large-text ">
 			</div>
             <div class="sl_loan_ap_primary_title_feild">
-				What will you be spending it on?
+				Phone Number
 			</div>
 	        <div class="max_amount">
                 <input id="sl_loan_app_goal_'.$calculatorwpLoansetting->id.'" name="sl_loan_app_goal" aria-required="true" class="sl_loan_app_goal_'.$calculatorwpLoansetting->id.' input_option_selector_'.$calculatorwpLoansetting->id.'  sl_loan_ap_primary_input_feild" type="text">
-            </div> 
+            </div>
+
             <input id="sl_loan_app_goal_description" aria-required="true" type="hidden" name="sl_loan_app_goal_description" class="input_option_selector_'.$calculatorwpLoansetting->id.'  sl_loan_ap_primary_input_feild">
             <input id="sl_loan_app_email" name="sl_loan_app_email" aria-required="true" class="input_option_selector_'.$calculatorwpLoansetting->id.'  sl_loan_ap_primary_input_feild" type="hidden">
         </form>
@@ -64,24 +94,23 @@ class calculatorwp_calculator_default_theme{
             $sl_repayment_htm='<div class="sl_repayment_results_'.$calculatorwpLoansetting->id.' sl_repayment_amount_subtitle sl_repayment_amount_subtitle_hide input_option_selector_'.$calculatorwpLoansetting->id.' "></div>';
         }
 
-        $primary_form =
-            '<div id="sl_loan_app_body" class="calculator-loan">
-                <div class="sl_main_title">                    
+		$primary_form = '<div id="sl_loan_app_body" class="calculator-loan">
+			<div class="sl_main_content_area ">
+			<div class="sl_main_content_area_input">
+        	'.$sl_repayment_htm.'
+            <div class="sl_mainf">
+		'.apply_filters($calculatorwpLoansetting->calculator_theme,$param_product_id);
+        $primary_form .= $this->submit_from_fields(['calculatorwpLoansetting'=>$calculatorwpLoansetting]);
+        
+
+        $primary_form .='<div class="sl_main_title">
                     <div class="sl_main_title_text">
-                        <center> '.$calculatorwpLoansetting->main_title_text.' </center>             
+                        <center> '.$calculatorwpLoansetting->main_title_text.' </center>
                     </div>
                     <div class="sl_main_title_description">
                         '.$calculatorwpLoansetting->main_title_description.'
                     </div>
-                </div>
-                <div class="sl_main_content_area ">
-                <div class="sl_main_content_area_input"> 
-                    '.$sl_repayment_htm.'
-                <div class="sl_mainf">';
-
-        $primary_form .= apply_filters($calculatorwpLoansetting->calculator_theme,$param_product_id);
-        $primary_form .= $this->submit_from_fields(['calculatorwpLoansetting'=>$calculatorwpLoansetting]);
-        $primary_form .='</div></div></div></div>
+                </div> </div></div></div></div>
                     <script type="text/javascript">
                         if(typeof(sl_product_constants) == "undefined"){
                             var sl_product_constants=[];
@@ -147,7 +176,7 @@ $sl_init=array(
 
 /*To display on admin drop down*/
 if (function_exists('calculatorwp_calculator_connector')) {
-    calculatorwp_calculator_connector($sl_init);
+    // calculatorwp_calculator_connector($sl_init);
 }
 
 /*
@@ -155,7 +184,7 @@ if (function_exists('calculatorwp_calculator_connector')) {
 *   2.) Change the function name sample_return_calculator_htlmI() on filter and on function name to avoid same name conflicts
 *
 */
-add_filter($sl_init['custom_admin_filter'],'return_sl_mortgage_calculator_htm');
+// add_filter($sl_init['custom_admin_filter'],'return_sl_mortgage_calculator_htm');
 
 if (!function_exists("return_sl_mortgage_calculator_htm")){
 	function return_sl_mortgage_calculator_htm($product_id=''){
@@ -184,7 +213,7 @@ if (!function_exists("return_sl_mortgage_calculator_htm")){
 		$sl_html_spending_goal_id='sl_loan_app_goal_'.$product_id;
 		$sl_loan_name=$sl_product_object->name;
 		$sl_currency=$sl_product_object->currency;
-		$ses_dat = $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"];   
+		$ses_dat = $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"];
 
 		if(	$ses_dat['stage'] == 'primary' && $ses_dat['submission_stage']=='s'	){
 			$calculator_html = '<noscript>You need to enable JavaScript to run this app.</noscript>

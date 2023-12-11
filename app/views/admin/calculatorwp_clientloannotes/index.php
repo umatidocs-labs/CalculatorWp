@@ -4,24 +4,30 @@
 
         <div class="calculatorwp_flow_stats">
 
-            <center>
-                <div id="calculatorwp_application">
+            <div id="calculatorwp_application">
+				<span class="sl_stat_flow_description">
 					<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo mvc_model('calculatorwpClientloan')->count(array('conditions'=>array('loan_stage'=>1))); ?> <span class="sl_stat_flow_description_main">
-					<span>New Applications</span></div>
-                <div id="calculatorwp_processed">
+					New Applications
+				</span></div>
+            <div id="calculatorwp_processed">
+				<span class="sl_stat_flow_description">
 					<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo mvc_model('calculatorwpClientloan')->count(array('conditions'=>array('loan_stage'=>array('2','4')))); ?> 
-					<span class="sl_stat_flow_description">Viewed & Processing</span>
-				</div>
-                <div id="calculatorwp_repayment">
+					Viewed & Processing
+				</span>
+			</div>
+            <div id="calculatorwp_repayment">
+				<span class="sl_stat_flow_description">
 					<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo mvc_model('calculatorwpClientloan')->count(array('conditions'=>array('loan_stage'=>3))); ?> 
-					<span class="sl_stat_flow_description">Approved </span>
-				</div>
-                <div id="calculatorwp_close">
+					Approved
+				</span>
+			</div>
+            <div id="calculatorwp_close">
+				<span class="sl_stat_flow_description">
 					<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo mvc_model('calculatorwpClientloan')->count(array('conditions'=>array('loan_stage'=>5))); ?> 
-					<span class="sl_stat_flow_description">Declined</span>
-				</div>
-            </center>
-
+					Declined
+				</span>
+			</div>
+            
         </div>
 
     </div>
@@ -40,7 +46,7 @@
 					3=>"Deleted"
 				];
 				
-				echo '<div class="sl_activity_log">'.$object->message.' <br><span class="sl_note_description">Client <a href="'.mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => 'edit','id' => $object->user_id )).'">'.mvc_model('calculatorwpClientaccount')->find_by_id($object->user_id)->firstname.' </a>, Created at '.$object->time_created.' ('.$status_var[$object->status].')</span></div>';
+				echo '<div class="sl_activity_log">'.$object->message.' <br><span class="sl_note_description">Client <a href="'.mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => 'edit','id' => $object->user_id )).'">'.mvc_model('calculatorwpClientaccount')->find_by_id($object->user_id)->firstname.' </a>, Created at '.$object->time_created.' ('.$status_var[$object->status].')</span></div>';	
 			}
 		}
 		else{

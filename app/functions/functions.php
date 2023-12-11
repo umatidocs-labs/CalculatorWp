@@ -58,12 +58,11 @@ class calculatorwp_init{
                                                 'status'=>1,
                                                 'user_id'=>$client_id
                                         ]]);
-        $top_menu_html .= "<a href='". mvc_public_url(array('controller' => 'calculatorwp_clientloans', 'action' => 'index',))."'> <b>Loan Applications</b> </a> | ";
-        $top_menu_html .= "<a href='". mvc_public_url(array('controller' => 'calculatorwp_messages', 'action' => 'index',))."'> <b>Open Tickets</b> </a> | ";
-        
-        $top_menu_html .= "<a href='". mvc_public_url(array('controller' => 'calculatorwp_clientloans', 'action' => 'notification','id'=>$client_id))."'> Notifications <b>(".$client_notification_count.")</b> </a> | ";
-        $top_menu_html .= "<b> - ".$user->data->user_nicename." </b>";                
-        $top_menu_html .= "<a href=".wp_logout_url($_SERVER['REDIRECT_URL'])."><button>Logout</button></a></span></div>";
+        $top_menu_html .= "<a href='". mvc_public_url(array('controller' => 'calculatorwp_clientloans', 'action' => 'index',))."'> <span class='cwp_menu_item'>Loan Applications </span> </a> ";
+        $top_menu_html .= "<a href='". mvc_public_url(array('controller' => 'calculatorwp_messages', 'action' => 'index',))."'>  <span class='cwp_menu_item'> Open Tickets </span> </a> ";
+        $top_menu_html .= "<a href='". mvc_public_url(array('controller' => 'calculatorwp_clientloans', 'action' => 'notification','id'=>$client_id))."'>  <span class='cwp_menu_item'> Notifications (".$client_notification_count.") </span> </a>";
+        // $top_menu_html .= "<span class=''> ".$user->data->user_nicename." </span>";
+        $top_menu_html .= "<a href=".wp_logout_url($_SERVER['REDIRECT_URL'])."><button> ".$user->data->user_nicename." : Logout</button></a></span></div>";
 
         echo $top_menu_html;
     }

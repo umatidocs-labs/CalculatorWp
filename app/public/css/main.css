@@ -88,6 +88,16 @@ select {
   -webkit-transition: 0.4s;
   -moz-transition: 0.4s;
   transition: 0.4s;
+  border: 0px;
+}
+.ginput_container > input{
+  background: #4ce20821;
+  border-radius: 5px;
+  padding: 5px 15px !important;
+}
+.gform_button .button{
+  padding: 15px;
+  color:#fff;
 }
 input:focus,
 textarea:focus,

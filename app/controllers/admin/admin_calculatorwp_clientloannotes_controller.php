@@ -7,16 +7,18 @@ class AdminCalculatorwpClientloannotesController extends MvcAdminController {
 	var $before = ['wrap_a'];
     
 	public function index() {
-		do_action("calculatorwp_lender_quote");	
+		do_action("calculatorwp_lender_quote");
 		do_action("calculatorwp_welcome_lender");
 		
-		$collection = mvc_model('calculatorwpNotification')->paginate([
+		$collection = mvc_model('calculatorwpNotification')->paginate( [
 			'order' => 'id DESC',
-		]);
+			'per_page' => 100
+		] );
 		
         $this->set('objects', $collection['objects']);
         
 		$this->set_pagination($collection);
+		
 	}
 
 	public function wrap_a(){

@@ -64,50 +64,47 @@
 	<tr class="calculatorwp_title_feild_app">
         <td><b>Current Stage:</b></td>
         <td><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
-        $sl_client_loan_stage=unserialize(sl_client_loan_stage);
+        $sl_client_loan_stage=unserialize( sl_client_loan_stage );
         // echo $sl_client_loan_stage[$object->loan_stage]; 
         $ewm_loan_stage = $object->loan_stage ;
 
-        $ewm_Application = 'false';
-        $ewm_Approve = 'false';
-        $ewm_Decline = 'false';
-        $ewm_Repayment = 'false';
-        $ewm_Close = 'false';
+        $ewm_Application    = '';
+        $ewm_Approve        = '';
+        $ewm_Decline        = '';
+        $ewm_Repayment      = '';
+        $ewm_Close          = '';
 
-        var_dump( $ewm_loan_stage );
-        
         if( $ewm_loan_stage == "1" ){
-            $ewm_Application = 'checked';
+            $ewm_Application = 'selected';
         }
         elseif( $ewm_loan_stage == "3"){
-            $ewm_Approve = 'true';
+            $ewm_Approve = 'selected';
         }
         elseif( $ewm_loan_stage == "2"){ 
-            $ewm_Decline = 'true';
+            $ewm_Decline = 'selected';
         }
         elseif( $ewm_loan_stage == "4"){
-            $ewm_Repayment = 'true';
+            $ewm_Repayment = 'selected';
         }
         elseif( $ewm_loan_stage == "5"){
-            $ewm_Close = 'true';
+            $ewm_Close = 'selected';
         }
 
         ?>
-                <div class="calculatorwp_ns_single">
-                    <input name="data[calculatorwpClientloan][loan_stage]" class="post-format" id="calculatorwpClientloan_loan_stage_select" value="1" type="radio" checked="<?php echo $ewm_Application; ?>">Application<br>
-                </div>
-                <div class="calculatorwp_ns_single">
-                    <input name="data[calculatorwpClientloan][loan_stage]" class="post-format" id="calculatorwpClientloan_loan_stage_select" value="3" type="radio" checked="<?php echo $ewm_Approve; ?>">Approve<br>
-                </div>
-                <div class="calculatorwp_ns_single">
-                    <input name="data[calculatorwpClientloan][loan_stage]" class="post-format" id="calculatorwpClientloan_loan_stage_select" value="2" type="radio" checked="<?php echo $ewm_Decline; ?>">Decline<br>
-                </div>
-                <div class="calculatorwp_ns_single">
-                    <input name="data[calculatorwpClientloan][loan_stage]" class="post-format" id="calculatorwpClientloan_loan_stage_select" value="4" type="radio" checked="<?php echo $ewm_Repayment; ?>">Repayment<br>
-                </div>
-                <div class="calculatorwp_ns_single">
-                    <input name="data[calculatorwpClientloan][loan_stage]" class="post-format" id="calculatorwpClientloan_loan_stage_select" value="5" type="radio" checked="<?php echo $ewm_Close; ?>">Close<br>
-                </div>
+
+            <div class="calculatorwp_ns_single">
+
+                <select name="data[calculatorwpClientloan][loan_stage]" class="post-format">
+                    <option value="0" > Update Stage </option>
+                    <option value="1" <?php echo $ewm_Application; ?>>  Application </option>
+                    <option value="3" <?php echo $ewm_Approve; ?>> Approve  </option>
+                    <option value="2" <?php echo $ewm_Decline ; ?>> Decline  </option>
+                    <option value="4" <?php echo $ewm_Repayment; ?>> Repayment  </option>
+                    <option value="5" <?php echo $ewm_Close; ?>> Close </option>
+                </select>
+
+            </div>
+
 			<td><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  ?></td>
       
 			<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  ?></td>

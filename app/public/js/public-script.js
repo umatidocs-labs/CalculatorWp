@@ -167,8 +167,10 @@ jQuery(document).ready(function($) {
 			};
 
 			jQuery.post(ajax_object.ajax_url, data_l, function(response) {
+				console.log(response);
 				if(response !== undefined){
-					sl_response = JSON.parse(response);
+
+					sl_response = JSON.parse(response);					
 					if(sl_response.signup_status==true){
 						//change focus to login
 						$('#sl_user_gate_login').show(); 
@@ -191,6 +193,53 @@ jQuery(document).ready(function($) {
 	
 	};
 	calculatorwp_user.init();
+
+	var sl_update_mortgage_amount = function(param) {
+
+		sl_home_value = $( '.sl_home_value_'+param.product_id ).val()
+		sl_home_downpayment = $( '.sl_home_downpayment_'+param.product_id ).val()
+
+		sl_mortgage_amount = sl_home_value - sl_home_downpayment ;
+
+		period_unit={
+			"y":"PA",
+			"m":"PA",
+			"w":"Week(s)",
+			"d":"Day(s)"
+		};
+
+		if(sl_mortgage_amount < 0 ){
+			sl_mortgage_amount = 0 ;
+		}
+
+		$('.sl_loan_app_amount_display_'+param.product_id ).html( + sl_mortgage_amount +' '+param.currency + ' at '+ param.interest_rate + '%/ PA' );
+
+		$('.sl_loan_app_amount_'+param.product_id ).val( sl_mortgage_amount );
+
+	}
+
+
+	$('.sl_home_value').keyup(function(){
+		
+		sl_update_mortgage_amount( {
+			'product_id' : $(this).data('product_id'),
+			'interest_rate' : $(this).data('interest_rate') , 
+			'currency' : $(this).data('currency'),
+			'period_unit' : $(this).data('period_unit'),
+		} );
+
+	} )
+
+	$('.sl_home_downpayment').keyup(function(){
+
+		sl_update_mortgage_amount( {
+			'product_id' : $(this).data('product_id'),
+			'interest_rate' : $(this).data('interest_rate') , 
+			'currency' : $(this).data('currency'),
+			'period_unit' : $(this).data('period_unit'),
+		} );
+
+	})
 	
 	//Loan product
 	calculatorwp_loan_product_display={
@@ -215,7 +264,10 @@ jQuery(document).ready(function($) {
 				"loader":'sl_calc_loader',
 				"goal_name":'sl_loan_app_goal_'+loan_id,
 				"product_id":loan_id,
-				"repayment_button":'sl_repayment_button'
+				"repayment_button":'sl_repayment_button',
+				"home_name" :"sl_home_value_"+loan_id,
+				"down_payment" : "sl_home_downpayment_"+loan_id,
+				
 			}
 		},
 		"set_classes":function(){
@@ -249,11 +301,11 @@ jQuery(document).ready(function($) {
 			$(".calculator-loan").accrue();
 		},
 		"listener":function(){
-			$("#"+sl_active_loan.amount_slider).change(function(){
+			$("#"+sl_active_loan.amount_slider).keyup(function(){
 				calculatorwp_loan_product_display.update_display_values_on_slider_change();
 				calculatorwp_loan_product_display.change_calculator_numbers();
 			});
-			$('#'+sl_active_loan.term_slider).change(function(){
+			$('#'+sl_active_loan.term_slider).keyup(function(){
 				calculatorwp_loan_product_display.update_display_values_on_slider_change();
 				calculatorwp_loan_product_display.change_calculator_numbers();
 			});
@@ -261,10 +313,10 @@ jQuery(document).ready(function($) {
 				e.preventDefault();
 				calculatorwp_loan_product_display.submit_value();
 			});
-			$("#"+item.amount_slider).change(function(){
+			$("#"+item.amount_slider).keydown(function(){
 				calculatorwp_loan_product_display.change_calculator_numbers();
 			});
-			$("#"+item.term_slider).change(function(){
+			$("#"+item.term_slider).keydown(function(){
 				calculatorwp_loan_product_display.change_calculator_numbers();
 			});
 		},
@@ -274,8 +326,10 @@ jQuery(document).ready(function($) {
 			var c_more_info = {
 				"basic_caclulator":function(){
 					return {
-						"loan term ":sl_active_loan.period,
-						"Spending Goal":$("."+sl_active_loan.goal_name ).val(),
+						"Loan term" : sl_active_loan.period,
+						"Phone Number":$("."+sl_active_loan.goal_name ).val(),
+						"Home Value" : $("."+sl_active_loan.home_name ).val() , // "$"+$(".sl_home_value"+lp_id).val(),
+						"Down Payment" : $("."+sl_active_loan.down_payment ).val() , //"$"+$(".sl_home_downpayment"+lp_id).val(),
 					};
 				},
 				"mortgage_default":function(){

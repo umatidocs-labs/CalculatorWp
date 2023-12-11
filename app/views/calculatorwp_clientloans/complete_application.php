@@ -1,7 +1,7 @@
 <div class="client_dash">
 	
 <?php
-	echo do_shortcode('[calculatorwp product='.$loan_product_id.' ]');
+	echo do_shortcode('[streamlinemortgage product='.$loan_product_id.' ]');
 ?>
 
 </div>

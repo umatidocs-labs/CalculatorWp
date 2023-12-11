@@ -6,7 +6,7 @@ class calculatorwp_calculator_connector{
     Public static $affiliate_link;
 
 	public function init(){
-		add_filter('sl_get_calculator_themes',[$this,'do_menu_themes']);		
+		add_filter('sl_get_calculator_themes',[$this,'do_menu_themes']);
 		if( !empty($this->filter_to_show_calculator) ){
 			add_filter($this->filter_to_show_calculator, [$this,'load_my_loan_calc']);
 		}
