@@ -273,45 +273,45 @@ function calculatorwp_public_resources($options) {
     //CSS files
     wp_enqueue_style('ps_boards_a_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'style_candidate_public' ) ) ;
 
-    wp_enqueue_style('ps_boards_b_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'bootstrap-reboot.min'));
+    // wp_enqueue_style('ps_boards_b_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'bootstrap-reboot.min'));
 
-    wp_enqueue_style('ps_boards_c_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'bootstrap-grid.min'));
+    // wp_enqueue_style('ps_boards_c_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'bootstrap-grid.min'));
 
-    wp_enqueue_style('ps_boards_d_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'owl.carousel.min'));
+    // wp_enqueue_style('ps_boards_d_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'owl.carousel.min'));
 
-    wp_enqueue_style('ps_boards_e_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'nouislider.min'));
+    // wp_enqueue_style('ps_boards_e_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'nouislider.min'));
 
-    wp_enqueue_style('ps_boards_d_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'select2.min'));
+    // wp_enqueue_style('ps_boards_d_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'select2.min'));
 
-    wp_enqueue_style('ps_boards_e_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'jquery.mCustomScrollbar.min'));
+    // wp_enqueue_style('ps_boards_e_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'jquery.mCustomScrollbar.min'));
 
-    wp_enqueue_style('ps_boards_f_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'ionicons.min'));
+    // wp_enqueue_style('ps_boards_f_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'ionicons.min'));
 
     wp_enqueue_style('ps_boards_g_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'main'));
 
-    wp_enqueue_style('ps_boards_h_style_public', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+    // wp_enqueue_style('ps_boards_h_style_public', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
 
-    wp_enqueue_style('ps_boards_i_style_public', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap2-toggle.min.css');
+    // wp_enqueue_style('ps_boards_i_style_public', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap2-toggle.min.css');
 
 
     // Load the datepicker script (pre-registered in WordPress).
     wp_enqueue_script( 'srb-boards-a-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'public-candidate-script.js') , array('jquery') );
     wp_localize_script( 'srb-boards-a-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
-    wp_enqueue_script( 'srb-boards-b-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'bootstrap.bundle.min.js') , array('jquery') );
-    wp_localize_script( 'srb-boards-b-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
+    // wp_enqueue_script( 'srb-boards-b-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'bootstrap.bundle.min.js') , array('jquery') );
+    // wp_localize_script( 'srb-boards-b-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
-    wp_enqueue_script( 'srb-boards-c-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'owl.carousel.min.js') , array('jquery')) ;
+    // wp_enqueue_script( 'srb-boards-c-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'owl.carousel.min.js') , array('jquery')) ;
     //wp_localize_script( 'srb-boards-c-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
-    wp_enqueue_script( 'srb-boards-d-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'wNumb.js') , array('jquery') );
-    wp_localize_script( 'srb-boards-d-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
+    // wp_enqueue_script( 'srb-boards-d-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'wNumb.js') , array('jquery') );
+    // wp_localize_script( 'srb-boards-d-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
     wp_enqueue_script( 'srb-boards-e-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'nouislider.min.js') , array('jquery') );
     wp_localize_script( 'srb-boards-e-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
-    wp_enqueue_script( 'srb-boards-f-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'select2.min.js' ) , array('jquery') );
-    wp_localize_script( 'srb-boards-f-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
+    // wp_enqueue_script( 'srb-boards-f-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'select2.min.js' ) , array('jquery') );
+    // wp_localize_script( 'srb-boards-f-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
     wp_enqueue_script( 'srb-boards-g-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'jquery.mousewheel.min.js' ) , array('jquery') );
     wp_localize_script( 'srb-boards-g-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
@@ -320,7 +320,7 @@ function calculatorwp_public_resources($options) {
     wp_localize_script( 'srb-boards-h-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
     // Load the datepicker script (pre-registered in WordPress).
-    wp_enqueue_script( 'srb-boards-i-main-lib-uploader-js', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap2-toggle.min.js' , array('jquery') );
+    // wp_enqueue_script( 'srb-boards-i-main-lib-uploader-js', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap2-toggle.min.js' , array('jquery') );
     //wp_localize_script( 'srb-boards-i-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
     //wp_enqueue_script( 'srb-boards-i-main-lib-uploader-js', mvc_js_url(WP_SRBOARDS__PLUGIN_DIR, 'main') , array('jquery') );
@@ -335,8 +335,8 @@ function calculatorwp_public_resources($options) {
     //wp_localize_script( 'srb-boards-k-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
     // Load the datepicker script (pre-registered in WordPress).
-    wp_enqueue_script( 'srb-boards-l-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'public-profile-script.js' ) , array('jquery') );
-    wp_localize_script( 'srb-boards-l-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
+    // wp_enqueue_script( 'srb-boards-l-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'public-profile-script.js' ) , array('jquery') );
+    // wp_localize_script( 'srb-boards-l-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
     // Load the datepicker script (pre-registered in WordPress).
     //wp_enqueue_script( 'srb-boards-m-main-lib-uploader-js', WP_calculatorwp__PLUGIN_DIR.'/app/public/js/public-agency-script.js' , array('jquery') ); 

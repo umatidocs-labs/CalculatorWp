@@ -1,8 +1,8 @@
 <tr style="width:100%;">
     <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  ?>
 	<td class="sl_list_single_item">
-		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
-			if (isset($object->ticket_id))
+		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */
+			if (isset($object->__id))
 				echo '<span class="sl_list_name">'.$object->ticket_id.'</span>';
 			else
 				echo '(undefined)';

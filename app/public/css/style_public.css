@@ -624,16 +624,20 @@ td.fwidthtd{
   margin-top:15px;
 }
 .calculatorwpMessageSubmitButton{
-	background-color: #008000ab;
   margin-top: 20px;
-  color: #fff;
-  border-radius: 15px !important;
+  border-radius: 5px !important;
   padding: 5px 15px;
+  color: #008b00;
+  background-color: #8EFE8D;
 }
 #calculatorwpMessageInputarea {
   background: #fff;
   border: 1px solid lightgray;
-  border-radius: 15px;
+  border-radius: 5px;
+  width: 95%;
+  height: 80px;
+  padding: 10px;
+  margin: 10px;
 }
 td.sl_list_single_message{
 	border-width:0px;
@@ -660,6 +664,9 @@ a.sl_menu_item_front_view{
 }
 .sl_list_message_details {
     font-size: 10px;
+    padding: 5px 30px;
+    background: #adff2f3d;
+    border-radius: 5px;
 }
 
 a#sl_proceed_dashboard{
@@ -828,10 +835,30 @@ p.login-password{
 }
 .sl_loan_app_amount_display{
   width: 60%;
-  background: #fff;
+  background: ;
   color: #01b400;
   padding: 10px 50px;
   border-radius: 15px;
   margin: 20px;
+  font-size: 26px;
 }
 
+.client_dash{
+	margin: 10px 5%;
+	background: #fff;
+	border: 1px solid #8080802e;
+	padding: 10px 20px;
+}
+.sl_list_name{
+  background: #ccc2;
+  padding: 10px 20px;
+  margin-bottom: ;
+  border-radius: 10px;
+}
+
+.sm_new_notifications, .sm_viewed_notifications{
+  background:#323232;
+  color: #fff;
+  padding:10px 20px ;
+  border-radius: 10px;
+}

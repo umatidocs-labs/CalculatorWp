@@ -1,6 +1,6 @@
 <div class="calculatorwp_clientloans_index">
 
-<center><h3 class="calculatorwp_main_title">All Loans</h3></center>
+<center><h3 class="calculatorwp_main_title">All Mortgages</h3></center>
 <div class = "calculatorwp_input">    
 	<table class="calculatorwp_list_table">
 		<thead>
@@ -9,11 +9,11 @@
 					Client Name
 				</th>
 				<th class="calculatorwp_sub_title">
-					Loan Stage
+					Mortgage Stage
 				</th>
 				</th>
 				<th class="calculatorwp_sub_title"> 
-					Loan Product
+					Mortgage Product
 				</th>
 				<th class="calculatorwp_sub_title">
 				</th>
@@ -34,11 +34,11 @@
 					Client Name
 				</th>
 				<th class="calculatorwp_sub_title">
-					Loan Stage
+					Mortgage Stage
 				</th>
 				</th>
 				<th class="calculatorwp_sub_title"> 
-					Loan Product
+					Mortgage Product
 				</th>
 				<th class="calculatorwp_sub_title">
 				</th>

@@ -1,7 +1,7 @@
 <div class="calculatorwp_clientloans_process">
 
 <div class="wrap">
-    <center><h2 class="calculatorwp_main_title"> Loan Application </h2></center>
+    <center><h2 class="calculatorwp_main_title"> Mortgage Application </h2></center>
 <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
    ?>
 <center>
@@ -25,15 +25,15 @@
 <br>
 <table>
     <tr class="calculatorwp_title_feild_app">
-            <td>Loan Applicant:</td>
+            <td>Mortgage Applicant:</td>
             <td><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo '<a href="'.mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => 'edit','id' => $object->client_id)).'">'.mvc_model('calculatorwpClientaccount')->find_by_id($object->client_id)->firstname.'</a>'; ?></td>
         </tr>
 	<tr class="calculatorwp_title_feild_app">
-            <td>Loan Amount:</td>
+            <td>Mortgage Amount:</td>
             <td><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $object->amount_needed; ?></td>
         </tr>
     <tr class="calculatorwp_title_feild_app">
-            <td>Loan Period:</td>
+            <td>Mortgage Period:</td>
             <td><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */
 
                 $sl_term_period=[
@@ -53,7 +53,7 @@
 
         </tr>
 	<tr class="calculatorwp_title_feild_app">
-            <td>Loan Product:</td>
+            <td>Mortgage Product:</td>
             <td><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo '<a href="'.mvc_admin_url(array('controller' => 'admin_calculatorwp_loansettings', 'action' => 'edit','id' => $object->loan_setting_id)).'">'.$product_name.'</a>'; ?></td>
         </tr>	
 	<tr class="calculatorwp_title_feild_app">

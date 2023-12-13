@@ -23,7 +23,7 @@
                 <center>Ticket Status</center>
             </td>
             <td class="calculatorwp_sub_title">
-                <center>Loan Product</center>
+                <center>Mortgage Product</center>
             </td>
             <td class="calculatorwp_sub_title">
                 

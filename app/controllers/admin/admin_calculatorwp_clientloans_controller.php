@@ -82,12 +82,10 @@ class AdminCalculatorwpClientloansController extends MvcAdminController {
 	}
 	
 	public function process() {
-		if (!empty($this->params['data']) ) {
 
-			/*array(2) { 
-				["CalculatorwpClientloan"]=> array(1) { ["id"]=> string(1) "4" } 
-				["calculatorwpClientloan"]=> array(1) { ["loan_stage"]=> string(1) "1" } } 
-			*/
+		$user = wp_get_current_user();
+
+		if (!empty($this->params['data']) ) {
 
 		  $Clientloan_data = [
 			'id' => $this->params['data']['CalculatorwpClientloan']['id'],
@@ -95,16 +93,14 @@ class AdminCalculatorwpClientloansController extends MvcAdminController {
 		  ];
 
 		  $original_loan_stage = mvc_model('calculatorwpClientloan')->find_by_id( $Clientloan_data['id'] )->loan_stage;
-		  // var_dump($this->params['data']);
-		  // var_dump($this->model->save($this->params['data']));
-		  // var_dump( $original_loan_stage );
+
 			if ($this->model->save( [ 
+
 				'id'=>$this->params['data']['CalculatorwpClientloan']['id'], 
 				'loan_stage' => $this->params['data']['calculatorwpClientloan']['loan_stage'] ] ) ) {
+
 				//change to >> //approval //decline //repayment //close
 				if( $Clientloan_data['loan_stage']!== $original_loan_stage ){
-
-					// var_dump
 
 					switch ( $original_loan_stage) {
 						case 1://decline
@@ -127,21 +123,31 @@ class AdminCalculatorwpClientloansController extends MvcAdminController {
 							# code...
 							break;
 					}
+
 					$calculatorwpClientloan = mvc_model('calculatorwpClientloan')->find_by_id($Clientloan_data['id']);
-					$sl_client_loan_stage=unserialize(sl_client_loan_stage);
+
+					$sl_client_loan_stage=unserialize( sl_client_loan_stage );	
 
 					do_action('calculatorwp_loan_status_change',[
 							'borrower_id'=>$calculatorwpClientloan->client_id,
 							'borrower_data'=>mvc_model('calculatorwpClientaccount')->find_by_id($calculatorwpClientloan->client_id),
 							'loan_id'=>$Clientloan_data['id'],
-							'message'=>'The loan application of id number '.$Clientloan_data['id'].' has changed status to '.$sl_client_loan_stage[$Clientloan_data['loan_stage']]
+							'message'=>'The Mortgage Application <b>#'.$Clientloan_data['id'].'</b> has changed its Status to '.$sl_client_loan_stage[$Clientloan_data['loan_stage']],
+							'admin_link' => mvc_admin_url(array('controller' => 'calculatorwp_clientloans' , 'action' => 'process', 'id' => $Clientloan_data['id'] )),
+							'admin_user' => $user->user_login,
+							'admin_email' => $user->user_email,
 							]
 						);
+
 				}
-				$this->flash('notice', 'Successfully Processed!');			
+
+				$this->flash('notice', 'Successfully Processed!');
 				$this->refresh();
+
 			} else {
+
 				$this->flash('error', $this->model->validation_error_html);
+
 			}
 		  
 		}

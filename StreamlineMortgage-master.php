@@ -5,13 +5,13 @@
 /*
 Plugin Name: StreamlineMortgage-master
 Plugin URI: https://www.naiwealth.com/
-Description: A complete loan origination tool for lenders on wordpress.
+Description: A complete Mortgage marketing tool for lenders on wordpress.
 Author: Naiwealth
-Version: 2.6.9
+Version: 2.7.0
 Author URI: https://www.naiwealth.com/
 */
 
-/*
+
 if ( ! function_exists( 'cowp_fs' ) ) {
     // Create a helper function for easy SDK access.
     function cowp_fs() {
@@ -58,7 +58,8 @@ if ( ! function_exists( 'cowp_fs' ) ) {
 }
 
 error_reporting( 0 );
-*/
+
+
 if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
     
     $dir_name = basename( dirname( __FILE__ ) );
@@ -104,14 +105,14 @@ if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
         {
             ob_start();
 
-            global  $wp_rewrite ;
-            require_once dirname( __FILE__ ) . '/calculatorwp_loader.php';
-            $loader = new calculatorwpLoader();
-            $loader->activate();
-            $wp_rewrite->flush_rules( true );
-            
+                global  $wp_rewrite ;
+                require_once dirname( __FILE__ ) . '/calculatorwp_loader.php';
+                $loader = new calculatorwpLoader();
+                $loader->activate();
+                $wp_rewrite->flush_rules( true );
+    
             ob_get_clean();
-            GFForms::activation_hook();
+            // GFForms::activation_hook();
         }
     
     }

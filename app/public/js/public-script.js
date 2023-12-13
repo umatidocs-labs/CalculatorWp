@@ -419,9 +419,12 @@ jQuery(document).ready(function($) {
 			});
 		},
 		"send_message":function(){
+
 			sl_list_message_details_var="sl_list_message_details"+sl_list_message_details_num;
+			
 			//add message to list
-			$('#calculatorwpMessageInputarea').before('<tr style="width:100%;"><td class="sl_list_single_message">	<div class="sl_list_name">'+$("#calculatorwpMessageInputarea").val()+'</div><br><span class="sl_list_message_details" id="'+sl_list_message_details_var+'">sending...</span> </td></tr>');
+			$('#calculatorwpMessageInputarea').before('<tr style="width:100%;"><td class=""><div class="sl_list_name">' + $("#calculatorwpMessageInputarea").val() + '</div><span class="sl_list_message_details" id="' + sl_list_message_details_var + '">Sending...</span> </td></tr>');
+
 			sl_list_message_details_num=sl_list_message_details_num+1;
 			
 			//send to serv
@@ -430,6 +433,7 @@ jQuery(document).ready(function($) {
 				'ticket_id':calculatorwp_ticket_id,
 				'sender_id':calculatorwp_user_id
 			};
+
 			var data_l= {
 				"action": "calculatorwp_send_message",
 				"calculatorwp_message_data":data_m
@@ -437,7 +441,9 @@ jQuery(document).ready(function($) {
 		
 			jQuery.post(ajax_object.ajax_url, data_l, function(response) {
 				if(typeof response !== 'undefined'){
+
 					response = JSON.parse(response);
+					$('#calculatorwpMessageInputarea').val('');
 					$("#"+sl_list_message_details_var).html(response.message_status+' at '+response.time+' by '+response.sender_id);
 					
 				}

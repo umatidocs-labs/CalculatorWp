@@ -1,7 +1,7 @@
 <?php
 class calculatorwp_calculator_default_theme{
 	public static $filter_to_show_calculator = 'calculatorwp_calculator_default_theme';
-	public static $calculator_title = 'Basic loan theme';
+	public static $calculator_title = 'Default Mortgage Calculator';
 
 	public function init(){
 		// To reactivate theme, remove this comment.

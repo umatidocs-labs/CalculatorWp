@@ -4,8 +4,7 @@ class calculatorwp_loan_process{
 	//Loan processing -> approved/ declined/ additional request(gravity form)
 
     public function approve_loan($Clientloan){
-    	$Clientloan_id = $Clientloan['id'];
-    	//$Clientloan_id = $Clientloan['client_id'];
+    	$Clientloan_id = $Clientloan['id']; //$Clientloan_id = $Clientloan['client_id'];
     	$amount_needed=mvc_model('calculatorwpClientloan')->find_by_id($Clientloan_id)->amount_needed;
 
 		$dr_array = array( //dr loan ac for monay issued
@@ -29,29 +28,40 @@ class calculatorwp_loan_process{
 	}
 	
 	public function parent_double_entry( $dr_array , $cr_array , $amount='',$Clientloan_id=''){
-		//do 'give loan' double enrty
+
+		// Do 'give loan' double entry
         $trans_to_do = array();
+
 		if(!isset($amount)){
 			$calculatorwpClientloan_amount_needed = mvc_model('calculatorwpClientloan')->find_by_id($Clientloan_id)->amount_needed;
 		}
 		else{
 			$calculatorwpClientloan_amount_needed = $amount;
 		}
+
 		if(!isset($dr_array['trans_amount'])){
 			$dr_array['trans_amount']=$calculatorwpClientloan_amount_needed;
 		}
+
 		if(!isset($dr_array['trans_amount'])){
 			$cr_array['trans_amount']=$calculatorwpClientloan_amount_needed;
 		}
+
         // money to lender
 		array_push($trans_to_do, $cr_array );
+
 		array_push($trans_to_do, $dr_array );
+
 		$return_id_arr=array();
+
         foreach($trans_to_do as $trans){
             array_push($return_id_arr,$this->d_entry($trans));
 		}
+
 		do_action('calculatorwp_new_transaction', array('user_id' => $Clientloan_id , ));
+
 		return array('rel_transaction_id'=>$return_id_arr[0],'secondary_transaction_id'=>$return_id_arr[1]);
+		
 	}
 	
     public function decline_loan(){

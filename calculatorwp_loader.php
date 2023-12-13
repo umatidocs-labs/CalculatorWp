@@ -166,14 +166,16 @@ class calculatorwpLoader extends MvcPluginLoader {
                 `read_time` timestamp NULL DEFAULT NULL,
                 `ticket_id` int(11) DEFAULT NULL
               ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-              ","
-              CREATE TABLE IF NOT EXISTS `".$t_prefix."calculatorwp_notifications` (
-                `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
-                `message` varchar(500) DEFAULT NULL,
-                `user_id` int(11) DEFAULT NULL,
-                `status` int(2) DEFAULT NULL COMMENT '1=>created, 2=>seen,3=>deleted',
-                `time_created` timestamp NULL DEFAULT NULL
-              ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+              ",
+              "
+              CREATE TABLE IF NOT EXISTS `".$t_prefix."` ( 
+                `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+                `message` varchar(500) DEFAULT NULL, 
+                `user_id` int(11) DEFAULT NULL, 
+                `status` int(2) DEFAULT NULL COMMENT '1=>created, 2=>seen,3=>deleted', 
+                `time_created` timestamp NULL DEFAULT NULL, 
+                `admin_link` varchar(250) NOT NULL, 
+                `admin_user` varchar(11) DEFAULT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
               ","
               CREATE TABLE IF NOT EXISTS `".$t_prefix."calculatorwp_spending_goal` (
                 `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,

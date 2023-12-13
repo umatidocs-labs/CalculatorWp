@@ -88,22 +88,36 @@ class CalculatorwpClientloansController extends MvcPublicController {
 	}
 	
 	public function notification(){
+
 		if(is_user_logged_in()){
+
 			$client_id = mvc_model('calculatorwpClientaccount')->find_one(['conditions'=>['wp_user_id'=>get_current_user_id()]])->id;
+
 			$objects = mvc_model('calculatorwpNotification')->find([
+
 				'conditions'=>[
 					'status'=>1 ,
 					'user_id'=>$client_id],
 				'order' => 'id DESC',
 
 				]);
+
 			foreach ($objects as $key => $value) {
 				mvc_model('calculatorwpNotification')->update($value->id,['status'=>2]);
 			}
+
+			$viewed = mvc_model('calculatorwpNotification')->find([
+				'conditions'=>[
+					'status'=>2 ,
+					'user_id'=>$client_id
+				],
+				'order' => 'id DESC',
+			]);
 			
 			$this->set([
-				'objects'=>$objects,
-				'client_id'=>$client_id,
+				'objects' => $objects,
+				'viewed'=>$viewed,
+				'client_id' => $client_id,
 			]);
 		}
 		else{

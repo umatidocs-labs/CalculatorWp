@@ -46,7 +46,17 @@
 					3=>"Deleted"
 				];
 				
-				echo '<div class="sl_activity_log">'.$object->message.' <br><span class="sl_note_description">Client <a href="'.mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => 'edit','id' => $object->user_id )).'">'.mvc_model('calculatorwpClientaccount')->find_by_id($object->user_id)->firstname.' </a>, Created at '.$object->time_created.' ('.$status_var[$object->status].')</span></div>';	
+				echo '
+				<div class="sl_activity_log">
+					'.$object->message.' <br>
+					<span class="sl_note_description">
+						Client <a href="'.mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => 'edit','id' => $object->user_id )).'">'.mvc_model('calculatorwpClientaccount')->find_by_id($object->user_id)->firstname.' </a>, 
+						('.$status_var[$object->status].') 
+						'.$object->time_created.' |						
+						Update by: '. $object->admin_user .' |
+						<a class="sm_admin_link" target="blank" href ="'.$object->admin_link.'" >Open</a>
+					</span>
+				</div>';	
 			}
 		}
 		else{

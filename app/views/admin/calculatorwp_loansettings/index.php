@@ -1,5 +1,5 @@
 <div class="calculatorwp_loansettings_index">
-<center><h3 class="calculatorwp_main_title">Loan Product Manager</h3></center>
+<center><h3 class="calculatorwp_main_title">Mortgage Product Manager</h3></center>
 <div class = "calculatorwp_input">    
     <center>
     <table class="calculatorwp_list_table ">
@@ -26,7 +26,7 @@
 	<tfoot>
 			<tr style="width:100%;">
 				<th class="calculatorwp_sub_title" >
-					Product Name(id)
+					Mortgage Product Name( ID )
 				</th>
 				<th class="calculatorwp_sub_title">
 					Interest Rate

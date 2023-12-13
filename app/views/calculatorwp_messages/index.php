@@ -7,7 +7,7 @@ if($objects=="show_login"){
 elseif($objects=='sl_client_account_not_created'){
 	?>
 	<div class="client_dash">
-	<h3><center>Your account not a loan client account, please contact us and we will resolve this.</center></h3>
+		<h3><center>Your account not a mortgage client account, please contact us and we will resolve this.</center></h3>
 	</div>
 	<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  
 }
@@ -21,7 +21,7 @@ if($objects=="show_login"){
 elseif($objects=='sl_client_account_not_created'){
 	?>
 	<div class="client_dash">
-	<h3><center>Your account not a loan client account, please contact us and we will resolve this.</center></h3>
+	<h3><center>Your account not a mortgage client account, please contact us and we will resolve this.</center></h3>
 	</div>
 	<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  
 }
@@ -42,7 +42,7 @@ else{
 			
 			<tr>
 				<td class="calculatorwp_sub_title" ><center>Ticket Number</center></td>
-				<td class="calculatorwp_sub_title"><center>Loan Application Id</center></td>
+				<td class="calculatorwp_sub_title"><center> Mortgage Application Id</center></td>
 				<td class="calculatorwp_sub_title"><center>Status </center></td>
 				<td class="calculatorwp_sub_title"><center></center></td>
 			</tr>

@@ -1,7 +1,7 @@
 <div class = "calculatorwp_loansettings_edit">
 
     <center>
-    	<h3 class="calculatorwp_main_title"> Manage Loan Product</h3>
+    	<h3 class="calculatorwp_main_title"> Manage Mortgage Product: <?php echo $object->name; ?> </h3>
     </center>
 
 	<div class="calculatorwp_main_title calculatorwp_main_title_shortcode">
@@ -11,7 +11,7 @@
 		<table>
 			<tr>
 				<td>
-					Display a Single Loan ( <?php echo $object->name; ?> ) : 
+					Display a Single Mortgage ( <b><?php echo $object->name; ?> </b> ) :
 				</td>				
 				<td class="sl_shortcode_details_l">
 					<span class="sl_shortcode_details"> 
@@ -20,28 +20,31 @@
 				<td>
 			</tr>
 			<tr>
-				<td>Display all Loans :</td>
+				<td>Display a Dropdown of all Mortgages :</td>
 				<td  class="sl_shortcode_details_l"><span class="sl_shortcode_details">[streamlinemortgage_all_loans]</span></td>
 			</tr>
 			<tr>
 				<td>
-					Borrower Login/Signup :
+					Borrower Login/ Signup :
 				</td>
 				<td class="sl_shortcode_details_l">
-					<span class="sl_shortcode_details">[sl_user_login]</span>
+					<span class="sl_shortcode_details">[streamlinemortgage_login]</span>
 				</td>
 			</tr>
 		</table>
 	</div>
 
-<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->create($model->name);
+<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
+
+	echo $this->form->create($model->name);
 	$gflist= mvc_model("calculatorwpGform");
+
 ?>
 
 <table class="calculatorwp_list_table">
 <tr>
     <td class="calculatorwp_title_feild">
-		Product Name
+		Name( Displayed on Frontend Dropdown )
 	</td>
 	<td>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->input('name', array('label' => '','class'=>'calculatorwp_input_feild')); ?>
@@ -49,12 +52,8 @@
 	
 </tr>
 <tr>
-	<td class="calculatorwp_title_feild">Currency
-	<?php 
-			
-		// echo '<br>Pro feature <a href="'. admin_url( 'admin.php?page=mvc_calculatorwp_clientloannotes-pricing') .'">See Pricing</a>';
-	
-	?>
+	<td class="calculatorwp_title_feild">
+		Currency/ Country
 	</td>
 	<td>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
@@ -65,15 +64,7 @@
 	</td>
 </tr>
 <tr>
-	<td  class="calculatorwp_title_feild">
-		Maximum Loan Amount
-	</td>	
-	<td>
-		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */ echo $this->form->input('max_amount', array('placeholder' => '', 'label' => '','class'=>'calculatorwp_input_feild'),  array('style' => ''));?>
-	</td>
-</tr>
-<tr>
-	<td class="calculatorwp_title_feild">Calculator Theme</td>
+	<td class="calculatorwp_title_feild">Calculator Type</td>
 	<td>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */
 		$calculatorwp_calculator_themes =[];
@@ -82,13 +73,22 @@
 		?>
 	</td>
 </tr>
-<tr>
-	<td class="calculatorwp_title_feild">Max Period</td>
+
+<tr class = "sm_interest">
+	<td  class="calculatorwp_title_feild">
+		Maximum Mortgage Amount
+	</td>	
+	<td>
+		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */ echo $this->form->input('max_amount', array('placeholder' => '', 'label' => '','class'=>'calculatorwp_input_feild'),  array('style' => ''));?>
+	</td>
+</tr>
+<tr class = "sm_interest">
+	<td class="calculatorwp_title_feild">Maximum Period</td>
 	<td>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->input('max_period_number', array('label' => '','class'=>'calculatorwp_input_feild_small')); ?>
 	</td>
 </tr>
-<tr>
+<tr class = "sm_interest">
 	<td class="calculatorwp_title_feild"></td>
 	<td>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
@@ -98,12 +98,14 @@
 		?>
 	</td>
 </tr>
-<tr>
+<tr class = "sm_interest">
 	<td class="calculatorwp_title_feild">Interest Rate</td>
 	<td>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->input('interest_rate', array('label' => '','class'=>'calculatorwp_input_feild')); ?>
 	</td>
 </tr>
+
+<!--
 <tr>
 	<td class="calculatorwp_title_feild">Borrower Details Form </td>
 	<td>
@@ -111,7 +113,7 @@
 	</td>
 </tr>
 
-<!-- <tr>
+<tr>
 	<td class="calculatorwp_title_feild">
 		Spending Goal Form
 	</td>
@@ -122,13 +124,13 @@
 
 </table>
 
-<table class="calculatorwp_list_table ">
+<table class="calculatorwp_list_table calculatorwp_list_table_frontend">
 <tr>
-	<td class="calculatorwp_title_feild">Product Header</td>
+	<td class="calculatorwp_title_feild">Product Title</td>
 	<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->input('main_title_text', array('placeholder' => '','label' => '','class'=>'calculatorwp_input_feild'),  array('style' => 'width: 200px;'));?>
 </tr>
 </table>
-<table class="calculatorwp_list_table ">
+<table class="calculatorwp_list_table calculatorwp_list_table_frontend">
 <tr>
 	<td class="calculatorwp_title_feild">Product Description</td>
 </tr>
@@ -136,39 +138,45 @@
 	<td><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */ echo $this->form->editor('main_title_description', array('placeholder' => 'Notes about the link','label' => '','class'=>'calculatorwp_textare_input_feild'),  array('style' => ''));?> </td>
 </tr>
 </table>
-<table class="calculatorwp_list_table ">
+<table class="calculatorwp_list_table calculatorwp_list_table_frontend">
 <tr>
 	<td  class="calculatorwp_title_feild">Submit Button Text</td>
 	<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->input('button_text', array('placeholder' => '', 'label' => '','class'=>'calculatorwp_input_feild'),  array('style' => 'width: 200px;'));?>
 </tr>
 	<tr>
-		<td class="calculatorwp_title_feild">Mailchimp Group
-		<?php			
-			echo '<br>To show groups <a href="'. admin_url( 'admin.php?page=mvc_calculatorwp_mailchimps') .'">Add API key</a>';
-		?>
+		<td class="calculatorwp_title_feild">
+			Mailchimp Group
+			<?php			
+				echo '<br>To show groups <a href="'. admin_url( 'admin.php?page=mvc_calculatorwp_mailchimps') .'">Add API key</a>';
+			?>
 		</td>
 		<td>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
+
 			$calculatorwp_get_mailchimp_list_interest= apply_filters('calculatorwp_get_mailchimp_list_interest','hallo');
+			
 			if(is_array($calculatorwp_get_mailchimp_list_interest)){
+
 				if(count($calculatorwp_get_mailchimp_list_interest)>0){
 					echo $this->form->select('mailchimp_group', array('options' => $calculatorwp_get_mailchimp_list_interest, 'value'=>$object->mailchimp_group,'class'=>'calculatorwp_input_feild'));
 				}
 				else{
-					echo "Please add API key";
-				}				
+					echo "Please add a Mailchimp API Key";
+				}
+
 			}
 			else{
-				echo "Please add API key";
+				echo "Please add a Mailchimp API Key";
 			}
 		?>
 		</td>
 		
 	</tr>
 </table>
+
 <table class="calculatorwp_list_table ">
 	<tr>
-		<td class="calculatorwp_title_feild">Notes</td>
+		<td class="calculatorwp_title_feild">Notes( Internal use only )</td>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->textarea_input('notes', array('placeholder' => 'Notes about the loan','label' => '','class'=>'calculatorwp_textare_input_feild'),  array('style' => ''));?>
 	</tr>
 </table>

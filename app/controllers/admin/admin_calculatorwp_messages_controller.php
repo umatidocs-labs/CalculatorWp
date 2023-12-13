@@ -21,15 +21,14 @@ class AdminCalculatorwpMessagesController extends MvcAdminController {
     }
 	
 	public function index() {
+		
 		do_action("calculatorwp_welcome_lender");
 		
 		$this->set('objects', mvc_model("calculatorwpTicket")->find());
 			
 	}
 
-	public function go_pro(){
-			
-	}
+	public function go_pro(){}
 
 	public function unresolved_index() {
 		$this->set('objects', mvc_model("calculatorwpTicket")->find(['conditions'=>['status'=>1]]));	

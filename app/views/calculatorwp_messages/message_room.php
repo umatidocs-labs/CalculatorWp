@@ -2,7 +2,6 @@
     
     <div id="calculatorwp_dash_content">
             <div class="logout_link_wrapper">
-
                     <div id="calculatorwp_dash_menu">
                     </div>
                 <?php do_action('calculatorwp_borrower_top_menu'); ?>
@@ -41,7 +40,7 @@
     <td class="sl_list_single_message">
         <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
             echo '<textarea id="calculatorwpMessageInputarea" name="calculatorwpMessageInputarea" class="calculatorwp_textare_input_feild"></textarea>';
-            echo '<br><button id="calculatorwpMessageSubmitButton" name="calculatorwpMessageSubmitButton" class="calculatorwpMessageSubmitButton"><b>Send</b></button>';
+            echo '<br><center><button id="calculatorwpMessageSubmitButton" name="calculatorwpMessageSubmitButton" class="calculatorwpMessageSubmitButton"> Send >> </button></center>';
         ?>
     </td>
     </table>

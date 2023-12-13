@@ -11,7 +11,7 @@ class calculatorwp_account{
 	
     public function load_hooks(){
         add_shortcode('sl_user_gate',array($this, 'user_gate'));
-        add_shortcode('sl_user_login',array($this, 'user_gate'));
+        add_shortcode('streamlinemortgage_login',array($this, 'user_gate'));
         add_action("wp_ajax_nopriv_sl_submit_registration_form" , array( $this, "create_account_from_ajax"));
         add_action("calculatorwp_welcome_lender",array($this, 'welcome_to_calculatorwp'));
         add_action("calculatorwp_signup_starter",array($this, 'signup_starter')); 

@@ -10,8 +10,8 @@ class AdminCalculatorwpLoansettingsController extends MvcAdminController {
         $menu_html="<div class='sl_b_wrapper_design'>
 		<div class='sl_menu_html wrap'>
 			<ul class='subsubsub lp_com_top_parent'>
-				<li class='lp_com_header'><a class='' href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_loansettings', 'action' => '',)).">Product(s)</a> </li>
-				<li class='lp_com_header'> <a class='' href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_loansettings', 'action' => 'add','id'=>2)).">New Product</a></li>
+				<li class='lp_com_header'><a class='' href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_loansettings', 'action' => '',)).">Mortgage Product(s)</a> </li>
+				<li class='lp_com_header'> <a class='' href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_loansettings', 'action' => 'add','id'=>2)).">New Mortgage Product</a></li>
 			</ul>
 		</div>";
 
@@ -41,7 +41,7 @@ class AdminCalculatorwpLoansettingsController extends MvcAdminController {
 					$this->model->create($this->params['data']);
 					$id = $this->model->insert_id;
 					$url = MvcRouter::admin_url(array('controller' => $this->name, 'action' => 'edit', 'id' => $id));
-					$this->flash('notice', 'Successfully saved! <br>IMPORTANT: You need to go to Settings > Permalinks and click “save” to avoid getting a 404 page. <br>Use the shortcodes below to start accepting loan applications and user account creation<br> Getting started documentation <b>:</b> <a href = "https://wordpress.org/support/?post_type=topic&p=11352130" >Click Here</a>');
+					$this->flash('notice', 'Successfully saved! <br>IMPORTANT: You need to go to <a target="blank" href="/wp-admin/options-permalink.php">Settings > Permalinks</a> and click “save” to avoid getting a 404 page. <br>Use the shortcodes to start accepting mortgage applications and user account creation');
 					$this->redirect($url);
 				}
 			}
@@ -53,7 +53,7 @@ class AdminCalculatorwpLoansettingsController extends MvcAdminController {
         if (!empty($this->params['data']) ) {
            
            if ($this->model->save($this->params['data'])) {
-			$this->flash('notice', 'Successfully saved! <br>IMPORTANT: You need to go to Settings > Permalinks and click “save” to avoid getting a 404 page. <br>Use the shortcodes to start accepting loan applications and user account creation<br> Getting started documentation https://wordpress.org/support/?post_type=topic&p=11352130');
+			$this->flash('notice', 'Successfully saved! <br>IMPORTANT: You need to go to <a target="blank" href="/wp-admin/options-permalink.php">Settings > Permalinks</a> and click “save” to avoid getting a 404 page. <br>Use the shortcodes to start accepting mortgage applications and user account creation');
 				$this->refresh();
 		  } else {
 			$this->flash('error', $this->model->validation_error_html);
@@ -67,7 +67,9 @@ class AdminCalculatorwpLoansettingsController extends MvcAdminController {
     }
 	
     public function delete() {
+
 	$this->set_object();
+	
 		if (!empty($this->object)) {
 		  $this->model->delete($this->params['id']);
 		  $this->flash('notice', 'Successfully deleted!');

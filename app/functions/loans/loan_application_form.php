@@ -427,7 +427,11 @@ class calculatorwp_gravity_form_manager {
 	public function connect_loan_to_user(){
 		//update session
 		//update client loan
-       $loan_id = $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"]['loan_id'];
+        $loan_id = 0;
+        if( array_key_exists( 'loan_id' , $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"] ) ){ 
+            $loan_id = $_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"]['loan_id'];
+        }
+        
        $user_id=calculatorwp_class('calculatorwp_account')->get_current_user_sl_id();
        $update_sucessful_id = mvc_model('calculatorwpClientloan')->save([
                 'id'=>$loan_id,
@@ -435,8 +439,10 @@ class calculatorwp_gravity_form_manager {
             ]);
 		
 		if($update_sucessful_id){
-
-            do_action('calculatorwp_loan_application',$user_id);
+            do_action('calculatorwp_loan_application', [
+                'id'=>$loan_id,
+                "client_id"=> $user_id
+            ] );
 			unset($_SESSION["calculatorwp"]);
 		}
 	}

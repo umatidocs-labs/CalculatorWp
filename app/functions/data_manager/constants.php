@@ -344,10 +344,10 @@ $sl_currency_country=array(
 
 DEFINE('sl_currency_country',serialize($sl_currency_country));
 DEFINE('sl_period_unit',serialize(array(
-					"d"=>"Day(s) - Single payment with fixed interest",
-					"w"=>"Week(s) - Single payment with fixed interest",
-					"m"=>"Month(s) - Multiple payment with reducing interest(% P.A.)",
-					"y"=>"Year(s) - Multiple payment with reducing interest(% P.A.)"					
+					"d"=>"Day(s) - A Single Payment with Fixed Interest",
+					"w"=>"Week(s) - A Single Payment with Fixed Interest",
+					"m"=>"Month(s) - Monthly Payment On Reducing Balance( Calculated % P.A.)",
+					"y"=>"Year(s) - Monthly Payment On Reducing Balance( Calculated % P.A.)"
 				)));
 
 DEFINE('sl_client_loan_stage',serialize(array(

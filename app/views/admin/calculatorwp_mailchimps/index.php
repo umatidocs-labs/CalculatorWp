@@ -29,44 +29,9 @@ function calculatorwp_OptionsPageHTML()
         return;
     }
 
+    calculatorwpOptionsPageHTML();
+
     ?>
-
-<div class="wrap">
-     <form action="options.php" method="post">
-        <?php
-            settings_fields('calculatorwp');
-            do_settings_sections('calculatorwp');
-
-            add_settings_section(
-                'calculatorwp',
-                'Extra Settings',
-                'ads_description',
-                'discussion'
-            );
-
-            // Register a callback
-            register_setting(
-                'discussion',
-                'ads',
-                'trim'
-            );
-
-            // Register the field for the "avatars" section.
-            add_settings_field(
-                'ads',
-                'Test field',
-                'ads_show_settings',
-                'discussion',
-                'ads_id',
-                array ( 'label_for' => 'ads_id' )
-            );
-
-            submit_button('Save Settings');
-
-        ?>
-
-    </form>
-</div>
 
 <?php
 

@@ -360,7 +360,9 @@ p.login-password{
 	color:gray !important;
 }
 .sl_note_description{
-	font-size:10px;
+	font-size: 10px;
+	background: #ffff001c;
+	padding: 5px 10px;
 }
 .sl_title_line{
 	float: left;
@@ -390,8 +392,9 @@ p.login-password{
 	font-size: 15px;
 	color: #333333f2;
 	background: #feffaf;
-	padding: 2px 15px;
+	padding: 5px 15px;
 	border-radius: 3px;
+	border: 1px solid #8080802e;
 }
 .calculatorwp_input_feild,select.calculatorwp_input_feild, .calculatorwp_input_feild_f,.calculatorwp_input_feild_small{
 	width: 98%;
@@ -403,7 +406,7 @@ p.login-password{
 	background: #4ce20821 !important;
 }
 .sl_shortcode_details_l{
-	padding:3px;
+	padding: 5px 15px;
 }
 .calculatorwp_textare_input_feild{
 	width: 100%;
@@ -514,6 +517,10 @@ p.login-password{
 }
 .sl_list_name,.sl_list_single_item{
 	color:#333 !important;
+	padding: 10px 20px;
+	background: #ccc4;
+	border-radius: 10px;
+	margin-bottom: 8px;
 }
 .lp_com_header > a {
 	color:#008b00;
@@ -586,8 +593,10 @@ p.login-password{
 }
 
 .calculatorwp_main_title_shortcode{
-	border-radius: 0px;
+	border-radius: 10px;
 	background: #c7ff0014;
+	margin-bottom: 30px;
+	border: 3px solid #d1cfcf0f;
 }
 .add-new-h2{
 	background: #8EFE8D !important;
@@ -747,7 +756,7 @@ a:active, a:focus {
 #final input[type=submit]{
 	padding:4px 30px;
 	border-radius:5px;
-	background-color:#05370699;
+	background-color:;
 	color:#fff;
 	border:0px;
  }
@@ -849,9 +858,9 @@ a:active, a:focus {
 	margin: 25px 30px auto !important;
 }
 #calculatorwp_mailchimp_api_key{
-	border-radius: 30px;
-	padding: 0px 20px !important;
-	border: 0px;
+	border-radius: 10px;
+	padding: 3px 20px !important;
+	background: #fff !important;
 }
 #wpbody-calculator {
 	padding-bottom: 65px;
@@ -887,4 +896,26 @@ table.widefat{
 	padding: 10px 15px;
 	border: 0px solid #80808069;
 	background:;
+}
+#CalculatorwpLoansettingMaxPeriodNumber{
+	float: left;
+	width: 400px;
+}
+.sm_interest{
+	background: #ffff0018;
+}
+.calculatorwp_list_table_frontend{
+	background: #ccc1;
+	border-radius: 10px;
+	padding: 20px;
+	border: 2px solid #ccc1;
+}
+
+.sm_admin_link{
+	background-color: #00b300;
+	color: #fff;
+	padding: 5px 10px;
+	border-radius: 5px;
+	text-decoration: none;
+	margin-left: 10px;
 }

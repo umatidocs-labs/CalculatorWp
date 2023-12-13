@@ -33,21 +33,28 @@ class CalculatorwpMessagesController extends MvcPublicController {
 	} 
 	
 	public function create_ticket() {
+
 		if(is_user_logged_in()){
-			$id = mvc_model("calculatorwpTicket")->create(['calculatorwpTicket'=>[
+
+			$id = mvc_model("calculatorwpTicket")->create([
 					'loan_id'=>$this->params['id'],
 					'ticket_id'=>'T'.time(),
 					'status'=>1,
 					'creation_time'=>date("Y-m-d H:i:s"),
 					'client_id'=>mvc_model('calculatorwpClientaccount')->find_one(['conditions'=>['wp_user_id'=>get_current_user_id()]])->id
-				]]);
+			] );
+
 			$url = MvcRouter::public_url(array('controller' => 'calculatorwp_messages', 'action' => 'message_room', 'id' => $id));
 			$this->flash('notice', 'Leave admin a note :)');
 			$this->redirect($url);
+
 		}
 		else{
+
 			$this->set('objects','show_login');
+
 		}
+
 	}
 	
 	public function delete() {

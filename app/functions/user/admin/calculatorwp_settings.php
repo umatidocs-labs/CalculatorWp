@@ -79,41 +79,14 @@
             return;
         }
     ?>
-    <center>
-    	<div class = "calculatorwp_menu_html" style="margin-left:25px;	margin-top:40px;">	
-    		<div>
-    			<span class="wp-core-ui button-primary" >
-    				<a class="calculatorwp_menu_item_a" style="padding:20px; color:#fff; text-decoration:none;" href="<?php menu_page_url("calculatorwp"); ?>">General</a>
-    			</span>
-    			<span class="calculatorwp_menu_item" style="background-color:gray;
-    				color:#fff;
-    				padding:5px;
-    				text-decoration:none;
-    				border-radius:2px;
-    				margin:2px;">
-    				<a class="calculatorwp_menu_item_a" style="padding:20px; color:#fff; text-decoration:none;" href="<?php echo mvc_admin_url(array("controller" => "calculatorwp_webhooks", "action" => "index", "id" =>"" )); ?>">Notifications</a>
-    			</span>
-    			
-    			<span class="calculatorwp_menu_item" style="background-color:gray;
-    				color:#fff;
-    				padding:5px;
-    				text-decoration:none;
-    				border-radius:2px;
-    				margin:2px;">
-    				<a class="calculatorwp_menu_item_a" style="padding:20px; color:#fff; text-decoration:none;" href="<?php echo mvc_admin_url(array("controller" => "calculatorwp_triggers", "action" => "index", "id" =>"")); ?>">Triggers</a>
-    			</span>
-    			
-    		</div>
-    	</div>
-    </center>
-    	
+
     <div class="wrap">
-    <div class="wrap calculatorwp_input" style="border-radius:5px;
-     padding:30px;
-     margin:20px;
-     background:#fff;">
-        <h1><?php echo esc_html(get_admin_page_title()); ?></h1>
-    	
+    <div class="wrap calculatorwp_input" style="
+        border-radius:5px;
+        padding:30px;
+        margin:20px;
+        background:#fff;">
+            	
     	<hr>
         <form action="options.php" method="post">
             <?php
