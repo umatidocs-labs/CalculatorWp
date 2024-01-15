@@ -93,7 +93,7 @@
 	</tr>
 	<tr>
 		<td>
-			<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */ echo $this->form->editor('main_title_description', array('required'=>false,'placeholder' => 'Notes about the link','label' => '','class'=>'calculatorwp_textare_input_feild'),  array('style' => 'width: 200px;'));?>
+			<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */ echo $this->form->editor('main_title_description', array('required'=>false,'placeholder' => 'Notes about the link','label' => '','class'=>'calculatorwp_textare_input_feild','required'=>false),  array('style' => 'width: 200px;'));?>
 		</td>
 	</tr>
 </table>

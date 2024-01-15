@@ -1,14 +1,14 @@
 <tr style="width:100%;">
     <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  ?>
-	<td class="sl_list_single_item">
+	<td class="sl_list_single_item_single">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->name))
-				echo '<span class="sl_list_name">'.$object->name.' (Loan ID:'.$object->id.')</span>';
+				echo '<span class="">'.$object->name.' (Loan ID:'.$object->id.')</span>';
 			else
 				echo '(undefined)';
 		?>
 	</td>
-	<td class="sl_list_single_item">
+	<td class="sl_list_single_item_single">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->interest_rate))
 				echo $object->interest_rate.'% p.a.';

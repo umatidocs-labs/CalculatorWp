@@ -1,17 +1,17 @@
 <tr style="width:100%;">
     <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  ?>
-	<td class="sl_list_single_item">
+	<td class="sl_list_single_item_single">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  
 			if (isset($object->client_id) && is_numeric($object->client_id)){
 				
-				echo '<span class="sl_list_name">'.calculatorwp_class('calculatorwp_account')->get_user_name_from_sl_user_id($object->client_id).'</span>';
+				echo '<span class="">'.calculatorwp_class('calculatorwp_account')->get_user_name_from_sl_user_id($object->client_id).'</span>';
 			}
 			else{
 				echo '(anonymous)';
 			}
 		?>
 	</td>
-	<td class="sl_list_single_item">
+	<td class="sl_list_single_item_single">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */
 			$sl_client_loan_stage=unserialize(sl_client_loan_stage);
 			if (!is_null($object->loan_stage))
@@ -20,7 +20,7 @@
 				echo '(undefined)';
 		?>
 	</td>	
-	<td class="sl_list_single_item">
+	<td class="sl_list_single_item_single">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */ 
 			$Loansetting_name=mvc_model("calculatorwpLoansetting")->find_by_id($object->loan_setting_id);//->name ;
 //var_dump($Loansetting_name);

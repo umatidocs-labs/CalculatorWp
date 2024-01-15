@@ -92,10 +92,12 @@
             <?php
             settings_fields('calculatorwp');
             do_settings_sections('calculatorwp');
+
             ?><br><br>
+
     		<center id='final' >
-    	<input class="wp-core-ui button-primary" type="submit" name="submit" id="submit" value="Save Settings">
-    </center>
+                <input class="calculatorwp_submit_wrap" type="submit" name="submit" id="submit" value="Save Settings">
+            </center>
         </form>
     </div>
     </div>

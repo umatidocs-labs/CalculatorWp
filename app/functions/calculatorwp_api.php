@@ -135,10 +135,11 @@ add_action('init','calculatorwp_listen_for_api_response');
         }
 
     function calculatorwp_get_mailchimp_list_interest($param=''){
+
         $apiKey = get_option('calculatorwp_mailchimp_api_key');
         $listId = get_option('calculatorwp_mailchimp_list');
 
-        if (isset($listId)) {
+        if ( isset($listId) ) {
         // API to mailchimp ########################################################
                 $dataCenter = substr($apiKey,strpos($apiKey,'-')+1);
                 $url = 'https://' . $dataCenter . '.api.mailchimp.com/3.0/lists/'.$listId.'/interest-categories';
@@ -158,13 +159,24 @@ add_action('init','calculatorwp_listen_for_api_response');
 
                 $result=json_decode($result,true);
                 $html_code=[];
+
                 if(is_array($result)){
-                if(array_key_exists('categories',$result)){
-                if(is_array($result['categories'])){
-                    foreach ($result['categories'] as $key => $value) {
-                        $html_code[$value['id']] = $value['title'];				
+                    if(array_key_exists('categories',$result)){
+                        if(is_array($result['categories'])){
+
+                            if(count( $result['categories'] ) > 0 ){
+                                foreach ($result['categories'] as $key => $value) {
+                                    $html_code[$value['id']] = $value['title'];				
+                                }
+                            }
+                            else{
+                                $html_code[0] = 'No Mailchimp Groups Create';
+                            }
+
+                        }
                     }
-                }}}
+                }
+
             }
             else{
                 $html_code=[];
@@ -271,7 +283,7 @@ add_action('init','calculatorwp_listen_for_api_response');
         
         ?>
             <input type="text" id="<?php echo $var?>" name="<?php echo $var?>" value="<?php echo $path;?>" class="large-text">
-            <p class="description"><?php _e('Get API Key From Mailchimp: <a href="https://mailchimp.com/help/about-api-keys/">Click Here</a> .', SL_THEME); ?></p>
+            <p class="get_mailchimp_description"><?php _e('Get API Key From Mailchimp: <a href="https://mailchimp.com/help/about-api-keys/">Click Here</a> .', SL_THEME); ?></p>
 
         <?php   
     }
@@ -326,4 +338,82 @@ add_action('init','calculatorwp_listen_for_api_response');
 
 calculatorwp_send_to_mailchimp();
 
+
+
+add_action( 'wp_ajax_sl_form_load_content', 'sl_form_load_content' );
+add_action( 'wp_ajax_nopriv_sl_form_load_content', 'sl_form_load_content' );
+function sl_form_load_content(){
+
+    echo json_encode( [
+        'post_title' => get_post_field( 'post_title',  $_POST['form_id'] ),
+        'formData' => get_post_field( 'post_content',  $_POST['form_id'] )
+    ] );
+
+    wp_die();
+
+}
+
+add_action( 'wp_ajax_sl_update_form_builder', 'sl_update_form_builder' );
+add_action( 'wp_ajax_nopriv_sl_update_form_builder', 'sl_update_form_builder' );
+
+function sl_update_form_builder(){
+
+    if( $_POST['form_id'] == 0 ){
+        // do new posts
+        // create a new group id, and return it
+        $post_data = [
+            'post_title' => $_POST['form_name'],
+            'post_status' => 'active',
+            'post_content' => $_POST['form_data'],
+            'post_type' => 'mortgagetable',
+            'post_parent' => '',
+        ] ;
+
+        $new_post_id = wp_insert_post( $post_data, $wp_error );
+
+    }
+    else{
+        // update post
+        // 'form_id'
+        $post_data = [
+            'ID'            => $_POST['form_id'],
+            'post_title'    => $_POST['form_name'],
+            'post_status'   => 'active',
+            'post_content'  => $_POST['form_data'],
+            'post_type'     => 'mortgagetable',
+            'post_parent'   => '',
+        ] ;
+
+        $new_post_id = wp_update_post( $post_data, $wp_error );
+
+    }
+
+    $posts_ = get_posts( [
+        'post_status' => 'active',
+        'post_type' => 'mortgagetable',
+    ] );
+
+    $mortgagetables = [];
+    foreach( $posts_ as $single_p ){
+        array_push( $mortgagetables , ['id'=>$single_p->ID, 'post_name' => $single_p->post_title ] );
+    }
+
+    echo json_encode( [ 
+        'table_id' => $new_post_id,
+        'mortgage_tables' => $mortgagetables
+    ] );
+
+    wp_die();
+
+}
+
+add_shortcode( 'sl_render_details_l', 'sl_render_details_l');
+function sl_render_details_l(){
+    return '
+        <div id="render-container"></div>
+        hallo
+    ';
+}
+
 ?>
+

@@ -36,9 +36,11 @@ class calculatorwp_notification{
 		$mail_subject =	'Notification from '.$_SERVER['HTTP_HOST'];
 		
 		$this->mailout([
+
 			'mail_subject'	=>	$mail_subject,
 			'mail_content'	=>	$mail_content,
 			'recipient_list'=>	$param['borrower_data']->email,
+
 		]);
 
 	}
@@ -51,10 +53,10 @@ class calculatorwp_notification{
 
 		//@todo test
 		mvc_model('calculatorwpNotification')->create([
-			'message'=>$param['message'],
-			'user_id'=>$param['borrower_data']->id,
-			'status'=>1,
-			'time_created'=>date("Y-m-d H:i:s"),
+			'message'	=> $param['message'],
+			'user_id'	=> $param['borrower_data']->id,
+			'status'	=>1,
+			'time_created' =>date("Y-m-d H:i:s"),
 			'admin_link' => $param['admin_link'],
 			'admin_user' => $param['admin_user']
 		]);
@@ -70,8 +72,9 @@ class calculatorwp_notification{
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-Type: text/html; charset=ISO-8859-1' . "\r\n";
         $headers .= 'From: no_reply@'.$_SERVER['HTTP_HOST']. "\r\n";
-        $email_sent = wp_mail( $recipient_list, $mail_subject , $mail_content,$headers);
-		
+
+        // $email_sent = wp_mail( $recipient_list, $mail_subject, $mail_content, $headers );
+		$email_sent =  true;
 		return $email_sent;
 
 	}

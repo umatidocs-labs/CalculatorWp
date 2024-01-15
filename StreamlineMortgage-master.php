@@ -3,15 +3,14 @@
 /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */
 
 /*
-Plugin Name: StreamlineMortgage-master
-Plugin URI: https://www.naiwealth.com/
+Plugin Name: Streamline Mortgage
+Plugin URI: https://www.naiwealth.com/streamlinemortgage
 Description: A complete Mortgage marketing tool for lenders on wordpress.
 Author: Naiwealth
-Version: 2.7.0
+Version: 2.8.1
 Author URI: https://www.naiwealth.com/
 */
-
-
+/*
 if ( ! function_exists( 'cowp_fs' ) ) {
     // Create a helper function for easy SDK access.
     function cowp_fs() {
@@ -29,7 +28,7 @@ if ( ! function_exists( 'cowp_fs' ) ) {
             $cowp_fs = fs_dynamic_init( array(
                 'id'                  => '11543',
                 'slug'                => 'StreamlineMortgage-master',
-                'premium_slug'        => 'CalculatorWP-premium',
+                'premium_slug'        => 'StreamlineMortgage-premium',
                 'type'                => 'plugin',
                 'public_key'          => 'pk_a9f1ac9df7685f4550844c7d21158',
                 'is_premium'          => true,
@@ -58,7 +57,7 @@ if ( ! function_exists( 'cowp_fs' ) ) {
 }
 
 error_reporting( 0 );
-
+*/
 
 if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
     
@@ -112,7 +111,7 @@ if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
                 $wp_rewrite->flush_rules( true );
     
             ob_get_clean();
-            // GFForms::activation_hook();
+ //           GFForms::activation_hook();
         }
     
     }

@@ -248,17 +248,17 @@ add_action('admin_init', 'calculatorwp_on_mvc_admin_init');
 add_action('wp_enqueue_scripts','calculatorwp_public_resources');
 
 function calculatorwp_public_resources($options) {
-   wp_enqueue_style('sl_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'style_public'));
+
+    wp_enqueue_style('sl_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'style_public'));
     
     // Load the datepicker script (pre-registered in WordPress).
     wp_enqueue_script( 'jquery-ui-datepicker' );
-	
+    wp_enqueue_script( 'calculatorwp-form-render-js', mvc_js_url( WP_calculatorwp__PLUGIN_DIR, 'form-render.min.js' ), array('jquery', 'jquery-ui-core') );
+    wp_enqueue_script( 'calculatorwp-sl-render-js', mvc_js_url( WP_calculatorwp__PLUGIN_DIR, 'sl-form-render'), array('jquery', 'jquery-ui-core') );
     wp_enqueue_script( 'sl-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'public-script') , array('jquery') );
 	wp_localize_script( 'sl-main-lib-uploader-js', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));
     
     // You need styling for the datepicker. For simplicity I've linked to Google's hosted jQuery UI CSS.
-    wp_enqueue_style( 'jquery-ui', 'http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css' );   
-
     wp_enqueue_style('calculatorwp-mvc_admin', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'wh-style'));
     wp_enqueue_script( 'calculatorwp-clipboard-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'clipboard.min.js') , array() );
     
@@ -269,30 +269,21 @@ function calculatorwp_public_resources($options) {
     // Your custom js file
     wp_enqueue_script( 'sl-calc-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'accrue') , array('jquery') );
 
-
     //CSS files
     wp_enqueue_style('ps_boards_a_style_public', mvc_css_url( WP_calculatorwp__PLUGIN_DIR, 'style_candidate_public' ) ) ;
 
     // wp_enqueue_style('ps_boards_b_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'bootstrap-reboot.min'));
-
     // wp_enqueue_style('ps_boards_c_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'bootstrap-grid.min'));
-
     // wp_enqueue_style('ps_boards_d_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'owl.carousel.min'));
-
     // wp_enqueue_style('ps_boards_e_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'nouislider.min'));
-
     // wp_enqueue_style('ps_boards_d_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'select2.min'));
-
     // wp_enqueue_style('ps_boards_e_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'jquery.mCustomScrollbar.min'));
-
     // wp_enqueue_style('ps_boards_f_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'ionicons.min'));
 
     wp_enqueue_style('ps_boards_g_style_public', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'main'));
 
     // wp_enqueue_style('ps_boards_h_style_public', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
-
     // wp_enqueue_style('ps_boards_i_style_public', 'https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap2-toggle.min.css');
-
 
     // Load the datepicker script (pre-registered in WordPress).
     wp_enqueue_script( 'srb-boards-a-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'public-candidate-script.js') , array('jquery') );
@@ -300,22 +291,17 @@ function calculatorwp_public_resources($options) {
 
     // wp_enqueue_script( 'srb-boards-b-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'bootstrap.bundle.min.js') , array('jquery') );
     // wp_localize_script( 'srb-boards-b-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
-
     // wp_enqueue_script( 'srb-boards-c-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'owl.carousel.min.js') , array('jquery')) ;
-    //wp_localize_script( 'srb-boards-c-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
-
+    // wp_localize_script( 'srb-boards-c-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
     // wp_enqueue_script( 'srb-boards-d-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'wNumb.js') , array('jquery') );
     // wp_localize_script( 'srb-boards-d-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
-
     wp_enqueue_script( 'srb-boards-e-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'nouislider.min.js') , array('jquery') );
     wp_localize_script( 'srb-boards-e-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
     // wp_enqueue_script( 'srb-boards-f-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'select2.min.js' ) , array('jquery') );
     // wp_localize_script( 'srb-boards-f-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
-
     wp_enqueue_script( 'srb-boards-g-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'jquery.mousewheel.min.js' ) , array('jquery') );
     wp_localize_script( 'srb-boards-g-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
-
     wp_enqueue_script( 'srb-boards-h-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'jquery.mCustomScrollbar.min.js') , array('jquery') );
     wp_localize_script( 'srb-boards-h-main-lib-uploader-js', 'ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' )));
 
@@ -359,17 +345,24 @@ function calculatorwp_on_mvc_admin_init($options) {
     //Core media script
     wp_enqueue_media();
 
+    // wp_deregister_script('jquery');
+    wp_enqueue_script('jquery');
+
+    wp_deregister_script('jquery-ui-core');
+    wp_register_script('jquery-ui-core', ('https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js'), false, '1.6.4'); 
+    wp_enqueue_script('jquery-ui-core');
+
     // Your custom js file
     wp_enqueue_script( 'sl-media-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'main-script') , array('jquery') );
     wp_localize_script( 'sl-media-lib-uploader-js', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
     wp_enqueue_script( 'sl-main-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'public-script') , array('jquery') );
+    wp_enqueue_script( 'sl-main-lib-form-builder-js', mvc_js_url( WP_calculatorwp__PLUGIN_DIR, 'form-builder.min.js' ) , array('jquery', 'jquery-ui-core') );
 	wp_localize_script( 'sl-main-lib-uploader-js', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' )));
    
     // Load the datepicker script (pre-registered in WordPress).
     wp_enqueue_script( 'jquery-ui-datepicker' );
 
     // You need styling for the datepicker. For simplicity I've linked to Google's hosted jQuery UI CSS.
-    wp_enqueue_style( 'jquery-ui', 'http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css' );
 	wp_enqueue_script( 'calculatorwp-copy-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'clipboard.min.js') , array() );
     
     wp_enqueue_style('calculatorwp-mvc_admin', mvc_css_url(WP_calculatorwp__PLUGIN_DIR, 'wh-style'));
@@ -378,15 +371,14 @@ function calculatorwp_on_mvc_admin_init($options) {
     // Your custom js file
     wp_enqueue_script( 'calculatorwp-media-lib-uploader-js', mvc_js_url(WP_calculatorwp__PLUGIN_DIR, 'wh-script') , array('jquery') );
     wp_localize_script( 'calculatorwp-media-lib-uploader-js', 'ajax_object', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
+    
 }
 
 function my_hidden_submenu_page(){
-
     //remove it
     remove_submenu_page('mvc_calculatorwp_clientloannotes','mvc_calculatorwp_clientloans-process');
-
 }
 
-add_action('admin_menu', 'my_hidden_submenu_page',0,10000);
+add_action( 'admin_menu', 'my_hidden_submenu_page', 0, 10000 );
 
 ?>

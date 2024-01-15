@@ -31,7 +31,7 @@
 	<td class="calculatorwp_sub_body"><center>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->id)){				
-        		echo "<a class='sl_menu_item_front_view' href=".mvc_public_url(array('controller' => 'calculatorwp_messages', 'action' => 'message_room','id'=>$object->id)).">View</a>";
+        		echo "<a class='sl_menu_item_front_view' href=".mvc_public_url(array('controller' => 'calculatorwp_messages', 'action' => 'message_room','id'=>$object->id)).">Open</a>";
 			}
 			else
 				echo '---';

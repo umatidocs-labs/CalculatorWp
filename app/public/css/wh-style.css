@@ -41,12 +41,12 @@ a:active, a:focus {
   box-shadow: none;
 }
 #final input[type=submit]{
-	padding:10px 30px;
-	border-radius:5px;
-	background-color:#05370699;
-	color:#fff;
-	border:0px;
- }
- code:active {
-	 border:1px red solid;
- }
+	padding: 15px;
+	border-radius: 15px;
+	background-color: #05370699;
+	color: #fff;
+	border: 0px;
+}
+code:active {
+	border:1px red solid;
+}

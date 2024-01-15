@@ -1,14 +1,14 @@
 <tr style="width:100%;">
     <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  ?>
-	<td class="sl_list_single_item">
+	<td class="sl_list_single_item_single">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */
 			if (isset($object->__id))
-				echo '<span class="sl_list_name">'.$object->ticket_id.'</span>';
+				echo '<span class="">'.$object->ticket_id.'</span>';
 			else
 				echo '(undefined)';
 		?>
 	</td>
-	<td class="sl_list_single_item">
+	<td class="sl_list_single_item_single">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->status)){
 				$ticket_status= array(
@@ -22,7 +22,7 @@
 			}
 		?>
 	</td>
-	<td class="sl_list_single_item">
+	<td class="sl_list_single_item_single">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->loan_id)){
 				$object_loan_id = mvc_model("calculatorwpClientloan")->find_by_id($object->loan_id)->loan_setting_id;

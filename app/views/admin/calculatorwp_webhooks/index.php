@@ -15,7 +15,7 @@
     <br>
     </center>
     <center>
-    <table class="calculatorwp_list_table">
+    <table class="calculatorwp_list_table_index">
             <tr style="width:100%;">
 					<td class="calculatorwp_sub_title">
                         <center>Active</center>
@@ -56,5 +56,5 @@
 ?>
 
 <script type="text/javascript">
-    calculatorwp_number_of_notifications=<?php echo json_encode($notification_arr); ?>;
+    calculatorwp_number_of_notifications=<?php echo json_encode( $notification_arr ); ?>;
 </script>

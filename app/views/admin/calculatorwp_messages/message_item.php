@@ -9,7 +9,7 @@
 						3=>'Seen'
 					);
 				echo '<div class="sl_list_name">'.$object->message.'</div>';
-				echo '<span class="sl_list_message_details">'.$sl_message_status[$object->status].' '.$object->send_time.' by '.mvc_model('calculatorwpClientaccount')->find_by_id($object->sender_id)->firstname.'</span>';
+				echo '<span class="sl_list_message_details">'.$sl_message_status[$object->status].' by <b>'.mvc_model('calculatorwpClientaccount')->find_by_id($object->sender_id)->firstname.'</b> at <i>'.$object->send_time.'</i> </span>';
 			}
 		?>
 	</td>

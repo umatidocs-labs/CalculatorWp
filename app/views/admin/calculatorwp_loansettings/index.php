@@ -2,7 +2,7 @@
 <center><h3 class="calculatorwp_main_title">Mortgage Product Manager</h3></center>
 <div class = "calculatorwp_input">    
     <center>
-    <table class="calculatorwp_list_table ">
+    <table class="calculatorwp_list_table_index ">
 		<thead>
 			<tr style="width:100%;">
 				<th class="calculatorwp_sub_title" >

@@ -1,8 +1,8 @@
 <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  
+
 class calculatorwp_loan_process{
 	
 	//Loan processing -> approved/ declined/ additional request(gravity form)
-
     public function approve_loan($Clientloan){
     	$Clientloan_id = $Clientloan['id']; //$Clientloan_id = $Clientloan['client_id'];
     	$amount_needed=mvc_model('calculatorwpClientloan')->find_by_id($Clientloan_id)->amount_needed;
@@ -69,7 +69,6 @@ class calculatorwp_loan_process{
     }
 	
     public function make_request_before_processing_loan(){
-		
     }
 	
     public function charge_interest($itr_details){

@@ -14,7 +14,7 @@
     </center>
 
     <center>
-        <table class="calculatorwp_list_table">
+        <table class="calculatorwp_list_table_index">
         <tr style="width:100%;">
             <td class="calculatorwp_sub_title" >
                 <center>Ticket Id</center>

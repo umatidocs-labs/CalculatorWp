@@ -11,16 +11,18 @@
 			<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo '<a class="calculatorwp_application_top_a" href="'.mvc_admin_url(array('controller' => 'calculatorwp_clientloans', 'action' => 'process','id' => $object->id)).'">Process</a>'; ?>
 		</td>
 		<td class="calculatorwp_minfore_top">
-			<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo '<a class="calculatorwp_application_top_a" href="'.mvc_admin_url(array('controller' => 'calculatorwp_clientloans', 'action' => 'more_loan_info','id' => $object->id)).'">Loan Details</a>'; ?>
+			<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo '<a class="calculatorwp_application_top_a" href="'.mvc_admin_url(array('controller' => 'calculatorwp_clientloans', 'action' => 'more_loan_info','id' => $object->id)).'">Mortgage Details</a>'; ?>
 		</td>
 		<td class="calculatorwp_adedcline_top">
-			<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo '<a class="calculatorwp_application_top_a" href="'.mvc_admin_url(array('controller' => 'calculatorwp_clientloans', 'action' => 'goal_info','id' => $object->id)).'">Goals</a>'; ?>
+			<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo '<a class="calculatorwp_application_top_a" href="'.mvc_admin_url(array('controller' => 'calculatorwp_clientloans', 'action' => 'goal_info','id' => $object->id)).'">Tasks</a>'; ?>
 		
 		</td>
 	</tr>
 </table>
     
 <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->create($model->name); ?>
+
+<div class="sl_process_body">
 
 <br>
 <table>
@@ -110,10 +112,12 @@
 			<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  ?></td>
         </tr>
 </table>
-</center>
-<br>
+
 <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo '<center>'.$this->form->end('Update').'</center>';  ?>
 
+</center>
+<br>
+</div>
 </div>
 <?php //sl_hide_mitem(); ?>
 </div>

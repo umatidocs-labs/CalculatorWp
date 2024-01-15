@@ -1,4 +1,4 @@
-<div class = "">
+<div class = "sl_dash_wrap_d">
 
     <div class="mainstats_name">
 
@@ -41,21 +41,20 @@
 			foreach( $objects as $object ){
 				
 				$status_var=[
-					1=>"not viewed by the client yet",
-					2=>"viewed by the client",
+					1=>"Notification not viewed by the client yet",
+					2=>"Notification viewed by the client",
 					3=>"Deleted"
 				];
 				
 				echo '
 				<div class="sl_activity_log">
-					'.$object->message.' <br>
+					<div class="sl_message_line">'.$object->message.' </div>
 					<span class="sl_note_description">
-						Client <a href="'.mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => 'edit','id' => $object->user_id )).'">'.mvc_model('calculatorwpClientaccount')->find_by_id($object->user_id)->firstname.' </a>, 
-						('.$status_var[$object->status].') 
-						'.$object->time_created.' |						
-						Update by: '. $object->admin_user .' |
-						<a class="sm_admin_link" target="blank" href ="'.$object->admin_link.'" >Open</a>
+						<span class="sl_client_link_dash"> Client <a href="'.mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => 'edit','id' => $object->user_id )).'">'.mvc_model('calculatorwpClientaccount')->find_by_id($object->user_id)->firstname.' </a> : <i>'.$status_var[$object->status].'</i>  </span> - 
+						<span class="sl_details_list_t">'.$object->time_created.' - 
+						Update By: <b>'. $object->admin_user .'</b></span>
 					</span>
+					<a class="sm_admin_link" target="blank" href ="'.$object->admin_link.'" >Open</a>
 				</div>';	
 			}
 		}

@@ -1,7 +1,7 @@
 <div class = "cwp_coms_wrap_outer">
 <center><h3 class="calculatorwp_main_title">Mailchimp Settings</h3></center>
 
-<table class="calculatorwp_list_table">
+<table class="calculatorwp_list_table_index">
     <tr style="width:100%;">
     <td class="" >
 <?php 

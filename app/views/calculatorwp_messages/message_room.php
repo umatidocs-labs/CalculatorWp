@@ -2,14 +2,13 @@
     
     <div id="calculatorwp_dash_content">
             <div class="logout_link_wrapper">
-                    <div id="calculatorwp_dash_menu">
-                    </div>
+                    <div id="calculatorwp_dash_menu"></div>
                 <?php do_action('calculatorwp_borrower_top_menu'); ?>
 			
             </div>
             <br><br>
             <div></div>
-<div class = "wrap calculatorwp_input">
+<div class = "wrap calculatorwp_input" id="calculatorwp_loan_dash">
     <center><span class="calculatorwp_main_title_message">Ticket No: <b><?php echo $ticket['number'];?> </b>
         | Loan Application ID: 
             <b><?php

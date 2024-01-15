@@ -10,14 +10,6 @@ if ( !function_exists( 'simplemortgage_plugin_active' ) ) {
 	}
 	
 }
-if ( simplemortgage_plugin_active( "gravityforms-master/gravityforms.php" ) ||  simplemortgage_plugin_active( "gravityforms/gravityforms.php" ) ) {
-	//do nothing for now
-}
-else{
-	if( !class_exists('GFForms') ){
-	//	require_once dirname(__FILE__).'/gf/gravityforms.php';
-	}
-}
 
 if (!function_exists('MvcPublicLoader')){
     require_once dirname(__FILE__).'/mvc/MvcLoader.php';

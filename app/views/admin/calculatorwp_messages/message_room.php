@@ -16,17 +16,19 @@
 
             ?></b></h3>
             <table class="loan_stages">
-        <tbody><tr>
+        <tbody>
+            <tr>
 
-            <td class="calculatorwp_application_top">
-                <a class="calculatorwp_application_top_a" href="<?php echo mvc_admin_url(array('controller' => 'admin_calculatorwp_messages', 'action' => '',)); ?>">All Tickets</a>
-            </td>
-            <td class="calculatorwp_minfore_top">
-                <a class="calculatorwp_application_top_a" href="<?php echo mvc_admin_url(array('controller' => 'admin_calculatorwp_messages', 'action' => 'unresolved_index',)); ?>">Unresolved Tickets</a>
-            </td>
+                <td class="calculatorwp_application_top">
+                    <a class="calculatorwp_application_top_a" href="<?php echo mvc_admin_url(array('controller' => 'admin_calculatorwp_messages', 'action' => '',)); ?>">All Tickets</a>
+                </td>
+                <td class="calculatorwp_minfore_top">
+                    <a class="calculatorwp_application_top_a" href="<?php echo mvc_admin_url(array('controller' => 'admin_calculatorwp_messages', 'action' => 'unresolved_index',)); ?>">Unresolved Tickets</a>
+                </td>
 
-        </tr>
-    </tbody></table>
+            </tr>
+        </tbody>
+    </table>
     <br>
         <?php 
         if( $ticket['status'] == 1 ){
@@ -37,7 +39,7 @@
         ?>
         </center>
     
-        <table class="calculatorwp_list_table">
+        <table class="calculatorwp_list_table_index">
        
     <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 

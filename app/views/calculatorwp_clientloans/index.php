@@ -27,8 +27,8 @@ else{
 		<table id="calculatorwp_loan_dash">
 			
 			<tr>
-				<td class="calculatorwp_sub_title" ><center>Loan Application ID</center></td>
-				<td class="calculatorwp_sub_title"><center>Loan Name</center></td>
+				<td class="calculatorwp_sub_title" ><center>Mortgage Application ID</center></td>
+				<td class="calculatorwp_sub_title"><center>Mortgage Name</center></td>
 				<td class="calculatorwp_sub_title"><center>Stage</center></td>
 				<td class="calculatorwp_sub_title"></td>
 			</tr>

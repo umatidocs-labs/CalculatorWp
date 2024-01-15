@@ -3,6 +3,7 @@
 require_once dirname(__FILE__).'/constants.php';
 
 class calculatorwp_raw_data{
+    
 	public function init(){
         $this->load_hooks();
     }

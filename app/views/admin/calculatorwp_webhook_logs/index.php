@@ -4,7 +4,7 @@
     <center><h2 class="calculatorwp_main_title">Notification Logs</h2><br>
 	
 	<br>
-    <table class="calculatorwp_list_table">
+    <table class="calculatorwp_list_table_index">
             <tr style="width:100%;">
                     <td class="calculatorwp_sub_title">
                         <center><b>Notification</b></center>
