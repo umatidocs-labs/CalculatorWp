@@ -152,13 +152,14 @@
         },
         response_output_div: ".results",
         response_basic: 
-            '<ul class="sl_repayment_mother"><li class="sl_repayment"><strong>Amount Per Payment:</strong><br />'+sl_currency+'%payment_amount%</li>'+
-            '<li class="sl_repayment"><strong>Number of Payments:</strong><br />%num_payments%</li>'+
-            '<li class="sl_repayment"><strong>Total Payments:</strong><br />'+sl_currency+'%total_payments%</li>'+
-            '<li class="sl_repayment"><strong>Total Interest:</strong><br />'+sl_currency+'%total_interest%</li>',
+            '<ul class="sl_repayment_mother"><li class="sl_repayment">Amount Per Payment<br /> <strong>'+sl_currency+'%payment_amount% </strong> </li>'+
+            '<li class="sl_repayment">Number of Payments<br /> <strong> %num_payments% </strong> </li>'+
+            '<li class="sl_repayment">Total Payments<br /> <strong>'+sl_currency+'%total_payments% </strong> </li>'+
+            '<li class="sl_repayment">Total Interest<br /> <strong>'+sl_currency+'%total_interest% </strong> </li>',
         response_compare: '<p class="total-savings">Save $%savings% in interest!</li></ul>',
         error_text: '<p class="error">Please fill in all fields.</span>',
         callback: function ( elem, data ){}
+        
     };
 
 	// FORMAT MONEY

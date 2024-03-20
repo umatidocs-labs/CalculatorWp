@@ -1,22 +1,30 @@
 <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  
 if($objects=="show_login"){
+
 	$url=mvc_public_url(array('controller' => "calculatorwp_clientloans" , 'action' => 'index'));
 	
 	echo calculatorwp_class('calculatorwp_account')->user_gate($url);
+
 }
-elseif($objects=='sl_client_account_not_created'){
+elseif( $objects=='sl_client_account_not_created' ){
 	?>
+
 	<div class="client_dash">
+
 		<h3><center>Your account not a mortgage client account, please contact us and we will resolve this.</center></h3>
+
 	</div>
+
 	<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  
 }
 else{
 ?><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  
 if($objects=="show_login"){
+
 	$url=mvc_public_url(array('controller' => "calculatorwp_clientloans" , 'action' => 'index'));
 	
 	echo calculatorwp_class('calculatorwp_account')->user_gate($url);
+	
 }
 elseif($objects=='sl_client_account_not_created'){
 	?>

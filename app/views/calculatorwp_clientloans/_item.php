@@ -3,7 +3,7 @@
 	<td style="padding:20px 30px;">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->client_id))
-				echo mvc_model("MvcUser")->find_by_id($object->client_id)->user_login;
+				echo esc_html(mvc_model("MvcUser")->find_by_id($object->client_id)->user_login);
 			else
 				echo '---';
 		?>
@@ -11,7 +11,7 @@
 	<td style="padding:20px 30px;">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->loan_stage))
-				echo mvc_model("calculatorwpClientloanstage")->find_by_id($object->loan_stage)->name;
+				echo esc_html(mvc_model("calculatorwpClientloanstage")->find_by_id($object->loan_stage)->name);
 			else
 				echo '-Not Set-';
 		?>
@@ -19,7 +19,7 @@
 	<td style="padding:20px 30px;">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->loan_setting_id))
-				echo mvc_model("calculatorwpLoansetting")->find_by_id($object->loan_setting_id)->name;
+				echo esc_html(mvc_model("calculatorwpLoansetting")->find_by_id($object->loan_setting_id)->name);
 			else
 				echo '-Not Set-';
 		?>

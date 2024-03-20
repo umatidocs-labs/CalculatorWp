@@ -132,6 +132,7 @@
 			<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->input('main_title_text', array('placeholder' => '','label' => '','class'=>'calculatorwp_input_feild'),  array('style' => 'width: 200px;'));?>
 		</tr>
 	</table>
+
 	<table class="calculatorwp_list_table calculatorwp_list_table_frontend calculatorwp_main_section">
 		<tr>
 			<td class="calculatorwp_title_feild"> Form </td>
@@ -157,6 +158,7 @@
 			</td>
 		</tr>
 	</table>
+	
 	<table class="calculatorwp_list_table calculatorwp_list_table_frontend calculatorwp_main_section">
 		<tr>
 			<td class="calculatorwp_title_feild">Product Description</td>
@@ -164,7 +166,8 @@
 		<tr>
 			<td><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */ echo $this->form->editor('main_title_description', array('placeholder' => 'Notes about the link','label' => '','required'=>false,'class'=>'calculatorwp_textare_input_feild'),  array('style' => ''));?> </td>
 		</tr>
-	</table>
+	</table> 
+	
 	<table class="calculatorwp_list_table calculatorwp_list_table_frontend calculatorwp_main_section">
 		<tr>
 			<td  class="calculatorwp_title_feild">Submit Button Text</td>

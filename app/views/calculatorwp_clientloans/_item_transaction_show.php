@@ -22,6 +22,7 @@
 				"1"=>"Loan Issued",
 				"2"=>"Loan Repayed",
 			);
+
 			if (isset($object->dr_cr))
 				echo $trans_title[$object->dr_cr];
 			else
@@ -33,7 +34,7 @@
 		<center>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->trans_amount))
-				echo $object->trans_amount;
+				echo esc_html($object->trans_amount);
 			else
 				echo '-Not Set-';
 		?>

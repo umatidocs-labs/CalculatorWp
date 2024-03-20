@@ -1,8 +1,10 @@
 <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  
 if($objects=="show_login"){
+
 	$url=mvc_public_url(array('controller' => "calculatorwp_clientloans" , 'action' => 'index'));
 	
 	echo calculatorwp_class('calculatorwp_account')->user_gate($url);
+
 }
 elseif($objects=='sl_client_account_not_created'){
 	?>

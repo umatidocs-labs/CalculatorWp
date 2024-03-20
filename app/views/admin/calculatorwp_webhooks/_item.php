@@ -8,7 +8,7 @@
 		<?php  
 			if (isset($object->name)){
 				
-				echo '<span class="">'.$object->name.'</span>';
+				echo '<span class="">'.esc_html($object->name).'</span>';
 			}
 			else{
 				echo '(Not Set)';
@@ -18,7 +18,7 @@
 	<td class="sl_list_single_item_single">
 		<?php  
 			if (isset($object->webhook_trigger_action) )
-				echo $object->webhook_trigger_action;
+				echo esc_html($object->webhook_trigger_action);
 			else
 				echo '(Not Set)';
 		?>
@@ -26,7 +26,7 @@
 	<td class="sl_list_single_item_single">
 		<?php    
 			if (isset($object->last_time_event_is_triggered ))
-				echo $object->last_time_event_is_triggered ;
+				echo esc_html($object->last_time_event_is_triggered );
 			else
 				echo '( Not Set )';
 		?>
@@ -34,7 +34,7 @@
 	<td class="sl_list_single_item_single">
 		<?php    
 			if (isset($object->number_of_times_event_was_trigger ))
-				echo $object->number_of_times_event_was_trigger ;
+				echo esc_html($object->number_of_times_event_was_trigger) ;
 			else
 				echo '( Not Set )';
 		?>
@@ -42,7 +42,7 @@
 	<td class="sl_list_single_item_single">
 		<?php    
 			if (isset($object->unsuccessful_attempts_to_send_webhook ))
-				echo $object->unsuccessful_attempts_to_send_webhook ;
+				echo esc_html($object->unsuccessful_attempts_to_send_webhook) ;
 			else
 				echo '(Not Set)';
 		?>
@@ -50,7 +50,7 @@
 	<td class="sl_list_single_item_single">
 		<?php    
 			if (isset($object->id))
-				echo calculatorwp_class('calculatorwp_events_manager')->WebhookLog_unsuccessful_count($object->id);
+				echo esc_html(calculatorwp_class('calculatorwp_events_manager')->WebhookLog_unsuccessful_count($object->id));
 			else
 				echo '(Not Set)';
 		?>

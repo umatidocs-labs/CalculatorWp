@@ -21,7 +21,7 @@
 			
 		</td>
 	</tr>
-<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
+<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */
 foreach ($objects as $object): ?>
 
     <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   $this->render_view('_item', array('locals' => array('object' => $object))); ?>

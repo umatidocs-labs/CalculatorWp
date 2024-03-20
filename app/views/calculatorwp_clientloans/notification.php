@@ -62,8 +62,6 @@ else{
 			
 		</table>
 
-		<br><br><br>
-
 		<div class="sm_viewed_notifications">Viewed Notifications</div>
 
 		<table id="calculatorwp_loan_dash">

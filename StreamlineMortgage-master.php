@@ -1,16 +1,19 @@
 <?php
 
 /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */
-
 /*
 Plugin Name: Streamline Mortgage
 Plugin URI: https://www.naiwealth.com/streamlinemortgage
-Description: A complete Mortgage marketing tool for lenders on wordpress.
+Description: A complete Mortgage marketing tool for mortgage marketers on wordpress.
 Author: Naiwealth
-Version: 2.8.1
+Version: 2.9.0
 Author URI: https://www.naiwealth.com/
 */
-/*
+
+error_reporting( 0 );
+
+
+
 if ( ! function_exists( 'cowp_fs' ) ) {
     // Create a helper function for easy SDK access.
     function cowp_fs() {
@@ -27,19 +30,20 @@ if ( ! function_exists( 'cowp_fs' ) ) {
 
             $cowp_fs = fs_dynamic_init( array(
                 'id'                  => '11543',
-                'slug'                => 'StreamlineMortgage-master',
+                'slug'                => 'StreamlineMortgage-community',
                 'premium_slug'        => 'StreamlineMortgage-premium',
                 'type'                => 'plugin',
                 'public_key'          => 'pk_a9f1ac9df7685f4550844c7d21158',
-                'is_premium'          => true,
-                'is_premium_only'     => true,
-                'has_addons'          => false,
-                'has_paid_plans'      => true,
+                'is_premium'          => false,
+                'is_premium_only'     => false,
+                'has_addons'          => true,
+                'has_paid_plans'      => false,
                 'is_org_compliant'    => false,
                 'trial'               => array(
                     'days'               => 14,
-                    'is_require_payment' => true,
+                    'is_require_payment' => false,
                 ),
+                'has_affiliation'     => 'all',
                 'menu'                => array(
                     'slug'           => 'mvc_calculatorwp_clientloannotes',
                     'support'        => false,
@@ -56,8 +60,7 @@ if ( ! function_exists( 'cowp_fs' ) ) {
     do_action( 'cowp_fs_loaded' );
 }
 
-error_reporting( 0 );
-*/
+
 
 if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
     
@@ -97,8 +100,12 @@ if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
         // Signal that SDK was initiated.
         do_action( 'calculatorwp_fs_loaded' );
     }
+
+    error_reporting( 0 );
     
+    ob_start();
     require_once dirname( __FILE__ ) . '/app/functions/functions.php';
+    ob_get_clean();
     if ( !function_exists( 'calculatorwp_activate' ) ) {
         function calculatorwp_activate()
         {
@@ -111,12 +118,12 @@ if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
                 $wp_rewrite->flush_rules( true );
     
             ob_get_clean();
- //           GFForms::activation_hook();
         }
     
     }
     function calculatorwp_confirm_install()
     {
+        ob_start();
         global  $wpdb ;
         $table_name = $wpdb->base_prefix . "calculatorwp_account";
         $query = $wpdb->prepare( 'SHOW TABLES LIKE %s', $wpdb->esc_like( $table_name ) );
@@ -124,10 +131,12 @@ if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
             // go go
             calculatorwp_activate();
         }
+        ob_get_clean();
     }
     
     add_action( 'admin_init', 'calculatorwp_confirm_install' );
     if ( !function_exists( 'calculatorwp_deactivate' ) ) {
+        ob_start();
         function calculatorwp_deactivate()
         {
             global  $wp_rewrite ;
@@ -136,7 +145,7 @@ if ( !defined( 'WP_calculatorwp__PLUGIN_DIR' ) ) {
             $loader->deactivate();
             $wp_rewrite->flush_rules( true );
         }
-    
+        ob_get_clean();
     }
     if ( !function_exists( 'calculatorwp_loadmanager' ) ) {
         function calculatorwp_loadmanager()

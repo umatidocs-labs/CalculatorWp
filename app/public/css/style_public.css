@@ -474,14 +474,16 @@ h1.sl_repayment_amount_subtitle{
 }
 .sl_loan_ap_primary_input_feild{}
 .sl_loan_ap_primary_title_feild{
-	font-size:14px;
-	padding-top:15px;
-	padding-bottom:5px;
-	font-weight:600;
-	color:#8c8989e6;
+	
 }
 textarea.sl_loan_ap_primary_input_feild{
 	height:80px;
+}
+.render-container-submit-button{
+  background: #323232;
+  color: #fff;
+  padding: 5px 20px;
+  border-radius: 3px;
 }
 .sl_term_percentage{
 	font-weight:600;
@@ -495,20 +497,33 @@ textarea.sl_loan_ap_primary_input_feild{
 	display:none;
 }
 #sl_user_gate_main{
-	width:100%;
+	background: #fff;
+  padding: 30px;
+  border: 1px solid #ccc5;
+  margin: 20px;
 }
 .sl_user_gate{
 	width:100%;
 }
 .sl_user_gate_menu_item{
-	padding:15px;
-	font-weight:600;
-	font-size:20px;
-	border:1px solid #8080804d;
-	margin:1%;
-	cursor:pointer;
-	float:left;
-	border-radius:3px;
+	padding: 10px 15px;
+  font-weight: 600;
+  border: 2px solid #ccc5;
+  margin: 2px;
+  cursor: pointer;
+  float: left;
+  border-radius: 10px;
+  width: 45%;
+}
+#user_login, #user_pass{
+  width: 90%;
+  border: 1px solid #ccc;
+  padding: 5px 20px;
+}
+#wp-submit {
+  background: #323232;
+  color: #fff;
+  padding: 5px 30px;
 }
 .sl_user_gate_menu_item_login{}
 #sl_user_gate_signup{
@@ -538,29 +553,36 @@ textarea.sl_loan_ap_primary_input_feild{
 .logout_link>a >button{
 	background-color: #8EFE8D;
   margin-left: 20px;
-  padding: 5px 15px;
-  border-radius: 5px;
+  padding: 8px 20px;
+  border-radius: 0px;
   color: #01b400;
 }
 td.calculatorwp_sub_title, td.calculatorwp_sub_body{
 	border:0px;
+  padding: 5px;
+  border-bottom: 1px solid #ccc5;
 }
 .calculatorwp_sub_title{
-  color: #fff;
-  background: rgba(0, 188, 1, 0.88);
-  padding: 10px;
+  color: #323232;
+  padding: 5px 20px;
   border-radius: 0px;
-  border: 1px #fff solid !important;
+  border: 1px #94939326 solid !important;
+  background: #ccc4;
 }
 .calculatorwp_sub_body{
 	color: #808080;
 }
 #calculatorwp_loan_dash{
-	border-radius: 8px;
-	padding: 8px;
-	width: 100% !important;
-	background: #fff;
-	color: #282828;
+	border-radius: 0px;
+  padding: 8px;
+  width: 100% !important;
+  background: #fff;
+  color: #282828;
+  border: 1px solid #ccc5;
+}
+input[type="checkbox"], input[type="radio"] {
+  border: 1px solid gray !important;
+  padding: 5px !important;
 }
 .wrap .calculatorwp_input{
   background: #00b3001f;
@@ -592,6 +614,9 @@ table#calculatorwp_loan_dash{
 td.fwidthtd{
 	width:100%;
 }
+.max_amount{
+  margin-bottom: 20px;
+}
 .fwidthtd>b{
 	color: gray;
 }
@@ -599,14 +624,15 @@ td.fwidthtd{
   padding: 15px;
 }
 .calculatorwp_build_by a{
-	font-size:12px;
-	color:#323232;
+	font-size: 12px;
+  color: #323232;
+  text-decoration: underline;
 }
 .calculatorwp_build_by_calc{
 	width:100%;
 }
 #sl_repayment_submit_button{
-	background: #02b301;
+	background: #323232;
   color: #fff;
   border-radius: 0px;
   padding: 5px 35px;
@@ -614,33 +640,34 @@ td.fwidthtd{
 }
 .sl_loan_app_amount, .sl_loan_app_period, .sl_loan_ap_primary_input_feild{
   background: #fff;
-  padding: 8px 20px;
-  border: 1px solid #32323232;
-  width: 90%;
-  border-radius: 8px;
+  padding: 6px 20px;
+  width: 80%;
   color: #323232;
-  margin-top: 8px;
+  margin-top: 3px;
+  border-radius: 0px;
+  border: 0px;
+  border-bottom: 1px solid gray;
 }
 #sl_loan_app_body{
   background: #fff;
-  color: #3338;
-  border-radius: 28px;
+  color: #323232;
   padding: 28px;
-  border: 1px solid #8080801c;
   margin-top: 15px;
+  border-radius: 0px;
+	border: 1px solid #d3d3d39e;
 }
 .calculatorwpMessageSubmitButton{
   margin-top: 8px;
-  border-radius: 8px !important;
-  padding: 8px;
-  color: #888;
-  background-color: #8882;
+  border-radius: 0px !important;
+  padding: 5px 20px;
+  color: #fff;
+  background-color: #323232;
   border: 0px solid aliceblue !important;
 }
 #calculatorwpMessageInputarea {
-  background: #09c00938;
-  border: 0px solid #68686857;
-  border-radius: 20px;
+  background: #ccc5;
+  border: 1px solid #ccc;
+  border-radius: 0px;
   width: 98%;
   height: 80px;
   padding: 15px;
@@ -653,14 +680,14 @@ td.sl_list_single_message{
 	color:#3339;
 }
 a.sl_menu_item_front_view{
-  padding: 8px;
-  border: 0px solid #8EFE88;
+  padding: 5px 28px;
+  border: 0px;
   margin: 8px;
   cursor: pointer;
   float: left;
-  color: #888;
-  border-radius: 8px;
-  background: #8EFE8888;
+  color: #fff;
+  border-radius: 0px;
+  background: #04bb04;
 }
 #calculatorwp_dash_content{
 	min-height:500px;
@@ -671,9 +698,19 @@ a.sl_menu_item_front_view{
 }
 .sl_list_message_details {
     font-size: 10px;
-    padding: 5px 30px;
-    background:;
     border-radius: 5px;
+}
+#sl_username,
+#sl_user_login,
+#sl_user_login_confirm,
+#sl_user_pass{
+  border: 2px solid #ccc9;
+  padding: 6px 30px;
+}
+#sl-wp-user-reg-submit{
+  background:#323232;
+  color: #fff;
+  padding:5px 20px;
 }
 a#sl_proceed_dashboard{
 	border: 1px solid #80808066;
@@ -684,7 +721,7 @@ a#sl_proceed_dashboard{
 	width:250px;
 }
 #sl_user_gate_head{
-	width:350px;
+	width:80%;
 }
 .sl_calc_loader {
     border: 5px solid hsla(0,0%,50%,.64);
@@ -728,11 +765,10 @@ a#sl_proceed_dashboard{
   padding: 8px 20px !important;
   color: #333;
 }
-
 .ewm_fw_selector{
 	width: 100%;
+  padding:2px;
 }
-
 .wp-image-159{
 	margin-right:20px;
 }
@@ -811,23 +847,23 @@ p.login-password{
 }
 .sl_repayment{
   list-style: none;
-  color: #333;
   background: #fff;
   float: left;
   padding: 20px;
-  border-radius: 25px;
+  border-radius: 0px;
   margin-right: 8px;
   margin-bottom: 8px;
   overflow: auto;
-  border: 1px solid #32323226;
-  font-size: 18px;
+  border: 0px solid #cccccc6b;
   color: #323232;
 }
 .cwp_menu_item{
   padding: 8px 28px;
-  background: #ffe88888;
+  background: #fff;
   margin-right: 10px;
   border-radius: 0px;
+  color: #323232;
+  border: 1px solid #e1e0e0;
 }
 .sl_subsections_50{
   float: left;
@@ -843,11 +879,12 @@ p.login-password{
   border-radius: 0px;
 }
 .sl_loan_app_amount_display{
-  color: #323232;
+  color: #fff;
   padding: 10px 50px;
-  border-radius: 15px;
-  margin: 20px;
-  font-size: 26px;
+  border-radius: 0px;
+  margin: 15px 0px;
+  font-size: 20px;
+  background: #323232f8;
 }
 .client_dash{
 	margin: 10px 5%;
@@ -856,20 +893,18 @@ p.login-password{
 	padding: 10px 20px;
 }
 .sl_list_name{
-  background: ;
-  padding: 20px 30px;
-  margin-bottom: ;
-  border-radius: 30px 20px 30px 0px;
-  margin-bottom: 10px;
-  color: #333333db;
-  border: 4px solid #1bbf0342;
-  background: #f7f7f7;
+  padding: 10px 40px;
+  border-radius: 30px 10px 10px 5px;
+  margin-bottom: 0px;
+  color: #323232;
+  border: 1px solid #ccc;
+  background: #f7f7f7b5;
 }
 .sm_new_notifications, .sm_viewed_notifications{
-  background: #8882;
-  color: #888;
-  padding: 8px 18px;
-  border-radius: 8px;
+  background: #ccc4;
+  color: #323232;
+  padding: 8px 28px;
+  border-radius: 0px;
   border: 0px solid #88800088;
   margin-bottom: 10px;
 }

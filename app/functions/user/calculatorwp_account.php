@@ -13,18 +13,22 @@ class calculatorwp_account{
         add_shortcode('sl_user_gate',array($this, 'user_gate'));
         add_shortcode('streamlinemortgage_login',array($this, 'user_gate'));
         add_action("wp_ajax_nopriv_sl_submit_registration_form" , array( $this, "create_account_from_ajax"));
+        add_action("wp_ajax_sl_submit_registration_form" , array( $this, "create_account_from_ajax"));
         add_action("calculatorwp_welcome_lender",array($this, 'welcome_to_calculatorwp'));
-        add_action("calculatorwp_signup_starter",array($this, 'signup_starter')); 
+
+        // add_action("calculatorwp_signup_starter",array($this, 'signup_starter')); 
         add_action("calculatorwp_lender_quote",array($this, 'lender_quotes'));
         add_action("calculatorwp_build_by",array($this, 'build_by'));
     }
 
     public function welcome_to_calculatorwp(){
-        if(mvc_model("calculatorwpLoansetting")->count(array())==0){
+
+        if( mvc_model("calculatorwpLoansetting")->count( array() ) == 0 ){
+
             //create loan product redirect
             $MvcAdminController=new MvcAdminController();
             $url = MvcRouter::admin_url(array('controller' =>'calculatorwp_loansettings', 'action' => 'add'));
-            $MvcAdminController->flash('notice', 'Lets start by creating a loan product, yeah?');
+            $MvcAdminController->flash('notice', 'Lets start by creating your first mortgage product, yeah?');
             $MvcAdminController->redirect($url);
 
             //set up gravity form link
@@ -32,7 +36,7 @@ class calculatorwp_account{
     }
 
     public function build_by(){
-        echo "<div class ='calculatorwp_build_by'><center><a href='https://naiwealth.com/'>Proudly Powered by streamlinemortgage</a></center></div>";
+        echo "<div class ='calculatorwp_build_by'><center><a target='_blank' href='https://www.naiwealth.com/streamlinemortgage'>Are you a Mortgage Marketer? Automate your Mortgage Application Process for Free with Streamline Mortgage</a></center></div>";
     }
     //--------------------------------------------------------------------------------------------- 
     
@@ -51,6 +55,7 @@ class calculatorwp_account{
 
 //----------------------user details---------------------------------------------------------------
     public function get_user_id(){
+
     	if (is_user_logged_in()){
             $user_id = get_current_user_id();
         }
@@ -110,7 +115,8 @@ class calculatorwp_account{
             'user_email'=>$param['sl_mail_d'],
             'user_pass'=>$param['sl_pass_d'],
             'role'=>'Subscriber'
-        );
+        ) ;
+
         $new_user_id = wp_insert_user($user_acc_dat);
 
         $Clientaccount_feedback = mvc_model('calculatorwpClientaccount')->create( array(
@@ -119,20 +125,21 @@ class calculatorwp_account{
             'acc_number'=>'AC'.time(),
             'status'=>1,
             'wp_user_id'=> $new_user_id //create an account on wordpress
-        ));
+        ) );
 
         $number_signup_actions_created = mvc_model('calculatorwpWebhook')->count(
             array(
                 'conditions'=>array(
-                'webhook_trigger_action '=> 'calculatorwp_signup',
+                    'webhook_trigger_action '=> 'calculatorwp_signup',
                 )
-            ));
+            )
+        );
 
         if ( $number_signup_actions_created > 0 ) {
-            do_action('calculatorwp_signup',array('user_id' => $Clientaccount_feedback ));
+            // do_action('calculatorwp_signup',array('user_id' => $Clientaccount_feedback ));
         }
         else{
-            do_action('calculatorwp_signup_starter',array('user_id' => $Clientaccount_feedback ));
+            // do_action('calculatorwp_signup_starter',array('user_id' => $Clientaccount_feedback ));
         }
 
             //$interest_name = mvc_model('calculatorwpLoansetting')->find_by_id($_SESSION["calculatorwp"]["pending_processes"]["loan_application_process"]["product_id"])->mailchimp_group;
@@ -145,17 +152,24 @@ class calculatorwp_account{
             ]);
             */
 
-            $current_blog_id = 0; //get_current_blog_id();
-            // var_dump( $current_blog_id );
-            $param_val = [
-                "userid"=> $new_user_id,
-                "lenderid" => $current_blog_id
-            ];
+        $current_blog_id = 0; //get_current_blog_id();
+        // var_dump( $current_blog_id );
+        $param_val = [
+            "userid"=> $new_user_id,
+            "lenderid" => $current_blog_id
+        ] ;
 
         do_action( 'add_user_to_lender',$param_val );
-            // do_action('calculatorwp_signup_starter',array('user_id' => $Clientaccount_feedback ));
-            
-        $this->return_success_signup( array('logins'=>array("login"=>$param['sl_username_d'],"pass"=>$param['sl_pass_d']),"feadback"=>$Clientaccount_feedback));
+        // do_action('calculatorwp_signup_starter',array('user_id' => $Clientaccount_feedback ));
+
+        $this->return_success_signup( array( 
+            'logins'=>array( 
+                "login"=>$param['sl_username_d'], 
+                "pass"=>$param['sl_pass_d'] 
+            ),
+            "feadback"=>$Clientaccount_feedback ) 
+        ) ;
+
     }
 
     public function sl_user_login(){
@@ -185,14 +199,16 @@ class calculatorwp_account{
     }
     
     public function return_success_signup($param) {
-        $respose_data=  array(
-            "signup_status"=>true,
-            "additional_info"=>$param,
-           );
-        
-           echo json_encode($respose_data);
 
-           wp_die();
+        $respose_data   =  array(
+            "signup_status"     =>  true,
+            "additional_info"   =>  $param,
+        ) ;
+        
+        echo json_encode( $respose_data );
+
+        wp_die();
+
     }
     
     public function needed_feilds_are_set($create_user_data) {
@@ -233,22 +249,24 @@ class calculatorwp_account{
     
     public function create_account_from_ajax() {
         
-        $create_user_data=$_POST;
+        $create_user_data = $_POST;
 
-        array_push( $create_user_data, array('ac_no'=>'AC'.time()) );
+        array_push( $create_user_data, array( 'ac_no'=>'AC'.time() ) );
         
         $needed_feilds_are_set = $this->needed_feilds_are_set( $create_user_data );
 
-        $verify_there_is_no_duplicate = $this->verify_there_is_no_duplicate($create_user_data);
+        $verify_there_is_no_duplicate = $this->verify_there_is_no_duplicate( $create_user_data );
         
-        $error_log=  array();
+        $error_log = array();
         
         if(count($needed_feilds_are_set)>0){
             array_push($error_log, $needed_feilds_are_set );
         }
-        if(count($verify_there_is_no_duplicate)>0){
-            array_push($error_log, $verify_there_is_no_duplicate );
-        }       
+
+        if(count( $verify_there_is_no_duplicate )>0 ){
+            array_push( $error_log, $verify_there_is_no_duplicate );
+        }
+
         //if there is an error return error and die
         if(count($error_log)>0){
             $this->return_signup_error($error_log);
@@ -341,14 +359,16 @@ class calculatorwp_account{
     }
 
     public function signup_starter($param=''){
+
         $mail_subject = 'Welcome to '.$_SERVER['HTTP_HOST'];
-        $mail_content = 'We are excited to have you at '.$_SERVER['HTTP_HOST'].', to follow up on your loans,<br> log in here <a href="'.mvc_public_url(array('controller' => 'calculatorwp_clientloans' , 'action' => 'index')).'">'. mvc_public_url(array('controller' => 'calculatorwp_clientloans' , 'action' => 'index')).'</a>';
+        $mail_content = 'Welcome to '.$_SERVER['HTTP_HOST'].', to follow up on your Mortgage,<br> log in here <a href="'.mvc_public_url(array('controller' => 'calculatorwp_clientloans' , 'action' => 'index')).'">'. mvc_public_url(array('controller' => 'calculatorwp_clientloans' , 'action' => 'index')).'</a>';
         
         $recipient_list=mvc_model('calculatorwpClientaccount')->find_by_id($param['user_id'])->email;
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-Type: text/html; charset=ISO-8859-1' . "\r\n";
         $headers .= 'From: no_reply@'.$_SERVER['HTTP_HOST']. "\r\n";
         $email_sent= wp_mail( $recipient_list, $mail_subject , $mail_content,$headers);
+
     }
 	
     /*create borrower account and not wordpress account*/

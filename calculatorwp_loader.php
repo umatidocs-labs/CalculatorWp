@@ -18,8 +18,8 @@ class calculatorwpLoader extends MvcPluginLoader {
     
         // This call needs to be made to activate this app within WP MVC
         $this->activate_app(__FILE__);
-        // Perform any databases modifications related to plugin activation here, if necessary
 
+        // Perform any databases modifications related to plugin activation here, if necessary
         require_once ABSPATH.'wp-admin/includes/upgrade.php';
         
         add_option('gf_db_version','2.4.16');
@@ -31,13 +31,12 @@ class calculatorwpLoader extends MvcPluginLoader {
         add_option('rg_gforms_enable_akismet','1');
         add_option('rg_gforms_currency','USD');
         add_option('gform_enable_toolbar_menu','1');
-        add_option('sm_current_plan','connect');
-    
+        add_option('sm_current_plan','connect');    
         add_option('calculatorwp_db_version', $this->db_version);
         
-        $t_prefix= WP_DC_CURRENT_BLOG_ID;
+        $t_prefix = WP_DC_CURRENT_BLOG_ID;
+
         // Use dbDelta() to create the tables for the app here
-        
         $sql = ["CREATE TABLE IF NOT EXISTS `".$t_prefix."calculatorwp_account` (
                 `id` int(11) NOT NULL  AUTO_INCREMENT PRIMARY KEY,
                 `name` varchar(32) NOT NULL,
@@ -112,7 +111,7 @@ class calculatorwpLoader extends MvcPluginLoader {
                 `key_id` varchar(100) NOT NULL,
                 `object_type` int(3) NOT NULL,
                 `object_id` int(3) NOT NULL,
-                `data_value` varchar(500) NOT NULL
+                `data_value` varchar(2000) NOT NULL
               ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
               ","
               CREATE TABLE IF NOT EXISTS `".$t_prefix."calculatorwp_d_entry` (
@@ -168,14 +167,14 @@ class calculatorwpLoader extends MvcPluginLoader {
               ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
               ",
               "
-              CREATE TABLE IF NOT EXISTS `".$t_prefix."` ( 
+              CREATE TABLE IF NOT EXISTS `".$t_prefix."calculatorwp_notifications` (
                 `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, 
                 `message` varchar(500) DEFAULT NULL, 
                 `user_id` int(11) DEFAULT NULL, 
                 `status` int(2) DEFAULT NULL COMMENT '1=>created, 2=>seen,3=>deleted', 
                 `time_created` timestamp NULL DEFAULT NULL, 
                 `admin_link` varchar(250) NOT NULL, 
-                `admin_user` varchar(11) DEFAULT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+                `admin_user` varchar(50) DEFAULT NULL ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
               ","
               CREATE TABLE IF NOT EXISTS `".$t_prefix."calculatorwp_spending_goal` (
                 `id` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -245,7 +244,8 @@ class calculatorwpLoader extends MvcPluginLoader {
                 `url` varchar(250) DEFAULT NULL
               ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
               "];
-			  $sql3=["
+			  
+              $sql3=["
               CREATE TABLE `".$t_prefix."gf_draft_submissions` (
                 `uuid` char(32) COLLATE utf8mb4_unicode_ci NOT NULL,
                 `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -362,6 +362,7 @@ class calculatorwpLoader extends MvcPluginLoader {
         ];
                     
         $sql2=[];
+        
         $sql2=[
               "
               ALTER TABLE `".$t_prefix."calculatorwp_loan_setting` ADD IF NOT EXISTS 
@@ -397,11 +398,14 @@ class calculatorwpLoader extends MvcPluginLoader {
           }
 		  
           foreach ($sql2 as $single_sql2) {
-        dbDelta($single_sql2);
+        
+            dbDelta($single_sql2);
         }
+
         foreach($sql3 as $single_sql3) {
-          dbDelta($single_sql3);
+          dbDelta( $single_sql3 );
         }
+
     }
 
     function deactivate() {

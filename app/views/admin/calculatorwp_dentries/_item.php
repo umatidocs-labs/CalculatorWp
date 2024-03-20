@@ -6,8 +6,8 @@
 	<td class="sl_list_single_item">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($myClientaccount->acc_number)){
-				echo calculatorwp_class("calculatorwp_account")->get_user_name_from_acc_no($myClientaccount->acc_number);
-				echo "(".$myClientaccount->acc_number.")";
+				echo esc_html(calculatorwp_class("calculatorwp_account")->get_user_name_from_acc_no($myClientaccount->acc_number));
+				echo "(".esc_html($myClientaccount->acc_number).")";
 			}
 			else{
 				echo '-Not Set-';
@@ -18,7 +18,7 @@
 	<td class="sl_list_single_item">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->trans_id))
-				echo $object->trans_id;
+				echo esc_html($object->trans_id);
 			else
 				echo '-Not Set-';
 		?>
@@ -30,7 +30,7 @@
 				"2"=>"Loan Repayed",
 			);
 			if (isset($object->dr_cr))
-				echo $trans_title[$object->dr_cr]." (".$object->id.")";
+				echo esc_html($trans_title[$object->dr_cr])." (".esc_html($object->id).")";
 			else
 				echo '-Not Set-';
 		?>
@@ -38,7 +38,7 @@
 	<td class="sl_list_single_item">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->trans_amount))
-				echo $object->trans_amount;
+				echo esc_html($object->trans_amount);
 			else
 				echo '-Not Set-';
 		?>

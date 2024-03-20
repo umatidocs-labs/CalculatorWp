@@ -10,7 +10,7 @@ echo "<a class='button-primary' href=".mvc_admin_url(array('controller' => 'admi
 <hr>
   
 	<div>amount_needed</div>
-	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->textarea_input('note', array('label' => '')); ?></div>
+	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html($this->form->textarea_input('note', array('label' => ''))); ?></div>
 	
 <hr>
 

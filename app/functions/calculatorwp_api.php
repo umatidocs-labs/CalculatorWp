@@ -1,7 +1,6 @@
 <?php
 
 // recieve api details  and call function process_loan_application_response()
-
 function calculatorwp_listen_for_api_response(){
     if(isset($_POST['loan_application_id'])){
         !isset($_POST['loan_application_id'])? $_POST['loan_application_id']='':$_POST['loan_application_id'];
@@ -345,9 +344,9 @@ add_action( 'wp_ajax_nopriv_sl_form_load_content', 'sl_form_load_content' );
 function sl_form_load_content(){
 
     echo json_encode( [
-        'post_title' => get_post_field( 'post_title',  $_POST['form_id'] ),
-        'formData' => get_post_field( 'post_content',  $_POST['form_id'] )
-    ] );
+        'post_title'=> get_post_field( 'post_title',  $_POST['form_id'] ),
+        'formData'  => get_post_field( 'post_content',  $_POST['form_id'] )
+    ] ) ;
 
     wp_die();
 
@@ -409,11 +408,26 @@ function sl_update_form_builder(){
 
 add_shortcode( 'sl_render_details_l', 'sl_render_details_l');
 function sl_render_details_l(){
+
+    $gf_id = 91;
+    $secondary_form = get_post( $gf_id );
+    $secondary_form_content = $secondary_form->post_content;
+
     return '
-        <div id="render-container"></div>
-        hallo
-    ';
+        <div class="sl_gform_manager">
+            <div id="render-container"></div>
+            <div id="render-container-submit">
+                <input type="hidden" id="sl_files_file_is_changed" value="0">
+                <input type="button" class="render-container-submit-button" value="Save">
+            </div>
+            <script>
+                const formRenderOptions = {
+                    formData : '.$secondary_form_content.'
+                }
+            </script>
+        </div>
+    ' ;
+
 }
 
 ?>
-

@@ -29,7 +29,7 @@ jQuery(document).ready(function($) {
 	$.each( all_links , function(key_name,value_name){
 		$("a[href$='"+value_name+"").parent().remove();
 	});
-	
+
     sl_loan_app_amount = 0;
 	sl_loan_app_period = 0;
 	sl_loan_periods_full_names={
@@ -150,6 +150,7 @@ jQuery(document).ready(function($) {
 			});
 		},
 		"submit_user_registration_value":function(){
+			console.log('now running') ;
 			//do loader
 			$('.sl_user_reg_loader').show();
 			
@@ -164,31 +165,42 @@ jQuery(document).ready(function($) {
 				"sl_username_d":$('#sl_username').val(),
 				"sl_mail_d":$('#sl_user_login').val(),
 				"sl_pass_d":$('#sl_user_pass').val()
-			};
+			} ;
 
-			jQuery.post(ajax_object.ajax_url, data_l, function(response) {
+			console.log( ajax_object.ajax_url );
+
+			jQuery.post( ajax_object.ajax_url, data_l, function(response) {
+
 				console.log(response);
 				if(response !== undefined){
 
 					sl_response = JSON.parse(response);					
 					if(sl_response.signup_status==true){
-						//change focus to login
+
+						// Change focus to login
 						$('#sl_user_gate_login').show(); 
 						$('#sl_user_gate_signup').hide();
-						//populate values 
+						
+						// Populate values 
 						$('#user_login').val(sl_response.additional_info.logins.login);
 						$('#user_pass').val(sl_response.additional_info.logins.pass);
-						//click login button
+						
+						// Click login button
 						$('#wp-submit').click();
+
 					}
 				}
 				else{
+
 					$('#sl_loan_app_body').html(sl_response.error_message);
+
 				}
 					
 				//remove loader
 				$('.sl_user_reg_loader').hide();
-			});
+
+
+			} );
 		}
 	
 	};
@@ -508,7 +520,7 @@ jQuery(document).ready(function($) {
 			$(".main_morgage"+mp_id+" #homeInsurance").addClass("sl_home_loan_homeInsurance"+mp_id);
 			$(".main_morgage"+mp_id+" #monthlyHOA").addClass("sl_home_loan_monthlyHOA"+mp_id); 
 		}
-				
+
 		$(window).bind('load', function(){
 			mortgage_product_ids.forEach(function(mp_id){
 				add_classes_to_mortgage(mp_id);

@@ -364,8 +364,6 @@ p.login-password{
 }
 .sl_note_description{
 	font-size: 12px;
-	background: ;
-	padding: 5px;
 	overflow: auto;
 	margin-top: 10px;
 }
@@ -413,29 +411,29 @@ p.login-password{
 }
 .sl_Save_and_Close{
 	float: right;
-	background: #00abff;
+	background: #2ac613;
 	color: #fff;
-	padding: 10px 20px ;
-	border:0px;
-	border-radius: 20px;
+	padding: 5px 20px;
+	border: 0px;
+	border-radius: 0px;
 	cursor: pointer;
 }
 .calculatorwp_sub_form_edit_wrap{
 	float: left;
 	width: 70%;
-	background: #ccc3;
-	border-radius: 30px;
-	padding: 28px 18px;
+	background: #ccc1;
+	border-radius: 0px;
+	padding: 18px;
 	display: none;
-	border: #ccc0 2px solid;
+	border: #ccc8 1px solid;
 }
 .sl_new_form{
 	float: right;
-	border: 2px solid #00abff;
-	padding: 10px 15px;
+	border: 1px solid #ccc;
+	padding: 5px 15px;
 	background: #fff;
 	margin: 30px;
-	color: #00abff;
+	color: #2ac613;
 	cursor: pointer;
 	border-radius: 20px;
 }
@@ -449,8 +447,8 @@ p.login-password{
 .calculatorwp_form_name{
 	width: 90%;
 	margin: 30px 30px 10px 30px;
-	border: 3px solid #ccc;
-	border-radius: 10px !important;
+	border: 1px solid #ccc !important;
+	border-radius: 0px !important;
 	padding: 5px 20px !important;
 }
 .sl_open_from_edit_details{
@@ -460,7 +458,7 @@ p.login-password{
 	width: 95%;
 	border: 1px solid #ccc !important;
 	color: #595757 !important;
-	border-radius: 10px !important;
+	border-radius: 0px !important;
 	padding: 0px 18.8px !important;
 	height: 38px;
 }
@@ -470,7 +468,7 @@ p.login-password{
 .calculatorwp_textare_input_feild{
 	width: 100%;
 	height: 79px;
-	border-radius: 85px;
+	border-radius: 0px;
 	padding: 8px 38px;
 	font-size: 16px;
 	border: 1px solid #ccc;
@@ -482,10 +480,10 @@ p.login-password{
 	color:#444c;
 }
 .sl_Manage_Forms{
-	background: #00abff;
+	background: #2ac613;
 	color: #fff;
-	padding: 10px 20px;
-	border-radius: 20px;
+	padding: 5px 20px;
+	border-radius: 0px;
 	border: 0px;
 	cursor: pointer;
 	margin-left: 10px;
@@ -531,13 +529,15 @@ p.login-password{
 	text-decoration:none;
 	border-radius:5px;
 }
-.cwp_wrap{}
+.cwp_wrap{
+	overflow: auto;
+}
 .sl_dash_wrap_d{
 	padding: 1px;
 	width: 98%;
 	border-radius: 5px;
 	overflow: auto;
-	background: linear-gradient(111.7deg, rgb(162, 219, 123) 2.4%, rgb(224, 82, 95) 28.3%, rgb(194, 78, 154) 46.2%, rgb(32, 173, 190) 79.4%, rgb(22, 158, 95) 100.2%);
+	/*background: linear-gradient(111.7deg, rgb(162, 219, 123) 2.4%, rgb(224, 82, 95) 28.3%, rgb(194, 78, 154) 46.2%, rgb(32, 173, 190) 79.4%, rgb(22, 158, 95) 100.2%);*/
 	margin-top: 20px;
 }
 #wpfooter {
@@ -569,16 +569,17 @@ p.login-password{
 	background-color: #8ac68d21;
 }
 .sl_house_keeping_link{
-	color: #fff;
+	color: #06b300;
 	text-decoration: none;
-	border: 0px solid gray;
-	padding: 8px 15px;
-	border-radius: 23px;
-	background-color: #00abff;
-	font-size: 15px;
+	border: 1px solid #bbb8b8;
+	padding: 5px 15px;
+	border-radius: 0px;
+	background-color: #fff;
+	font-size: 14px;
 }
 .sl_list_single_item_single{
 	padding: 8px 28px;
+	font-size: 14px;
 }
 .sl_list_single_item_button{
 	padding: 8px 28px;
@@ -604,47 +605,39 @@ p.login-password{
 .sl_list_name,.sl_list_single_item{
 	color: #323232 !important;
 	padding: 18px 30px;
-	background: #dfdfdf;
-	border-radius: 28px 18px 18px 8px;
+	background: #fff;
+	border-radius: 38px 8px 8px 8px;
 	margin-bottom: 8px;
-	border: 0px solid #8888;
-	border: 0px solid #a0ef00;
+	border: 0px solid #8882;
+	border: 1px solid #9cae98;
+}
+.sl_table_mortgage_details{
+	min-width: 80%;
 }
 .sl_house_keeping_link:hover {
 	color: #fff;
 	text-decoration: none;
 	border: 0px solid gray;
 	padding: 8px 15px;
-	border-radius: 23px;
-	background-color: #00abff;
-	font-size: 15px;
+	border-radius: 0px;
+	background-color: #06b300;
+}
+.sl_select_loanstage{
+	border-radius: 0px !important;
+	border: 1px solid #c8c8c8ba !important;
+	padding: 0px 38px !important;
+	float: left;
+	margin: 22px 8px;
 }
 .sm_admin_link:hover {
-	background-color: #323232c8;
+	background-color: #323232;
 	color: #fff;
-	padding: 5px 8px;
-	border-radius: 8px;
+	padding: 5px 10px;
+	border-radius: 0px;
 	text-decoration: none;
 	margin-left: 10px;
 	font-size: 17px;
 }
-.wp-core-ui select {
-	font-size: 14px;
-	line-height: 2;
-	color: #2c3338;
-	border-color: #8c8f945c;
-	box-shadow: none;
-	border-radius: 10px;
-	padding: 5px 24px;
-	min-height: 30px;
-	max-width: 25rem;
-	-webkit-appearance: none;
-	background: #fff url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20width%3D%2220%22%20height%3D%2220%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M5%206l5%205%205-5%202%201-7%207-7-7%202-1z%22%20fill%3D%22%23555%22%2F%3E%3C%2Fsvg%3E') no-repeat right 5px top 55%;
-	  background-size: auto;
-	background-size: 16px 16px;
-	cursor: pointer;
-	vertical-align: middle;
-  }
 .lp_com_header > a {
 	color:#008b00;
 }
@@ -652,17 +645,16 @@ p.login-password{
 	margin-top: 0em !important;
 }
 #calculatorwp_application, #calculatorwp_more_info, #calculatorwp_processed, #calculatorwp_repayment, #calculatorwp_close{
-	padding: 8px 5%;
+	padding: 15px 2%;
 	float: left;
-	background: #323232;
-	color: #fff;
-	border-radius: 28px;
-	border: 0px solid #80808000;
+	background: #fff;
+	color: #323232;
+	border-radius: 0px;
+	border: 1px solid #8b898952;
 	margin-top: 8px;
-	margin-left: 8px;
+	margin-right: 5px;
 }
 .sl_stat_flow_description{
-	font-size:16px;
 	padding-top:40px;
 }
 .mainstats_name{
@@ -672,13 +664,13 @@ p.login-password{
 	font-size:;
 }
 .sl_activity_log{
-	padding: 15px 28px;
+	padding: 25px;
 	width: 96%;
-	font-size: 18px;
 	background: #fff;
 	color: #686868;
-	margin-bottom: 8px;
-	border-radius: 28px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: 1px solid #e1e1e1;
 }
 .calculatorwp_log_list{
 	padding: 20px 20px 20px 25px;
@@ -690,11 +682,10 @@ p.login-password{
 	padding-bottom: 10px;
 }
 .sl_client_link_dash{
-	order: 0px solid rgba(88, 88, 88, 0.1);
-	padding: 8px 20px;
-	border-radius: 5px;
-	background: #fafad288;
-	color: #888;
+	padding: 6px 15px 6px 10px;
+	border-radius: 0px;
+	background: #ace9f788;
+	color: #5b5b5b;
 	margin-top: 8px;
 	margin-right: 8px;
 }
@@ -727,7 +718,7 @@ p.login-password{
 
 .calculatorwp_main_title_shortcode{
 	border-radius: 8px;
-	background: #98f99936;
+	background: #c1c4c14d;
 	margin-bottom: 28px;
 }
 .add-new-h2{
@@ -739,15 +730,20 @@ p.login-password{
 	float: right !important;
 }
 h3.calculatorwp_main_title{
-	font-size: 1.2em;
+	font-size:;
 }
 .calculatorwp_flow_stats{
 	border: 0px #8a8a8a2b solid;
 	border-radius: 20px;
 	margin-top: 20px;
 	float: left;
-	width: 100%;
+	width: 95%;
 	padding: 15px 2% 3px 2%;
+}
+.sl_open_file_location{
+	border: #ccc 1px solid;
+	padding: 5px;
+	text-decoration: none;
 }
 .loan_stages{
 	background: #fff;
@@ -761,17 +757,19 @@ h3.calculatorwp_main_title{
 	width:100%;
 }
 .calculatorwp_application_top, .calculatorwp_close_top, .calculatorwp_repayment_top, .calculatorwp_adedcline_top, .calculatorwp_minfore_top{
-	background: #323232d8;
-	color: #fff;
-	margin-right: ;
+	background: #fff;
+	color: #323232 !important;
+	margin-right: 4px;
 	padding: 8px 28px;
-	border-radius: 28px;
+	border-radius: 0px;
 	cursor: pointer;
+	display: block;
+	float: left;
+	border: 1px solid #cfcdcd !important;
 }
 .calculatorwp_application_top_a{
-	color:#fff !important;
-	text-decoration:none;
-	font-size: 14px;
+	color: #00b103 !important;
+	text-decoration: none;
 }
 .loan_transactions_link{
 	float:right;
@@ -919,22 +917,20 @@ a:active, a:focus {
 	margin-bottom: 10px ;
 }
 #calculatorwpMessageSubmitButton{
-	background: #88888828;
-	color: #fff;
-	border: 0px SOLID ORANGE;
-	padding: 8px;
-	border-radius: 8px;
-	margin: 8px;
+	background: #323232;
+	padding: 8px 20px;
+	border-radius: 0px;
+	margin: 12px;
 	cursor: pointer;
 	border: 0px solid;
-	color: #888;
+	color: #fff;
 }
 .sl_menu_sub_item{
 	background: #8881;
-	color: #888;
-	border: 2px solid #8888;
-	padding: 8px;
-	border-radius: 8px;
+	color: #323232;
+	border: 1px solid #8888;
+	padding: 8px 20px;
+	border-radius: 0px;
 	cursor: pointer;
 	margin-bottom: 20px;
 	float: right;
@@ -964,11 +960,11 @@ a:active, a:focus {
 .sl_submit_button{
 	padding: 10px 28px;
 	margin-bottom: ;
-	border-radius: 8px;
-	margin-top: 28px;
+	border-radius: 0px;
+	margin-top: 18px;
 	color: #fff;
 	border: 0px solid #8888;
-	background: #323232;
+	background: #404040;
 }
 .calculatorwp_list_table_index{
 	width: 96%;
@@ -984,11 +980,11 @@ a:active, a:focus {
 }
 */
 .lp_com_header{
-	background-color: #8EFE8D88;
+	background-color: #fff;
 	color: #333;
 	float: right;
 	margin: 5px 0px 5px 10px !important;
-	border: 0px solid #b2b3b233;
+	border: 1px solid #b2b3b280;
 	padding: 8px 20px !important;
 	border-radius: 0px;
 	cursor: pointer;
@@ -1031,27 +1027,26 @@ table.widefat{
 	border-radius: 10px;
 }
 .cwp_borrower_wrapper{
-	margin-top: 10px;
-	border-radius: 0px;
-	border: 0px solid #d3d3d396;
+	border-radius: 5px;
+	border: 1px solid #d3d3d39e;
 	background: #fff;
-	padding: 40px 20px;
+	padding: 30px;
 	overflow: auto;
 }
 .calculatorwp_client_acc_edit, .calculatorwp_clientaccount_add, .calculatorwp_clientloans_index, .calculatorwp_clientloans_process, .calculatorwp_clientloans_goal_info, .calculatorwp_clientloans_more_loan_info, .calculatorwp_loansettings_index, .calculatorwp_loansettings_edit{
 	background: #fff;
-	border-radius: 0px;
-	padding: 20px 18px;
+	padding: 25px;
 	margin-top: 0px;
 	overflow: auto;
+	border-radius: 0px;
+	border: 1px solid #d3d3d39e;
 }
 .calculatorwp_title_feild_app{
 	font-size: 13px;
 }
 .calculatorwp_title_feild_app > td{
-	padding: 10px 15px;
-	border: 0px solid #80808069;
-	background:;
+	padding: 10px 30px 10px 15px;
+	border-bottom: solid 1px #ccc;
 }
 #CalculatorwpLoansettingMaxPeriodNumber{
 	float: left;
@@ -1073,27 +1068,25 @@ table.widefat{
 	border: 0px solid #8882;
 }
 .sm_admin_link{
-	background-color: #323232c8;
+	background-color: #06b608c8;
 	color: #fff;
-	padding: 5px 8px;
-	border-radius: 8px;
+	padding: 5px 10px;
+	border-radius: 0px;
 	text-decoration: none;
 	margin-left: 10px;
-	font-size: 17px;
 }
-
 .calculatorwp_list_table, .calculatorwp_list_table_frontend, .calculatorwp_list_notes{
-	display:none;
+	display:;
 }
-
 .calculatorwp_main_section_click{
 	float: left;
-	border: 1px solid #cccccc8f;
-	border-radius: 15px;
-	padding: 12px 28px;
-	margin-right: 15px;
+	border: 1px solid #ccc9;
+	border-radius: 0px;
+	padding: 8px 29px;
+	margin-right: 3px;
 	width: 18%;
 	cursor: pointer;
+	font-weight: 600;
 }
 .calculatorwp_main_section_wrap_click{
 	padding: 8px;
@@ -1147,10 +1140,10 @@ table.widefat{
 .sl_form_inner_close {
 	float: right;
 	margin: 20px 50px 20px 3px;
-	border-radius: 10px;
+	border-radius: 0px;
 	background-color: #cccccc80;
 	border: 0px solid #ccc9;
-	padding: 10px 15px;
+	padding: 8px 15px;
 	cursor: pointer;
 }
 

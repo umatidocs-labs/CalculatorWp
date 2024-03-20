@@ -3,7 +3,7 @@
 	<td style="padding:20px 30px; float:left; font-size:18px;">
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->name))
-				echo $object->name;
+				echo esc_html($object->name);
 			else
 				echo '---';
 		?>

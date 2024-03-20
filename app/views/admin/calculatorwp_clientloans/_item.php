@@ -4,7 +4,7 @@
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  
 			if (isset($object->client_id) && is_numeric($object->client_id)){
 				
-				echo '<span class="">'.calculatorwp_class('calculatorwp_account')->get_user_name_from_sl_user_id($object->client_id).'</span>';
+				echo '<span class="">'.esc_html(calculatorwp_class('calculatorwp_account')->get_user_name_from_sl_user_id($object->client_id)).'</span>';
 			}
 			else{
 				echo '(anonymous)';
@@ -15,7 +15,7 @@
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */
 			$sl_client_loan_stage=unserialize(sl_client_loan_stage);
 			if (!is_null($object->loan_stage))
-				echo $sl_client_loan_stage[$object->loan_stage];
+				echo esc_html($sl_client_loan_stage[$object->loan_stage]);
 			else
 				echo '(undefined)';
 		?>
@@ -25,7 +25,7 @@
 			$Loansetting_name=mvc_model("calculatorwpLoansetting")->find_by_id($object->loan_setting_id);//->name ;
 //var_dump($Loansetting_name);
 			if (!is_null($object->loan_setting_id) && !is_null($Loansetting_name)){				
-				echo $Loansetting_name->name;
+				echo esc_html($Loansetting_name->name);
 			}
 			else{
 				echo '---';

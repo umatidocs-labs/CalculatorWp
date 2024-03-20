@@ -42,9 +42,8 @@ jQuery(document).ready(function($) {
 
 		},
 		'save_form': function( params = {} ) {
-
-			var form_data = new FormData() ;
 			
+			var form_data = new FormData() ;
 			form_data.append( 'action' , 'sl_update_form_builder' );
 			form_data.append( 'form_data', params.form_data );
 			form_data.append( 'form_name', params.form_name );

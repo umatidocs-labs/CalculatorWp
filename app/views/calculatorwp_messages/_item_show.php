@@ -2,7 +2,7 @@
 	<td class="calculatorwp_sub_body"><center>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->ticket_id))
-				echo $object->ticket_id;
+				echo esc_html($object->ticket_id);
 			else
 				echo '---';
 		?></center>
@@ -10,7 +10,7 @@
 	<td class="calculatorwp_sub_body"><center>
 		<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 			if (isset($object->loan_id))
-				echo  $object->loan_id;
+				echo esc_html( $object->loan_id);
 			else
 				echo '---';
 		?></center>
@@ -22,7 +22,7 @@
 					1=>'Open',
 					2=>'Resolved'
 				];
-				echo $sl_status[$object->status];
+				echo esc_html($sl_status[$object->status]);
 			}
 			else
 				echo '---';

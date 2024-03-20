@@ -348,7 +348,7 @@ function calculatorwp_on_mvc_admin_init($options) {
     // wp_deregister_script('jquery');
     wp_enqueue_script('jquery');
 
-    wp_deregister_script('jquery-ui-core');
+    // wp_deregister_script('jquery-ui-core');
     wp_register_script('jquery-ui-core', ('https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js'), false, '1.6.4'); 
     wp_enqueue_script('jquery-ui-core');
 

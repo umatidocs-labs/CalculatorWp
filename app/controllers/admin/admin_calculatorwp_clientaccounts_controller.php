@@ -13,7 +13,7 @@ class AdminCalculatorwpClientaccountsController extends MvcAdminController {
     public function domenu() {
         $menu_html="<div class='sl_b_wrapper_design'>";
         $menu_html.="<div class='sl_menu_html wrap'><ul class='subsubsub lp_com_top_parent'>";
-		$menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientloans', 'action' => '',)).">Mortgage Applications</a> </li>";
+		$menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientloans', 'action' => '',)).">All Applications</a> </li>";
 		$menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => '',)).">Borrower(s)</a></li>";
 		$menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => 'add','id'=> 2 )).">New Borrower</a> </li>";
         

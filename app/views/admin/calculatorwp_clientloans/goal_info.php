@@ -22,10 +22,10 @@
 
 <div class="sl_process_body">
 
-<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo calculatorwp_class('calculatorwp_raw_data')->display_form_data([
+<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html(calculatorwp_class('calculatorwp_raw_data')->display_form_data([
 	'object_type'=>1,
 	'object_id'=>$object_id
-]);        
+]));
  ?>
 <br>
 </div>

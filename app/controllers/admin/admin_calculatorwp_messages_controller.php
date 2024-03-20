@@ -24,7 +24,7 @@ class AdminCalculatorwpMessagesController extends MvcAdminController {
 		
 		do_action("calculatorwp_welcome_lender");
 		
-		$this->set('objects', mvc_model("calculatorwpTicket")->find());
+		$this->set('objects', mvc_model("calculatorwpTicket")->find( [ 'order' => 'id DESC' ] ) );
 			
 	}
 

@@ -20,27 +20,27 @@ echo $this->html->link('All Venues', array('controller' => 'clientloans'))
 
 <hr>
 	<div>amount_needed</div>
-	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->input('amount_needed', array('label' => '')); ?></div>
+	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html($this->form->input('amount_needed', array('label' => ''))); ?></div>
 		
 	<div>needed_by_date</div>	
-	<div ><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->input('needed_by_date', array('placeholder' => '', 'label' => ''),  array('style' => 'width: 200px;'));?></div>	
+	<div ><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html($this->form->input('needed_by_date', array('placeholder' => '', 'label' => ''),  array('style' => 'width: 200px;')));?></div>	
 	
 	<hr>
 	<div>client_id</div>
-	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->select_from_model('client_id',$client_id, array(), array('label' => '')); ?></div>
+	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html($this->form->select_from_model('client_id',$client_id, array(), array('label' => ''))); ?></div>
 	
 	<div>gravity_entry_id</div>
-	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->input('gravity_entry_id', array('label' => '')); ?></div>
+	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html($this->form->input('gravity_entry_id', array('label' => ''))); ?></div>
 	
 	<div>loan_setting_id</div>
-	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->select_from_model('loan_setting_id',$loan_setting, array(), array('label' => '')); ?></div>
+	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html($this->form->select_from_model('loan_setting_id',$loan_setting, array(), array('label' => ''))); ?></div>
 	
 	<div>loan_stage</div> 
-	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->select_from_model('loan_stage',$loan_stage, array(), array('label' => ''));?></div>
+	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html($this->form->select_from_model('loan_stage',$loan_stage, array(), array('label' => '')));?></div>
 	
 <hr>
 	
-<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
+<?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */
 echo $this->form->end('Update');  ?>
 <br>
 <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
@@ -52,6 +52,5 @@ echo "<a href=".mvc_admin_url(array('controller' => 'admin_links', 'action' => '
 <div>
 <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   
 	mvc_render_to_string("admin_clientloannotes/add",array('object' => mvc_model("Clientloannote")->find()));
-
 ?>
 </div>

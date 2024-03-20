@@ -10,13 +10,14 @@ class CalculatorwpClientloansController extends MvcPublicController {
 	}
     
     public function index() {
+
 		if(is_user_logged_in()){
 			
 			if( mvc_model('calculatorwpClientaccount')->count( ['conditions'=>['wp_user_id'=>get_current_user_id()]] ) > 0  ){			
 				$client_id = mvc_model('calculatorwpClientaccount')->find_one(['conditions'=>['wp_user_id'=>get_current_user_id()]])->id;
 			}
 			else{
-				$client_id=calculatorwp_class('calculatorwp_account')->create_borrower_for_wp_user();				
+				$client_id=calculatorwp_class('calculatorwp_account')->create_borrower_for_wp_user();
 			}
 			
 			if(isset($client_id)){
@@ -24,10 +25,10 @@ class CalculatorwpClientloansController extends MvcPublicController {
 					calculatorwp_class('calculatorwp_gravity_form_manager')->connect_loan_to_user();
 				}
 				
-				$this->set([
-					'objects'=> mvc_model("calculatorwpClientloan")->find(['conditions'=>['client_id'=>$client_id]]),
-					'client_id'=>$client_id
-					]);
+				$this->set( [
+					'objects'	=> mvc_model("calculatorwpClientloan")->find( [ 'conditions'=>[ 'client_id'=>$client_id ], 'order' => 'id DESC' ] ),
+					'client_id'	=> $client_id
+				] );
 			}
 			else{
 				//create borrower account with details

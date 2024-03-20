@@ -21,21 +21,21 @@
 
 <br>
 	<div><b>Loan Applicant:</b></div> 
-	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  	echo mvc_model('MvcUser')->find_by_id($object->client_id)->user_login; ?></div>
+	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */  	echo esc_html(mvc_model('MvcUser')->find_by_id($object->client_id)->user_login); ?></div>
 	<div><b>Loan Amount:</b></div> 
-	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $object->amount_needed; ?></div>
+	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html($object->amount_needed); ?></div>
 	<div><b>Loan type:</b><div>
-	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo '<a href="'.mvc_admin_url(array('controller' => 'admin_calculatorwp_loansettings', 'action' => 'edit','id' => $object->id)).'">'.mvc_model('wploancrmLoansetting')->find_by_id($object->loan_setting_id)->name.'</a>'; ?></div>	
+	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo '<a href="'.esc_html(mvc_admin_url(array('controller' => 'admin_calculatorwp_loansettings', 'action' => 'edit','id' => $object->id)).'">'.mvc_model('wploancrmLoansetting')->find_by_id($object->loan_setting_id)->name).'</a>'; ?></div>	
 	<div><b>Loan needed by:</b><div>
-	<div ><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $object->needed_by_date;?></div>
+	<div ><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html($object->needed_by_date);?></div>
 	
 	<hr>
 	<div><b>Additional Information:</b><div>
-	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->input('gravity_entry_id', array('label' => '')); ?></div>
+	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html($this->form->input('gravity_entry_id', array('label' => ''))); ?></div>
 	<hr>
 	
 	<div><b>Next Step</b></div> 
-	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->select_from_model('loan_stage',$loan_stage, array(), array('label' => ''));?></div>
+	<div><?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo esc_html($this->form->select_from_model('loan_stage',$loan_stage, array(), array('label' => '')));?></div>
 	
 <hr>
 <?php /* Designed and developed by Gilbert Karogo K., a product of umatidocs.com */   echo $this->form->end('>> Process >>');  ?>

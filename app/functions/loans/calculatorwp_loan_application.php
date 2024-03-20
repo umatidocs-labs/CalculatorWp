@@ -2,31 +2,26 @@
 
 class calculatorwp_loan_application extends calculatorwp_loan_process{
 
-    public static function init_hooks(){
-                        
+    public static function init_hooks(){                        
         add_action( 'calculatorwp_loan_application' , ['calculatorwp_loan_application','run_notifications_complete'] );
-
     }
 	
     public function submit_form_with_accounts($param){
-   
         // to gravity form: login -or- sign up
         if( $Current_user_id > 0 ){
-            $url = mvc_public_url(array('controller' => $this , 'action' => 'edit', 'id' => $id));
+            $url = mvc_public_url( array( 'controller' => $this , 'action' => 'edit', 'id' => $id ) );
         }
-
     }
 
     public static function run_notifications_complete( $params = [] ){
 
         $user_user_email = '';
 
-        $user_list = get_users(array( 'role__in' => array( 'administrator' ))); 
+        $user_list = get_users( array( 'role__in' => array( 'administrator' ) ) );
 
 		foreach( $user_list as $user ) {
             $user_user_email .=  $user->user_email .', ';
 		}
-
 
 		do_action('calculatorwp_loan_status_change',[
             'borrower_id'   => $params['client_id'],

@@ -6,14 +6,21 @@ class CalculatorwpMessagesController extends MvcPublicController {
     
 	
 	public function index() {
-		do_action("calculatorwp_welcome_lender");
-		$this->set('objects', mvc_model("calculatorwpTicket")->find([
+
+		if(is_user_logged_in()){
+			do_action("calculatorwp_welcome_lender");
+			$this->set('objects', mvc_model("calculatorwpTicket")->find([
 				'conditions'=>['client_id'=>mvc_model('calculatorwpClientaccount')->find_one(['conditions'=>['wp_user_id'=>get_current_user_id()]])->id
-			]]));
+			]]));	
+		}
+		else{
+			$this->set('objects','show_login');
+		}
 		
 	}
 
 	public function message_room() {
+
 		if(is_user_logged_in()){
 			$calculatorwpTicket=mvc_model("calculatorwpTicket")->find_by_id($this->params['id']);
 			$this->set(array(
@@ -30,6 +37,7 @@ class CalculatorwpMessagesController extends MvcPublicController {
 		else{
 			$this->set('objects','show_login');
 		}
+		
 	} 
 	
 	public function create_ticket() {

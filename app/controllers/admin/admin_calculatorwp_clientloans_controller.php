@@ -9,9 +9,9 @@ class AdminCalculatorwpClientloansController extends MvcAdminController {
         // $menu_html="";
 		$menu_html="<div class='sl_b_wrapper_design'>";
         $menu_html.="<div class='sl_menu_html wrap'><ul class='subsubsub lp_com_top_parent'>";
-		$menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => 'index',)).">Borrowers</a></li>";
-        $menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientloans', 'action' => '',)).">Application</a></li>";
         $menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientloans', 'action' => 'add','id'=>2)).">New Applications</a></li>";
+		$menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => 'index',)).">Borrowers</a></li>";
+        $menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientloans', 'action' => '',)).">All Applications</a></li>";
         $menu_html.="</ul></div>";
 
         echo $menu_html;
@@ -20,11 +20,16 @@ class AdminCalculatorwpClientloansController extends MvcAdminController {
 	
 	public function index(){
 		do_action("calculatorwp_welcome_lender");
-		$cl_model=$this->model->find(['order' => 'id DESC']);
-		$this->set_objects();
-		$collection = $this->model->paginate([
+		/*$this->model->find( [ [
 			'order' => 'id DESC',
-		]);
+		] ] );
+		// $this->set_objects();
+		*/
+
+		$collection = $this->model->paginate( [
+			'order' => 'id DESC',
+		] );
+
         $this->set('objects', $collection['objects']);
         
 		$this->set_pagination($collection);
@@ -79,6 +84,7 @@ class AdminCalculatorwpClientloansController extends MvcAdminController {
 		
 		$this->set('loan_setting',mvc_model('calculatorwpLoansetting'));
 		$this->set('client_id',mvc_model('calculatorwpClientaccount'));
+
 	}
 	
 	public function process() {
@@ -126,7 +132,7 @@ class AdminCalculatorwpClientloansController extends MvcAdminController {
 
 					$calculatorwpClientloan = mvc_model('calculatorwpClientloan')->find_by_id($Clientloan_data['id']);
 
-					$sl_client_loan_stage=unserialize( sl_client_loan_stage );	
+					$sl_client_loan_stage = unserialize( sl_client_loan_stage );	
 
 					do_action('calculatorwp_loan_status_change',[
 							'borrower_id'=>$calculatorwpClientloan->client_id,
@@ -142,6 +148,7 @@ class AdminCalculatorwpClientloansController extends MvcAdminController {
 				}
 
 				$this->flash('notice', 'Successfully Processed!');
+
 				$this->refresh();
 
 			} else {
@@ -153,6 +160,9 @@ class AdminCalculatorwpClientloansController extends MvcAdminController {
 		}
 		
 		$this->set_object();
+
+		$this->set('object_id',$this->params['id']);
+
 	}
 	
 	public function more_loan_info() {
