@@ -1,6 +1,11 @@
 <div class = "sl_dash_wrap_d">
 
     <div class="mainstats_name">
+		<div class="calculatorwp_flow_stats_logo">
+			<div class='lp_com_header_img_dash'> 
+				<center><img class='lp_com_header_img_dash_img' src='<?php echo SM_HOME_URL; ?>/app/public/img/5.png' alt='<?php echo SM_HOME_URL; ?>/app/public/img/5.png' class='transparent shrinkToFit' width='200' height='100'></center>
+			</div>
+		</div>
 
         <div class="calculatorwp_flow_stats">
 

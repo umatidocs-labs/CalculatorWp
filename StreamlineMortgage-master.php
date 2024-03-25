@@ -6,11 +6,12 @@ Plugin Name: Streamline Mortgage
 Plugin URI: https://www.naiwealth.com/streamlinemortgage
 Description: A complete Mortgage marketing tool for mortgage marketers on wordpress.
 Author: Naiwealth
-Version: 3.0.4
+Version: 3.0.5
 Author URI: https://www.naiwealth.com/
 */
 
 error_reporting( 0 );
+define( 'SM_HOME_URL', plugins_url( basename( dirname( __FILE__ ) ) ) );
 
 if ( ! function_exists( 'cowp_fs' ) ) {
     // Create a helper function for easy SDK access.

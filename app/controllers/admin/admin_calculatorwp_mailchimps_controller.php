@@ -8,8 +8,10 @@ class AdminCalculatorwpMailchimpsController extends MvcAdminController {
 		
 	    public function domenu() {
 
-		    $menu_html="<div class='sl_menu_html wrap'>
+		    $menu_html="<div class='sl_b_wrapper_design'>
+			<div class='sl_menu_html wrap'>
 				<ul class='subsubsub lp_com_top_parent'>
+					<li class='lp_com_header'> <img class='lp_com_header_img' src='". SM_HOME_URL ."/app/public/img/5.png' alt='". SM_HOME_URL ."/app/public/img/5.png' class='transparent shrinkToFit' width='200' height='100'></li>
 					<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_messages', 'action' => 'index',)).">Ticketing</a> </li>
 					<li class='lp_com_header'> <a href='".mvc_admin_url(array("controller" => "calculatorwp_webhooks", "action" => "index", "id" =>"" ))."'>Custom Email(s)</a></li>
 					<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_mailchimps', 'action' => 'index',)).">Mailchimp Settings</a></li>

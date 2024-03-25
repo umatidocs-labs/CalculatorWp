@@ -9,6 +9,7 @@ class AdminCalculatorwpClientloansController extends MvcAdminController {
         // $menu_html="";
 		$menu_html="<div class='sl_b_wrapper_design'>";
         $menu_html.="<div class='sl_menu_html wrap'><ul class='subsubsub lp_com_top_parent'>";
+		$menu_html.= "<li class='lp_com_header'> <img class='lp_com_header_img' src='". SM_HOME_URL ."/app/public/img/5.png' alt='". SM_HOME_URL ."/app/public/img/5.png' class='transparent shrinkToFit' width='200' height='100'></li>";
         $menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientloans', 'action' => 'add','id'=>2)).">New Applications</a></li>";
 		$menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientaccounts', 'action' => 'index',)).">Borrowers</a></li>";
         $menu_html.= "<li class='lp_com_header'> <a href=".mvc_admin_url(array('controller' => 'admin_calculatorwp_clientloans', 'action' => '',)).">All Applications</a></li>";
